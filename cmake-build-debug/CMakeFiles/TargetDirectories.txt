@@ -1,0 +1,3 @@
+C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir
+C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
