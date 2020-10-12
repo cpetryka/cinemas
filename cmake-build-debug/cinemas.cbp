@@ -84,7 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.h">
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp">
 			<Option target="cinemas"/>
 		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp">

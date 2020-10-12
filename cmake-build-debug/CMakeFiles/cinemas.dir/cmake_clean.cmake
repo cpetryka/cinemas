@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
   "CMakeFiles/cinemas.dir/main.cpp.obj"
   "cinemas.exe"
   "cinemas.exe.manifest"

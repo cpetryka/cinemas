@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")

@@ -3,4 +3,4 @@ project(cinemas)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(cinemas main.cpp libs/libs.h)
+add_executable(cinemas main.cpp libs/libs.hpp connection/db_connection.cpp connection/db_connection.hpp)
