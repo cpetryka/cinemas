@@ -80,9 +80,28 @@ CMakeFiles\cinemas.dir\main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cinemas.dir\main.cpp.s /c "C:\Users\Cezary Petryka\Desktop\cinemas\main.cpp"
 <<
 
+CMakeFiles\cinemas.dir\libs\sqlite3.c.obj: CMakeFiles\cinemas.dir\flags.make
+CMakeFiles\cinemas.dir\libs\sqlite3.c.obj: ..\libs\sqlite3.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cinemas.dir/libs/sqlite3.c.obj"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\cinemas.dir\libs\sqlite3.c.obj /FdCMakeFiles\cinemas.dir\ /FS -c "C:\Users\Cezary Petryka\Desktop\cinemas\libs\sqlite3.c"
+<<
+
+CMakeFiles\cinemas.dir\libs\sqlite3.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cinemas.dir/libs/sqlite3.c.i"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe > CMakeFiles\cinemas.dir\libs\sqlite3.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Cezary Petryka\Desktop\cinemas\libs\sqlite3.c"
+<<
+
+CMakeFiles\cinemas.dir\libs\sqlite3.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cinemas.dir/libs/sqlite3.c.s"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\cinemas.dir\libs\sqlite3.c.s /c "C:\Users\Cezary Petryka\Desktop\cinemas\libs\sqlite3.c"
+<<
+
 CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj: CMakeFiles\cinemas.dir\flags.make
 CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj: ..\connection\db_connection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\cinemas.dir\connection\db_connection.cpp.obj /FdCMakeFiles\cinemas.dir\ /FS -c "C:\Users\Cezary Petryka\Desktop\cinemas\connection\db_connection.cpp"
 <<
@@ -102,16 +121,18 @@ CMakeFiles\cinemas.dir\connection\db_connection.cpp.s: cmake_force
 # Object files for target cinemas
 cinemas_OBJECTS = \
 "CMakeFiles\cinemas.dir\main.cpp.obj" \
+"CMakeFiles\cinemas.dir\libs\sqlite3.c.obj" \
 "CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj"
 
 # External object files for target cinemas
 cinemas_EXTERNAL_OBJECTS =
 
 cinemas.exe: CMakeFiles\cinemas.dir\main.cpp.obj
+cinemas.exe: CMakeFiles\cinemas.dir\libs\sqlite3.c.obj
 cinemas.exe: CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj
 cinemas.exe: CMakeFiles\cinemas.dir\build.make
 cinemas.exe: CMakeFiles\cinemas.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cinemas.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable cinemas.exe"
 	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cinemas.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cinemas.dir\objects1.rsp @<<
  /out:cinemas.exe /implib:cinemas.lib /pdb:"C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\cinemas.pdb" /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

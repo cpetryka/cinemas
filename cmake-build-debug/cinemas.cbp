@@ -93,6 +93,12 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.c">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp">
 			<Option target="cinemas"/>
 		</Unit>

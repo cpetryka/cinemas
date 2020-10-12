@@ -17,7 +17,6 @@ private:
     sqlite3* connection = nullptr;
 
     void create_tables() const;
-
 public:
     static DbConnection* get_instance();
     sqlite3* get_connection() const;

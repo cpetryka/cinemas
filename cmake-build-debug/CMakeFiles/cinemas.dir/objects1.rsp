@@ -1,1 +1,1 @@
-CMakeFiles/cinemas.dir/main.cpp.obj CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj
+CMakeFiles/cinemas.dir/main.cpp.obj CMakeFiles/cinemas.dir/libs/sqlite3.c.obj CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj

@@ -154,6 +154,33 @@ connection\db_connection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\connection\db_connection.cpp.s
 .PHONY : connection\db_connection.cpp.s
 
+libs\sqlite3.obj: libs\sqlite3.c.obj
+
+.PHONY : libs\sqlite3.obj
+
+# target to build an object file
+libs\sqlite3.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\libs\sqlite3.c.obj
+.PHONY : libs\sqlite3.c.obj
+
+libs\sqlite3.i: libs\sqlite3.c.i
+
+.PHONY : libs\sqlite3.i
+
+# target to preprocess a source file
+libs\sqlite3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\libs\sqlite3.c.i
+.PHONY : libs\sqlite3.c.i
+
+libs\sqlite3.s: libs\sqlite3.c.s
+
+.PHONY : libs\sqlite3.s
+
+# target to generate assembly for a file
+libs\sqlite3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\libs\sqlite3.c.s
+.PHONY : libs\sqlite3.c.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -193,6 +220,9 @@ help:
 	@echo ... connection/db_connection.obj
 	@echo ... connection/db_connection.i
 	@echo ... connection/db_connection.s
+	@echo ... libs/sqlite3.obj
+	@echo ... libs/sqlite3.i
+	@echo ... libs/sqlite3.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

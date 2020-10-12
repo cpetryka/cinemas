@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
+  "CMakeFiles/cinemas.dir/libs/sqlite3.c.obj"
   "CMakeFiles/cinemas.dir/main.cpp.obj"
   "cinemas.exe"
   "cinemas.exe.manifest"
@@ -8,6 +9,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/cinemas.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
