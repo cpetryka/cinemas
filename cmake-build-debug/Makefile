@@ -235,6 +235,33 @@ repository\sources\cinema_repository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.s
 .PHONY : repository\sources\cinema_repository.cpp.s
 
+repository\sources\cinema_room_repository.obj: repository\sources\cinema_room_repository.cpp.obj
+
+.PHONY : repository\sources\cinema_room_repository.obj
+
+# target to build an object file
+repository\sources\cinema_room_repository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.obj
+.PHONY : repository\sources\cinema_room_repository.cpp.obj
+
+repository\sources\cinema_room_repository.i: repository\sources\cinema_room_repository.cpp.i
+
+.PHONY : repository\sources\cinema_room_repository.i
+
+# target to preprocess a source file
+repository\sources\cinema_room_repository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.i
+.PHONY : repository\sources\cinema_room_repository.cpp.i
+
+repository\sources\cinema_room_repository.s: repository\sources\cinema_room_repository.cpp.s
+
+.PHONY : repository\sources\cinema_room_repository.s
+
+# target to generate assembly for a file
+repository\sources\cinema_room_repository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.s
+.PHONY : repository\sources\cinema_room_repository.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -256,6 +283,9 @@ help:
 	@echo ... repository/sources/cinema_repository.obj
 	@echo ... repository/sources/cinema_repository.i
 	@echo ... repository/sources/cinema_repository.s
+	@echo ... repository/sources/cinema_room_repository.obj
+	@echo ... repository/sources/cinema_room_repository.i
+	@echo ... repository/sources/cinema_room_repository.s
 .PHONY : help
 
 

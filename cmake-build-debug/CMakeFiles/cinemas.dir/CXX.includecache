@@ -355,22 +355,18 @@ stdarg.h
 -
 
 C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp
-repository/cinema_repository.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+repository/cinema_room_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
 
-C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
 
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
-../model/cinema.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+../model/cinema_room.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
 ../connection/db_connection.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
-
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp
-../cinema_repository.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
 
