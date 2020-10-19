@@ -9,5 +9,19 @@ CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj: ..\libs\json.hpp
 CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj: ..\libs\libs.hpp
 CMakeFiles\cinemas.dir\connection\db_connection.cpp.obj: ..\libs\sqlite3.h
 
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\libs\sqlite3.h
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\main.cpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\cinema.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_repository.hpp
+
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\libs\sqlite3.h
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\model\cinema.hpp
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\repository\cinema_repository.hpp
+CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\repository\sources\cinema_repository.cpp
 

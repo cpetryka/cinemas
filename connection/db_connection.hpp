@@ -13,7 +13,7 @@ private:
     static DbConnection* instance;
     DbConnection();
 
-    const std::string database_name = "ticket_office.db";
+    const std::string database_name = "ticketoffice.db";
     sqlite3* connection = nullptr;
 
     void create_tables() const;

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.cpp
-db_connection.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
-
 C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
@@ -357,4 +353,24 @@ C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
 stdarg.h
 -
+
+C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp
+repository/cinema_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+../model/cinema.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+../connection/db_connection.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp
+../cinema_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
 

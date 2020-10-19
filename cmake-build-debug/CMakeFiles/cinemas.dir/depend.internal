@@ -10,4 +10,18 @@ CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
 CMakeFiles/cinemas.dir/main.cpp.obj
+ C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
  C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj
+ C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp

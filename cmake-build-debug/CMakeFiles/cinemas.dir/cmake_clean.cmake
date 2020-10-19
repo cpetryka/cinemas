@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
   "CMakeFiles/cinemas.dir/libs/sqlite3.c.obj"
   "CMakeFiles/cinemas.dir/main.cpp.obj"
+  "CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj"
   "cinemas.exe"
   "cinemas.exe.manifest"
   "cinemas.lib"

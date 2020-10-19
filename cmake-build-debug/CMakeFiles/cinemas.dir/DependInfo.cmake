@@ -15,6 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/connection/db_connection.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/main.cpp.obj"
+  "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 
