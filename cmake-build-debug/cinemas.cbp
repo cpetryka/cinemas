@@ -102,6 +102,30 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/main.cpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/customer.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/movie.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/seance.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/ticket.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/model/user.hpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -52,7 +52,7 @@ void DbConnection::create_tables() const {
         throw std::runtime_error{ "movies table creation exception" };
     }
 
-    const std::string sql_seance = "create table if not exists seances (id integer primary key autoincrement, movie_id integer, cinema_room_id integer, date_time datetime, foreign key (movie_id) references movies (id) on delete cascade on update cascade, foreign key (cinema_room_id) references cinema_rooms (id) on delete cascade on update cascade);";
+    const std::string sql_seance = "create table if not exists seances (id integer primary key autoincrement, movie_id integer, cinema_room_id integer, date_time varchar(50) not null, foreign key (movie_id) references movies (id) on delete cascade on update cascade, foreign key (cinema_room_id) references cinema_rooms (id) on delete cascade on update cascade);";
     char** error_message5 = nullptr;
     const auto result5 = sqlite3_exec(connection, sql_seance.c_str(), nullptr, nullptr, error_message5);
     if(result5 != SQLITE_OK) {
