@@ -1,6 +1,7 @@
 #include "repository/cinema_repository.hpp"
 #include "repository/cinema_room_repository.hpp"
 #include "repository/seat_repository.hpp"
+#include "repository/movie_repository.hpp"
 
 int main() {
     try {
@@ -22,6 +23,15 @@ int main() {
         sr.insert(s);
         sr.update(2, s2);
         sr.remove(5);*/
+
+        /*Movie m{0, "SPIDER-MAN", "ACTION", "SAM RAIMI"};
+        Movie m2{0, "SPIDER-MAN", "FICTION", "SAM RAIMI"};
+        MovieRepository mr;
+        mr.insert(m);
+        mr.insert(m);
+        mr.insert(m);
+        mr.update(2, m2);
+        mr.remove(3);*/
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;

@@ -132,6 +132,9 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp">
 			<Option target="cinemas"/>
 		</Unit>
@@ -139,6 +142,9 @@
 			<Option target="cinemas"/>
 		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_room_repository.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/movie_repository.cpp">
 			<Option target="cinemas"/>
 		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seat_repository.cpp">
