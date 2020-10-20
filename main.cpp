@@ -3,6 +3,7 @@
 #include "repository/seat_repository.hpp"
 #include "repository/movie_repository.hpp"
 #include "repository/seance_repository.hpp"
+#include "repository/user_repository.hpp"
 
 int main() {
     try {
@@ -40,6 +41,15 @@ int main() {
         sr.insert(s);
         sr.insert(s2);
         sr.insert(s2);*/
+
+        /*User u{0, "cezxxx", "cpp", "admin"};
+        User u2{0, "adkk", "adkk", "customer"};
+        UserRepository ur;
+        ur.insert(u);
+        ur.update(4, u2);
+        ur.insert(u2);
+        ur.remove(2);*/
+
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;

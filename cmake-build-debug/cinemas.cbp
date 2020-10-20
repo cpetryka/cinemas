@@ -156,6 +156,12 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seat_repository.cpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/user_repository.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
