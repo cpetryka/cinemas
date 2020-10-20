@@ -289,6 +289,33 @@ repository\sources\movie_repository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\movie_repository.cpp.s
 .PHONY : repository\sources\movie_repository.cpp.s
 
+repository\sources\seance_repository.obj: repository\sources\seance_repository.cpp.obj
+
+.PHONY : repository\sources\seance_repository.obj
+
+# target to build an object file
+repository\sources\seance_repository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\seance_repository.cpp.obj
+.PHONY : repository\sources\seance_repository.cpp.obj
+
+repository\sources\seance_repository.i: repository\sources\seance_repository.cpp.i
+
+.PHONY : repository\sources\seance_repository.i
+
+# target to preprocess a source file
+repository\sources\seance_repository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\seance_repository.cpp.i
+.PHONY : repository\sources\seance_repository.cpp.i
+
+repository\sources\seance_repository.s: repository\sources\seance_repository.cpp.s
+
+.PHONY : repository\sources\seance_repository.s
+
+# target to generate assembly for a file
+repository\sources\seance_repository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\seance_repository.cpp.s
+.PHONY : repository\sources\seance_repository.cpp.s
+
 repository\sources\seat_repository.obj: repository\sources\seat_repository.cpp.obj
 
 .PHONY : repository\sources\seat_repository.obj
@@ -343,6 +370,9 @@ help:
 	@echo ... repository/sources/movie_repository.obj
 	@echo ... repository/sources/movie_repository.i
 	@echo ... repository/sources/movie_repository.s
+	@echo ... repository/sources/seance_repository.obj
+	@echo ... repository/sources/seance_repository.i
+	@echo ... repository/sources/seance_repository.s
 	@echo ... repository/sources/seat_repository.obj
 	@echo ... repository/sources/seat_repository.i
 	@echo ... repository/sources/seat_repository.s

@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_room_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/cinema_room_repository.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/movie_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/movie_repository.cpp.obj"
+  "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seance_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/seance_repository.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seat_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/seat_repository.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
