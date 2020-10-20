@@ -370,6 +370,33 @@ repository\sources\seat_repository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\seat_repository.cpp.s
 .PHONY : repository\sources\seat_repository.cpp.s
 
+repository\sources\ticket_repository.obj: repository\sources\ticket_repository.cpp.obj
+
+.PHONY : repository\sources\ticket_repository.obj
+
+# target to build an object file
+repository\sources\ticket_repository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj
+.PHONY : repository\sources\ticket_repository.cpp.obj
+
+repository\sources\ticket_repository.i: repository\sources\ticket_repository.cpp.i
+
+.PHONY : repository\sources\ticket_repository.i
+
+# target to preprocess a source file
+repository\sources\ticket_repository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.i
+.PHONY : repository\sources\ticket_repository.cpp.i
+
+repository\sources\ticket_repository.s: repository\sources\ticket_repository.cpp.s
+
+.PHONY : repository\sources\ticket_repository.s
+
+# target to generate assembly for a file
+repository\sources\ticket_repository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.s
+.PHONY : repository\sources\ticket_repository.cpp.s
+
 repository\sources\user_repository.obj: repository\sources\user_repository.cpp.obj
 
 .PHONY : repository\sources\user_repository.obj
@@ -433,6 +460,9 @@ help:
 	@echo ... repository/sources/seat_repository.obj
 	@echo ... repository/sources/seat_repository.i
 	@echo ... repository/sources/seat_repository.s
+	@echo ... repository/sources/ticket_repository.obj
+	@echo ... repository/sources/ticket_repository.i
+	@echo ... repository/sources/ticket_repository.s
 	@echo ... repository/sources/user_repository.obj
 	@echo ... repository/sources/user_repository.i
 	@echo ... repository/sources/user_repository.s

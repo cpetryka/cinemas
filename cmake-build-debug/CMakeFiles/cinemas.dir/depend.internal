@@ -21,6 +21,7 @@ CMakeFiles/cinemas.dir/main.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/model/movie.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/seance.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/ticket.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/user.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
@@ -28,6 +29,7 @@ CMakeFiles/cinemas.dir/main.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seance_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp
 CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
@@ -77,6 +79,14 @@ CMakeFiles/cinemas.dir/repository/sources/seat_repository.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seat_repository.cpp
+CMakeFiles/cinemas.dir/repository/sources/ticket_repository.cpp.obj
+ C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/ticket.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/ticket_repository.cpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp
 CMakeFiles/cinemas.dir/repository/sources/user_repository.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp

@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cinemas.dir/repository/sources/movie_repository.cpp.obj"
   "CMakeFiles/cinemas.dir/repository/sources/seance_repository.cpp.obj"
   "CMakeFiles/cinemas.dir/repository/sources/seat_repository.cpp.obj"
+  "CMakeFiles/cinemas.dir/repository/sources/ticket_repository.cpp.obj"
   "CMakeFiles/cinemas.dir/repository/sources/user_repository.cpp.obj"
   "cinemas.exe"
   "cinemas.exe.manifest"

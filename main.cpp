@@ -5,6 +5,7 @@
 #include "repository/seance_repository.hpp"
 #include "repository/user_repository.hpp"
 #include "repository/customer_repository.hpp"
+#include "repository/ticket_repository.hpp"
 
 int main() {
     try {
@@ -57,6 +58,14 @@ int main() {
         cr.insert(c);
         cr.insert(c2);
         cr.remove(3);*/
+
+        /*Ticket t {0, 1, 1, 1, 20, "ORDERED"};
+        Ticket t2 {0, 2, 3, 2, 40, "ORDERED"};
+        TicketRepository tr;
+        tr.insert(t2);
+        tr.insert(t2);
+        tr.update(1, t);
+        tr.remove(2);*/
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
