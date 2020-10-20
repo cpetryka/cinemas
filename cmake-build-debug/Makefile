@@ -262,6 +262,33 @@ repository\sources\cinema_room_repository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.s
 .PHONY : repository\sources\cinema_room_repository.cpp.s
 
+repository\sources\customer_repository.obj: repository\sources\customer_repository.cpp.obj
+
+.PHONY : repository\sources\customer_repository.obj
+
+# target to build an object file
+repository\sources\customer_repository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj
+.PHONY : repository\sources\customer_repository.cpp.obj
+
+repository\sources\customer_repository.i: repository\sources\customer_repository.cpp.i
+
+.PHONY : repository\sources\customer_repository.i
+
+# target to preprocess a source file
+repository\sources\customer_repository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.i
+.PHONY : repository\sources\customer_repository.cpp.i
+
+repository\sources\customer_repository.s: repository\sources\customer_repository.cpp.s
+
+.PHONY : repository\sources\customer_repository.s
+
+# target to generate assembly for a file
+repository\sources\customer_repository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.s
+.PHONY : repository\sources\customer_repository.cpp.s
+
 repository\sources\movie_repository.obj: repository\sources\movie_repository.cpp.obj
 
 .PHONY : repository\sources\movie_repository.obj
@@ -394,6 +421,9 @@ help:
 	@echo ... repository/sources/cinema_room_repository.obj
 	@echo ... repository/sources/cinema_room_repository.i
 	@echo ... repository/sources/cinema_room_repository.s
+	@echo ... repository/sources/customer_repository.obj
+	@echo ... repository/sources/customer_repository.i
+	@echo ... repository/sources/customer_repository.s
 	@echo ... repository/sources/movie_repository.obj
 	@echo ... repository/sources/movie_repository.i
 	@echo ... repository/sources/movie_repository.s

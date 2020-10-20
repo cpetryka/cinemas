@@ -367,12 +367,18 @@ repository/seance_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/seance_repository.hpp
 repository/user_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp
+repository/customer_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/customer_repository.hpp
 
 C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
 
 C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/model/customer.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
 
@@ -405,6 +411,14 @@ C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
 ../model/cinema_room.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
+../connection/db_connection.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/customer_repository.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+../model/customer.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/customer.hpp
 ../connection/db_connection.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
 

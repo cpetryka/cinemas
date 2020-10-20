@@ -16,12 +16,14 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\libs\sqlite3.h
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\main.cpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\cinema.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\cinema_room.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\customer.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\movie.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seance.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seat.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\user.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_room_repository.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\customer_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\movie_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seance_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seat_repository.hpp
@@ -42,6 +44,14 @@ CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.obj: ..\lib
 CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.obj: ..\model\cinema_room.hpp
 CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.obj: ..\repository\cinema_room_repository.hpp
 CMakeFiles\cinemas.dir\repository\sources\cinema_room_repository.cpp.obj: ..\repository\sources\cinema_room_repository.cpp
+
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\libs\sqlite3.h
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\model\customer.hpp
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\repository\customer_repository.hpp
+CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj: ..\repository\sources\customer_repository.cpp
 
 CMakeFiles\cinemas.dir\repository\sources\movie_repository.cpp.obj: ..\connection\db_connection.hpp
 CMakeFiles\cinemas.dir\repository\sources\movie_repository.cpp.obj: ..\libs\json.hpp

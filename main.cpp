@@ -4,6 +4,7 @@
 #include "repository/movie_repository.hpp"
 #include "repository/seance_repository.hpp"
 #include "repository/user_repository.hpp"
+#include "repository/customer_repository.hpp"
 
 int main() {
     try {
@@ -50,6 +51,12 @@ int main() {
         ur.insert(u2);
         ur.remove(2);*/
 
+        /*Customer c{0, "ADAM", "NOWAK", 20, "MALE", "WARSAW", 4};
+        Customer c2{0, "CEZARY", "STOBOGA", 30, "MALE", "CRACOW", 1};
+        CustomerRepository cr;
+        cr.insert(c);
+        cr.insert(c2);
+        cr.remove(3);*/
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
