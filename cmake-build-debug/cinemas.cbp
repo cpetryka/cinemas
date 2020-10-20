@@ -162,10 +162,22 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/seat_repository.cpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/ticket_repository.cpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/user_repository.cpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp">
 			<Option target="cinemas"/>
 		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/CMakeLists.txt">

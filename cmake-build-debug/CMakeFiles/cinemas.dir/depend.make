@@ -20,6 +20,7 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\customer.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\movie.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seance.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seat.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\ticket.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\user.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_room_repository.hpp
@@ -27,7 +28,9 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\customer_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\movie_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seance_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seat_repository.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\ticket_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\user_repository.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\cinema_management.hpp
 
 CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\connection\db_connection.hpp
 CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\libs\json.hpp
@@ -77,6 +80,14 @@ CMakeFiles\cinemas.dir\repository\sources\seat_repository.cpp.obj: ..\model\seat
 CMakeFiles\cinemas.dir\repository\sources\seat_repository.cpp.obj: ..\repository\seat_repository.hpp
 CMakeFiles\cinemas.dir\repository\sources\seat_repository.cpp.obj: ..\repository\sources\seat_repository.cpp
 
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\libs\sqlite3.h
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\model\ticket.hpp
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\repository\sources\ticket_repository.cpp
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\repository\ticket_repository.hpp
+
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\connection\db_connection.hpp
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\libs\json.hpp
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\libs\libs.hpp
@@ -84,4 +95,17 @@ CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\libs\sqlit
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\model\user.hpp
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\repository\sources\user_repository.cpp
 CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj: ..\repository\user_repository.hpp
+
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\libs\sqlite3.h
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\model\cinema.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\model\cinema_room.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\model\seat.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\repository\cinema_repository.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\repository\cinema_room_repository.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\repository\seat_repository.hpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\service\cinema_management.cpp
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\service\cinema_management.hpp
 

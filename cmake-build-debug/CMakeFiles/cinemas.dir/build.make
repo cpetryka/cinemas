@@ -251,6 +251,44 @@ CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.s /c "C:\Users\Cezary Petryka\Desktop\cinemas\repository\sources\customer_repository.cpp"
 <<
 
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: CMakeFiles\cinemas.dir\flags.make
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj: ..\repository\sources\ticket_repository.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cinemas.dir/repository/sources/ticket_repository.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj /FdCMakeFiles\cinemas.dir\ /FS -c "C:\Users\Cezary Petryka\Desktop\cinemas\repository\sources\ticket_repository.cpp"
+<<
+
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cinemas.dir/repository/sources/ticket_repository.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe > CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Cezary Petryka\Desktop\cinemas\repository\sources\ticket_repository.cpp"
+<<
+
+CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cinemas.dir/repository/sources/ticket_repository.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.s /c "C:\Users\Cezary Petryka\Desktop\cinemas\repository\sources\ticket_repository.cpp"
+<<
+
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: CMakeFiles\cinemas.dir\flags.make
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj: ..\service\cinema_management.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cinemas.dir/service/cinema_management.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\cinemas.dir\service\cinema_management.cpp.obj /FdCMakeFiles\cinemas.dir\ /FS -c "C:\Users\Cezary Petryka\Desktop\cinemas\service\cinema_management.cpp"
+<<
+
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cinemas.dir/service/cinema_management.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe > CMakeFiles\cinemas.dir\service\cinema_management.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Cezary Petryka\Desktop\cinemas\service\cinema_management.cpp"
+<<
+
+CMakeFiles\cinemas.dir\service\cinema_management.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cinemas.dir/service/cinema_management.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cinemas.dir\service\cinema_management.cpp.s /c "C:\Users\Cezary Petryka\Desktop\cinemas\service\cinema_management.cpp"
+<<
+
 # Object files for target cinemas
 cinemas_OBJECTS = \
 "CMakeFiles\cinemas.dir\main.cpp.obj" \
@@ -262,7 +300,9 @@ cinemas_OBJECTS = \
 "CMakeFiles\cinemas.dir\repository\sources\movie_repository.cpp.obj" \
 "CMakeFiles\cinemas.dir\repository\sources\seance_repository.cpp.obj" \
 "CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj" \
-"CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj"
+"CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj" \
+"CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj" \
+"CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj"
 
 # External object files for target cinemas
 cinemas_EXTERNAL_OBJECTS =
@@ -277,9 +317,11 @@ cinemas.exe: CMakeFiles\cinemas.dir\repository\sources\movie_repository.cpp.obj
 cinemas.exe: CMakeFiles\cinemas.dir\repository\sources\seance_repository.cpp.obj
 cinemas.exe: CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.obj
 cinemas.exe: CMakeFiles\cinemas.dir\repository\sources\customer_repository.cpp.obj
+cinemas.exe: CMakeFiles\cinemas.dir\repository\sources\ticket_repository.cpp.obj
+cinemas.exe: CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj
 cinemas.exe: CMakeFiles\cinemas.dir\build.make
 cinemas.exe: CMakeFiles\cinemas.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable cinemas.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable cinemas.exe"
 	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cinemas.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\Preview\VC\Tools\MSVC\1427~1.288\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cinemas.dir\objects1.rsp @<<
  /out:cinemas.exe /implib:cinemas.lib /pdb:"C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\cinemas.pdb" /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
