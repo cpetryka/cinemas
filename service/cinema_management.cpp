@@ -22,31 +22,39 @@ json CinemaManagement::get_data_from_json_file(const std::string &file_name) con
 void CinemaManagement::add_datas_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
-    Cinema cinema_temp;
-    CinemaRepository cr;
-
-    CinemaRoom cinema_room_temp;
-    CinemaRoomRepository crr;
-
-    std::for_each(data.begin(), data.end(), [&cinema_temp, &cr, &cinema_room_temp, &crr](const auto& one_cinema) {
+    std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
         // Add cinema
-        cinema_temp = {0, one_cinema["name"], one_cinema["city"]};
+        Cinema cinema_tmp = {0, one_cinema["name"], one_cinema["city"]};
+        CinemaRepository cr;
 
-        if(cr.find(cinema_temp) == -1) {
-            cr.insert(cinema_temp);
+        if(cr.find_pos(cinema_tmp) == -1) {
+            cr.insert(cinema_tmp);
         }
 
         // Add rooms
-        std::for_each(one_cinema["cinema_rooms"].begin(), one_cinema["cinema_rooms"].end(), [&cinema_room_temp, &crr, &cr, &cinema_temp](const auto& one_cinema_room) {
-            cinema_room_temp = CinemaRoom{0, one_cinema_room["name"], cr.find(cinema_temp), one_cinema_room["rows"], one_cinema_room["places"]};
-            auto one_cinema_room_pos = crr.find_pos_by_name(one_cinema_room["name"]);
+        std::for_each(one_cinema["cinema_rooms"].begin(), one_cinema["cinema_rooms"].end(), [&cr, &cinema_tmp](const auto& one_cinema_room) {
+            CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], cr.find_pos(cinema_tmp), one_cinema_room["rows"], one_cinema_room["places"]};
+            CinemaRoomRepository crr;
 
-
-            if(one_cinema_room_pos == -1) {
-                crr.insert(cinema_room_temp);
+            if(crr.find_pos_by_name(one_cinema_room["name"]) == -1) {
+                crr.insert(cinema_room_tmp);
             }
             else {
-                crr.update(one_cinema_room_pos, cinema_room_temp);
+                crr.update(crr.find_pos_by_name(one_cinema_room["name"]), cinema_room_tmp);
+            }
+
+            // Add seats
+            auto one_cinema_room_pos = crr.find_pos_by_name(one_cinema_room["name"]);
+            SeatRepository sr;
+
+            for(auto i = 1; i <= one_cinema_room["rows"]; ++i) {
+                for(auto j = 1; j <= one_cinema_room["places"]; ++j) {
+                    Seat s{0, one_cinema_room_pos, i, j};
+
+                    if(sr.find_pos(s) == -1) {
+                        sr.insert(s);
+                    }
+                }
             }
         });
     });

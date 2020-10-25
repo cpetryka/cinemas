@@ -41,7 +41,7 @@ SOFTWARE.
 #define NLOHMANN_JSON_VERSION_MINOR 7
 #define NLOHMANN_JSON_VERSION_PATCH 3
 
-#include <algorithm> // all_of, find, for_each
+#include <algorithm> // all_of, find_pos, for_each
 #include <cassert> // assert
 #include <cstddef> // nullptr_t, ptrdiff_t, size_t
 #include <functional> // hash, less
@@ -11714,7 +11714,7 @@ case detail::value_t::object:
 {
 if (not ptr->contains(reference_token))
 {
-// we did not find the key in the object
+// we did not find_pos the key in the object
 return false;
 }
 
@@ -11815,7 +11815,7 @@ start != 0;
 // set the beginning of the next reference token
 // (will eventually be 0 if slash == std::string::npos)
 start = (slash == std::string::npos) ? 0 : slash + 1,
-// find next slash
+// find_pos next slash
 slash = reference_string.find_first_of('/', start))
 {
 // use the text between the beginning of the reference token
@@ -11863,10 +11863,10 @@ static void replace_substring(std::string& s, const std::string& f,
 const std::string& t)
 {
 assert(not f.empty());
-for (auto pos = s.find(f);                // find first occurrence of f
+for (auto pos = s.find(f);                // find_pos first occurrence of f
 pos != std::string::npos;         // make sure f was found
 s.replace(pos, f.size(), t),      // replace with t, and
-pos = s.find(f, pos + t.size()))  // find next occurrence of f
+pos = s.find(f, pos + t.size()))  // find_pos next occurrence of f
 {}
 }
 
@@ -13803,7 +13803,7 @@ output_adapter_t<CharType> oa = nullptr;
 // #include <nlohmann/detail/output/serializer.hpp>
 
 
-#include <algorithm> // reverse, remove, fill, find, none_of
+#include <algorithm> // reverse, remove, fill, find_pos, none_of
 #include <array> // array
 #include <cassert> // assert
 #include <clocale> // localeconv, lconv
@@ -14070,7 +14070,7 @@ const diyfp w_minus = diyfp::normalize_to(m_minus, w_plus.e);
 return {diyfp::normalize(v), w_minus, w_plus};
 }
 
-// Given normalized diyfp w, Grisu needs to find a (normalized) cached
+// Given normalized diyfp w, Grisu needs to find_pos a (normalized) cached
 // power-of-ten c, such that the exponent of the product c * w = f * 2^e lies
 // within a certain range [alpha, gamma] (Definition 3.2 from [1])
 //
@@ -14182,7 +14182,7 @@ inline cached_power get_cached_power_for_binary_exponent(int e)
 //
 // This binary exponent range [-1137,960] results in a decimal exponent
 // range [-307,324]. One does not need to store a cached power for each
-// k in this range. For each such k it suffices to find a cached power
+// k in this range. For each such k it suffices to find_pos a cached power
 // such that the exponent of the product lies in [alpha,gamma].
 // This implies that the difference of the decimal exponents of adjacent
 // table entries must be less than or equal to
@@ -16203,7 +16203,7 @@ return result;
 
 #if defined(JSON_HAS_CPP_14)
 // Use transparent comparator if possible, combined with perfect forwarding
-// on find() and count() calls prevents unnecessary string construction.
+// on find_pos() and count() calls prevents unnecessary string construction.
 using object_comparator_t = std::less<>;
 #else
 using object_comparator_t = std::less<StringType>;
@@ -16381,7 +16381,7 @@ using array_t = ArrayType<basic_json, AllocatorType<basic_json>>;
     > comparison numerically, code unit by code unit, are interoperable in the
     > sense that implementations will agree in all cases on equality or
     > inequality of two strings. For example, implementations that compare
-    > strings with escaped characters unconverted may incorrectly find that
+    > strings with escaped characters unconverted may incorrectly find_pos that
     > `"a\\b"` and `"a\u005Cb"` are not equal.
 
     This implementation is interoperable as it does compare strings code unit
@@ -19166,7 +19166,7 @@ JSON_THROW(type_error::create(304, "cannot use at() with " + std::string(type_na
     @throw type_error.304 if the JSON value is not an object; in this case,
     calling `at` with a key makes no sense. See example below.
     @throw out_of_range.403 if the key @a key is is not stored in the object;
-    that is, `find(key) == end()`. See example below.
+    that is, `find_pos(key) == end()`. See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes in the JSON value.
@@ -19217,7 +19217,7 @@ JSON_THROW(type_error::create(304, "cannot use at() with " + std::string(type_na
     @throw type_error.304 if the JSON value is not an object; in this case,
     calling `at` with a key makes no sense. See example below.
     @throw out_of_range.403 if the key @a key is is not stored in the object;
-    that is, `find(key) == end()`. See example below.
+    that is, `find_pos(key) == end()`. See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes in the JSON value.
@@ -20079,7 +20079,7 @@ JSON_THROW(type_error::create(307, "cannot use erase() with " + std::string(type
 /// @{
 
 /*!
-    @brief find an element in a JSON object
+    @brief find_pos an element in a JSON object
 
     Finds an element in a JSON object with key equivalent to @a key. If the
     element is not found or the JSON value is not an object, end() is
@@ -20096,7 +20096,7 @@ JSON_THROW(type_error::create(307, "cannot use erase() with " + std::string(type
 
     @complexity Logarithmic in the size of the JSON object.
 
-    @liveexample{The example shows how `find()` is used.,find__key_type}
+    @liveexample{The example shows how `find_pos()` is used.,find__key_type}
 
     @sa @ref contains(KeyT&&) const -- checks whether a key exists
 
@@ -20116,8 +20116,8 @@ return result;
 }
 
 /*!
-    @brief find an element in a JSON object
-    @copydoc find(KeyT&&)
+    @brief find_pos an element in a JSON object
+    @copydoc find_pos(KeyT&&)
     */
 template<typename KeyT>
 const_iterator find(KeyT&& key) const
@@ -20180,7 +20180,7 @@ return is_object() ? m_value.object->count(std::forward<KeyT>(key)) : 0;
 
     @liveexample{The following code shows an example for `contains()`.,contains}
 
-    @sa @ref find(KeyT&&) -- returns an iterator to an object element
+    @sa @ref find_pos(KeyT&&) -- returns an iterator to an object element
     @sa @ref contains(const json_pointer&) const -- checks the existence for a JSON pointer
 
     @since version 3.6.0
@@ -24024,7 +24024,7 @@ const auto get_value = [&val](const std::string & op,
 const std::string & member,
 bool string_type) -> basic_json &
 {
-// find value
+// find_pos value
 auto it = val.m_value.object->find(member);
 
 // context-sensitive error message

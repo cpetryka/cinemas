@@ -14,7 +14,7 @@ public:
     void insert(const Cinema& cinema);
     void update(const int id, const Cinema& cinema);
     void remove(const int id);
-    int find(const Cinema& cinema);
+    int find_pos(const Cinema& cinema);
 };
 
 

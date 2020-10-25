@@ -5,7 +5,7 @@
 ** a legal notice, here is a blessing:
 **
 **    May you do good and not evil.
-**    May you find forgiveness for yourself and forgive others.
+**    May you find_pos forgiveness for yourself and forgive others.
 **    May you share freely, never taking more than you give.
 **
 *************************************************************************
@@ -1096,7 +1096,7 @@ int (*xUnfetch)(sqlite3_file*, sqlite3_int64 iOfst, void *p);
 ** database file, either through SQL statements on the same database
 ** connection or through transactions committed by separate database
 ** connections possibly in other processes. The [sqlite3_total_changes()]
-** interface can be used to find if any database on the connection has changed,
+** interface can be used to find_pos if any database on the connection has changed,
 ** but that interface responds to changes on TEMP as well as MAIN and does
 ** not provide a mechanism to detect changes to MAIN only.  Also, the
 ** [sqlite3_total_changes()] interface responds to internal changes only and
@@ -3558,7 +3558,7 @@ typedef struct sqlite3_stmt sqlite3_stmt;
 **
 ** ^Regardless of whether or not the limit was changed, the
 ** [sqlite3_limit()] interface returns the prior value of the limit.
-** ^Hence, to find the current value of a limit without changing it,
+** ^Hence, to find_pos the current value of a limit without changing it,
 ** simply invoke this interface with the third parameter set to -1.
 **
 ** Run-time limits are intended for use in applications that manage
@@ -3763,7 +3763,7 @@ SQLITE_API int sqlite3_limit(sqlite3*, int id, int newVal);
 ** [error codes] or [extended error codes].  ^The legacy behavior was that
 ** [sqlite3_step()] would only return a generic [SQLITE_ERROR] result code
 ** and the application would have to make a second call to [sqlite3_reset()]
-** in order to find the underlying cause of the problem. With the "v2" prepare
+** in order to find_pos the underlying cause of the problem. With the "v2" prepare
 ** interfaces, the underlying reason for the error is returned immediately.
 ** </li>
 **
@@ -4136,7 +4136,7 @@ SQLITE_API int sqlite3_bind_zeroblob64(sqlite3_stmt*, int, sqlite3_uint64);
 ** CAPI3REF: Number Of SQL Parameters
 ** METHOD: sqlite3_stmt
 **
-** ^This routine can be used to find the number of [SQL parameters]
+** ^This routine can be used to find_pos the number of [SQL parameters]
 ** in a [prepared statement].  SQL parameters are tokens of the
 ** form "?", "?NNN", ":AAA", "$AAA", or "@AAA" that serve as
 ** placeholders for values that are [sqlite3_bind_blob | bound]
@@ -4413,7 +4413,7 @@ SQLITE_API const void *sqlite3_column_decltype16(sqlite3_stmt*,int);
 ** <b>Goofy Interface Alert:</b> In the legacy interface, the sqlite3_step()
 ** API always returns a generic error code, [SQLITE_ERROR], following any
 ** error other than [SQLITE_BUSY] and [SQLITE_MISUSE].  You must call
-** [sqlite3_reset()] or [sqlite3_finalize()] in order to find one of the
+** [sqlite3_reset()] or [sqlite3_finalize()] in order to find_pos one of the
 ** specific [error codes] that better describes the error.
 ** We admit that this is a goofy design.  The problem has been fixed
 ** with the "v2" interface.  If you prepare all of your SQL statements
@@ -4655,7 +4655,7 @@ SQLITE_API int sqlite3_data_count(sqlite3_stmt *pStmt);
 ** In other words, you should call sqlite3_column_text(),
 ** sqlite3_column_blob(), or sqlite3_column_text16() first to force the result
 ** into the desired format, then invoke sqlite3_column_bytes() or
-** sqlite3_column_bytes16() to find the size of the result.  Do not mix calls
+** sqlite3_column_bytes16() to find_pos the size of the result.  Do not mix calls
 ** to sqlite3_column_text() or sqlite3_column_blob() with calls to
 ** sqlite3_column_bytes16(), and do not mix calls to sqlite3_column_text16()
 ** with calls to sqlite3_column_bytes().
@@ -5798,7 +5798,7 @@ SQLITE_API int sqlite3_win32_set_directory16(unsigned long type, const void *zVa
 ** transaction (errors including [SQLITE_FULL], [SQLITE_IOERR],
 ** [SQLITE_NOMEM], [SQLITE_BUSY], and [SQLITE_INTERRUPT]) then the
 ** transaction might be rolled back automatically.  The only way to
-** find out whether SQLite automatically rolled back the transaction after
+** find_pos out whether SQLite automatically rolled back the transaction after
 ** an error is to use this function.
 **
 ** If another thread changes the autocommit status of the database
@@ -9401,7 +9401,7 @@ unsigned mFlags         /* Zero or more SQLITE_DESERIALIZE_* flags */
 ** a legal notice, here is a blessing:
 **
 **    May you do good and not evil.
-**    May you find forgiveness for yourself and forgive others.
+**    May you find_pos forgiveness for yourself and forgive others.
 **    May you share freely, never taking more than you give.
 **
 *************************************************************************
@@ -10092,7 +10092,7 @@ int *pbIndirect                 /* OUT: True for an 'indirect' change */
 **   <li> Which of those columns make up the tables PRIMARY KEY.
 ** </ul>
 **
-** This function is used to find which columns comprise the PRIMARY KEY of
+** This function is used to find_pos which columns comprise the PRIMARY KEY of
 ** the table modified by the change that iterator pIter currently points to.
 ** If successful, *pabPK is set to point to an array of nCol entries, where
 ** nCol is the number of columns in the table. Elements of *pabPK are set to
@@ -11182,7 +11182,7 @@ SQLITE_API int sqlite3session_config(int op, void *pArg);
 ** a legal notice, here is a blessing:
 **
 **    May you do good and not evil.
-**    May you find forgiveness for yourself and forgive others.
+**    May you find_pos forgiveness for yourself and forgive others.
 **    May you share freely, never taking more than you give.
 **
 ******************************************************************************

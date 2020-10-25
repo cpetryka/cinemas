@@ -55,7 +55,7 @@ void CinemaRepository::remove(const int id) {
     sqlite3_finalize(stmt);
 }
 
-int CinemaRepository::find(const Cinema &cinema) {
+int CinemaRepository::find_pos(const Cinema &cinema) {
     const std::string sql = "select id from cinemas where name = ? and city = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;

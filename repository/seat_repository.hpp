@@ -14,6 +14,7 @@ public:
     void insert(const Seat& seat);
     void update(const int id, const Seat& seat);
     void remove(const int id);
+    int find_pos(const Seat& seat);
 };
 
 

@@ -57,4 +57,22 @@ void SeatRepository::remove(const int id) {
     sqlite3_finalize(stmt);
 }
 
+int SeatRepository::find_pos(const Seat &seat) {
+    const std::string sql = "select id from seats where cinema_room_id = ? and row = ? and place = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_int(stmt, 1, seat.cinema_room_id);
+    sqlite3_bind_int(stmt, 2, seat.row);
+    sqlite3_bind_int(stmt, 3, seat.place);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt, 0);
+    }
+
+    sqlite3_finalize(stmt);
+    return -1;
+}
+
 
