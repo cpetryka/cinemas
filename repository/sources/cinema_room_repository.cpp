@@ -4,6 +4,14 @@
 
 #include "../cinema_room_repository.hpp"
 
+std::string CinemaRoomRepository::from_unsigned_char_to_std_string(const unsigned char* value) {
+    std::string result = "";
+    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
+        result += value[i];
+    }
+    return result;
+}
+
 void CinemaRoomRepository::insert(const CinemaRoom &cinema_room) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into cinema_rooms(name, cinema_id, rows, places) values (?, ?, ?, ?)";
@@ -57,4 +65,20 @@ void CinemaRoomRepository::remove(const int id) {
     }
 
     sqlite3_finalize(stmt);
+}
+
+int CinemaRoomRepository::find_pos_by_name(const std::string &name) {
+    const std::string sql = "select id from cinema_rooms where name = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, name.c_str(), -1, 0);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt, 0);
+    }
+
+    sqlite3_finalize(stmt);
+    return -1;
 }

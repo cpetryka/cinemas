@@ -10,10 +10,12 @@
 #include "../connection/db_connection.hpp"
 
 class CinemaRoomRepository {
+    std::string from_unsigned_char_to_std_string(const unsigned char* value);
 public:
     void insert(const CinemaRoom& cinema_room);
     void update(const int id, const CinemaRoom& cinema_room);
     void remove(const int id);
+    int find_pos_by_name(const std::string& name);
 };
 
 

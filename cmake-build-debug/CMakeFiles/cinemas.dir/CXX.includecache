@@ -360,6 +360,14 @@ C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
 
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
@@ -368,7 +376,31 @@ C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
 ../connection/db_connection.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
 
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/cinema_repository.cpp
-../cinema_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+../model/cinema_room.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema_room.hpp
+../connection/db_connection.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
+../libs/libs.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+../model/seat.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
+../connection/db_connection.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.cpp
+cinema_management.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
+
+C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
+../repository/cinema_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+../repository/cinema_room_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
+../repository/seat_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
 
