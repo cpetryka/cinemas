@@ -96,7 +96,7 @@ CMakeFiles/cinemas.dir/repository/sources/user_repository.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/model/user.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/user_repository.cpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp
-CMakeFiles/cinemas.dir/service/cinema_management.cpp.obj
+CMakeFiles/cinemas.dir/service/sources/cinema_management.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
@@ -107,5 +107,16 @@ CMakeFiles/cinemas.dir/service/cinema_management.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
- C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.cpp
  C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/cinema_management.cpp
+CMakeFiles/cinemas.dir/service/sources/movie_and_seance_management.cpp.obj
+ C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/libs/sqlite3.h
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/movie.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/movie_and_seance_management.cpp

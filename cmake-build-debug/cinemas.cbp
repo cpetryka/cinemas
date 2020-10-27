@@ -174,10 +174,16 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp">
 			<Option target="cinemas"/>
 		</Unit>
-		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.cpp">
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp">
 			<Option target="cinemas"/>
 		</Unit>
-		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp">
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/cinema_management.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/movie_and_seance_management.cpp">
 			<Option target="cinemas"/>
 		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/CMakeLists.txt">

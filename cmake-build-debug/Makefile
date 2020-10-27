@@ -424,32 +424,59 @@ repository\sources\user_repository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\repository\sources\user_repository.cpp.s
 .PHONY : repository\sources\user_repository.cpp.s
 
-service\cinema_management.obj: service\cinema_management.cpp.obj
+service\sources\cinema_management.obj: service\sources\cinema_management.cpp.obj
 
-.PHONY : service\cinema_management.obj
+.PHONY : service\sources\cinema_management.obj
 
 # target to build an object file
-service\cinema_management.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\cinema_management.cpp.obj
-.PHONY : service\cinema_management.cpp.obj
+service\sources\cinema_management.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\cinema_management.cpp.obj
+.PHONY : service\sources\cinema_management.cpp.obj
 
-service\cinema_management.i: service\cinema_management.cpp.i
+service\sources\cinema_management.i: service\sources\cinema_management.cpp.i
 
-.PHONY : service\cinema_management.i
+.PHONY : service\sources\cinema_management.i
 
 # target to preprocess a source file
-service\cinema_management.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\cinema_management.cpp.i
-.PHONY : service\cinema_management.cpp.i
+service\sources\cinema_management.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\cinema_management.cpp.i
+.PHONY : service\sources\cinema_management.cpp.i
 
-service\cinema_management.s: service\cinema_management.cpp.s
+service\sources\cinema_management.s: service\sources\cinema_management.cpp.s
 
-.PHONY : service\cinema_management.s
+.PHONY : service\sources\cinema_management.s
 
 # target to generate assembly for a file
-service\cinema_management.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\cinema_management.cpp.s
-.PHONY : service\cinema_management.cpp.s
+service\sources\cinema_management.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\cinema_management.cpp.s
+.PHONY : service\sources\cinema_management.cpp.s
+
+service\sources\movie_and_seance_management.obj: service\sources\movie_and_seance_management.cpp.obj
+
+.PHONY : service\sources\movie_and_seance_management.obj
+
+# target to build an object file
+service\sources\movie_and_seance_management.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.obj
+.PHONY : service\sources\movie_and_seance_management.cpp.obj
+
+service\sources\movie_and_seance_management.i: service\sources\movie_and_seance_management.cpp.i
+
+.PHONY : service\sources\movie_and_seance_management.i
+
+# target to preprocess a source file
+service\sources\movie_and_seance_management.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.i
+.PHONY : service\sources\movie_and_seance_management.cpp.i
+
+service\sources\movie_and_seance_management.s: service\sources\movie_and_seance_management.cpp.s
+
+.PHONY : service\sources\movie_and_seance_management.s
+
+# target to generate assembly for a file
+service\sources\movie_and_seance_management.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.s
+.PHONY : service\sources\movie_and_seance_management.cpp.s
 
 # Help Target
 help:
@@ -493,9 +520,12 @@ help:
 	@echo ... repository/sources/user_repository.obj
 	@echo ... repository/sources/user_repository.i
 	@echo ... repository/sources/user_repository.s
-	@echo ... service/cinema_management.obj
-	@echo ... service/cinema_management.i
-	@echo ... service/cinema_management.s
+	@echo ... service/sources/cinema_management.obj
+	@echo ... service/sources/cinema_management.i
+	@echo ... service/sources/cinema_management.s
+	@echo ... service/sources/movie_and_seance_management.obj
+	@echo ... service/sources/movie_and_seance_management.i
+	@echo ... service/sources/movie_and_seance_management.s
 .PHONY : help
 
 
