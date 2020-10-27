@@ -56,3 +56,21 @@ void SeanceRepository::remove(const int id) {
 
     sqlite3_finalize(stmt);
 }
+
+int SeanceRepository::find_pos(const Seance &seance) {
+    const std::string sql = "select id from seances where movie_id = ? and cinema_room_id = ? and date_time = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_int(stmt, 1, seance.movie_id);
+    sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
+    sqlite3_bind_text(stmt, 3, seance.date_time.c_str(), -1, 0);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt, 0);
+    }
+
+    sqlite3_finalize(stmt);
+    return -1;
+}

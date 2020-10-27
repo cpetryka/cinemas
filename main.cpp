@@ -7,10 +7,15 @@
 #include "repository/customer_repository.hpp"
 #include "repository/ticket_repository.hpp"
 #include "service/cinema_management.hpp"
+#include "service/movie_and_seance_management.hpp"
 
 int main() {
     try {
         CinemaManagement cm{"cinemas.json"};
+
+        MovieAndSeanceManagement masm;
+        masm.add_movies_to_the_database("movies.json");
+        masm.add_seances_to_the_database("seances.json");
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;

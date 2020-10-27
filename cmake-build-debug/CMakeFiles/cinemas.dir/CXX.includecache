@@ -375,6 +375,8 @@ repository/ticket_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp
 service/cinema_management.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
+service/movie_and_seance_management.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp
 
 C:/Users/Cezary Petryka/Desktop/cinemas/model/cinema.hpp
 ../libs/libs.hpp
@@ -456,10 +458,6 @@ C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
 ../connection/db_connection.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
 
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/movie_repository.cpp
-../movie_repository.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp
-
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp
 ../libs/libs.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/libs/libs.hpp
@@ -487,8 +485,12 @@ C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp
 ../repository/movie_repository.hpp
 C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp
-../repository/seat_repository.hpp
-C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
+../repository/seance_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/seance_repository.hpp
+../repository/cinema_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
+../repository/cinema_room_repository.hpp
+C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
 
 C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/movie_and_seance_management.cpp
 ../movie_and_seance_management.hpp
