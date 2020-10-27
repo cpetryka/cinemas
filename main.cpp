@@ -8,6 +8,7 @@
 #include "repository/ticket_repository.hpp"
 #include "service/cinema_management.hpp"
 #include "service/movie_and_seance_management.hpp"
+#include "service/user_management.hpp"
 
 int main() {
     try {
@@ -16,6 +17,8 @@ int main() {
         MovieAndSeanceManagement masm;
         masm.add_movies_to_the_database("movies.json");
         masm.add_seances_to_the_database("seances.json");
+
+        UserManagement am{"users.json"};
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;

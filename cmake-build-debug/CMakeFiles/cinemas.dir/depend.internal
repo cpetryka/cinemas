@@ -33,6 +33,7 @@ CMakeFiles/cinemas.dir/main.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp
+ C:/Users/Cezary Petryka/Desktop/cinemas/service/user_management.hpp
 CMakeFiles/cinemas.dir/repository/sources/cinema_repository.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/connection/db_connection.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/libs/json.hpp

@@ -32,6 +32,7 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\ticket_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\user_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\cinema_management.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\movie_and_seance_management.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\user_management.hpp
 
 CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\connection\db_connection.hpp
 CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\libs\json.hpp
