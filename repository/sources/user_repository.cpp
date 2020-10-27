@@ -56,3 +56,21 @@ void UserRepository::remove(const int id) {
 
     sqlite3_finalize(stmt);
 }
+
+int UserRepository::find_pos(const User &user) {
+    const std::string sql = "select id from users where username = ? and password = ? and role = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, user.username.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 2, user.password.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 3, user.role.c_str(), -1, 0);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt, 0);
+    }
+
+    sqlite3_finalize(stmt);
+    return -1;
+}

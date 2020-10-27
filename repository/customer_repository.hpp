@@ -14,6 +14,7 @@ public:
     void insert(const Customer& customer);
     void update(const int id, const Customer& customer);
     void remove(const int id);
+    int find_pos(const Customer& customer);
 };
 
 

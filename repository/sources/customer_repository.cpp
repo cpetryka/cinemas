@@ -62,3 +62,24 @@ void CustomerRepository::remove(const int id) {
 
     sqlite3_finalize(stmt);
 }
+
+int CustomerRepository::find_pos(const Customer &customer) {
+    const std::string sql = "select id from customers where name = ? and surname = ? and age = ? and gender = ? and city = ? and user_id = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, customer.name.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 2, customer.surname.c_str(), -1, 0);
+    sqlite3_bind_int(stmt, 3, customer.age);
+    sqlite3_bind_text(stmt, 4, customer.gender.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 5, customer.city.c_str(), -1, 0);
+    sqlite3_bind_int(stmt, 6, customer.user_id);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt, 0);
+    }
+
+    sqlite3_finalize(stmt);
+    return -1;
+}
