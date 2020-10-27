@@ -14,6 +14,7 @@ public:
     void insert(const Movie& movie);
     void update(const int id, const Movie& movie);
     void remove(const int id);
+    int find_pos(const Movie& movie);
 };
 
 
