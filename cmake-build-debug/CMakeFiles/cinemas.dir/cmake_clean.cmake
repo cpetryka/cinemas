@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cinemas.dir/repository/sources/user_repository.cpp.obj"
   "CMakeFiles/cinemas.dir/service/sources/cinema_management.cpp.obj"
   "CMakeFiles/cinemas.dir/service/sources/movie_and_seance_management.cpp.obj"
+  "CMakeFiles/cinemas.dir/service/sources/user_management.cpp.obj"
   "cinemas.exe"
   "cinemas.exe.manifest"
   "cinemas.lib"

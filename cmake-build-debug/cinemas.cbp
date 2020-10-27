@@ -186,6 +186,12 @@
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/movie_and_seance_management.cpp">
 			<Option target="cinemas"/>
 		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/user_management.cpp">
+			<Option target="cinemas"/>
+		</Unit>
+		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/service/user_management.hpp">
+			<Option target="cinemas"/>
+		</Unit>
 		<Unit filename="C:/Users/Cezary Petryka/Desktop/cinemas/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

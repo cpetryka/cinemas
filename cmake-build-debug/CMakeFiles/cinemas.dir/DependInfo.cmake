@@ -25,6 +25,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Cezary Petryka/Desktop/cinemas/repository/sources/user_repository.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/repository/sources/user_repository.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/cinema_management.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/service/sources/cinema_management.cpp.obj"
   "C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/movie_and_seance_management.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/service/sources/movie_and_seance_management.cpp.obj"
+  "C:/Users/Cezary Petryka/Desktop/cinemas/service/sources/user_management.cpp" "C:/Users/Cezary Petryka/Desktop/cinemas/cmake-build-debug/CMakeFiles/cinemas.dir/service/sources/user_management.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 
