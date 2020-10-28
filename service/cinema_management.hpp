@@ -11,9 +11,11 @@
 
 class CinemaManagement {
     json get_data_from_json_file(const std::string &file_name) const;
-    void add_datas_to_the_database(const std::string &file_name) const;
 public:
+    explicit CinemaManagement() = default;
     explicit CinemaManagement(const std::string& file_name);
+
+    void add_datas_to_the_database(const std::string &file_name) const;
 };
 
 

@@ -19,6 +19,12 @@ json MovieAndSeanceManagement::get_data_from_json_file(const std::string &file_n
     return j;
 }
 
+MovieAndSeanceManagement::MovieAndSeanceManagement(const std::string &movies_file_name,
+                                                   const std::string &seances_file_name) {
+    add_movies_to_the_database(movies_file_name);
+    add_seances_to_the_database(seances_file_name);
+}
+
 void MovieAndSeanceManagement::add_movies_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
@@ -65,4 +71,3 @@ void MovieAndSeanceManagement::add_seances_to_the_database(const std::string &fi
         }
     });
 }
-
