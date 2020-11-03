@@ -18,5 +18,12 @@ public:
     void add_datas_to_the_database(const std::string &file_name) const;
 };
 
+/*
+ * Dostaje plik json i na jego podstawie musze stworzyc tabele: cinemas, cinema_rooms, seats
+ *
+ * JSON     ->      Cinema      ->     CinemaRepository
+ *          ->      CinemaRoom  ->     CinemaRoomRepository
+ *          ->      Seats       ->     SeatRepository
+ * */
 
 #endif //CINEMAS_CINEMA_MANAGEMENT_HPP

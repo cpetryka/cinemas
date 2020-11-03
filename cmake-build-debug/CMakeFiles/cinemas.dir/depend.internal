@@ -21,7 +21,6 @@ CMakeFiles/cinemas.dir/main.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/model/movie.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/seance.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/seat.hpp
- C:/Users/Cezary Petryka/Desktop/cinemas/model/ticket.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/model/user.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/cinema_room_repository.hpp
@@ -29,7 +28,6 @@ CMakeFiles/cinemas.dir/main.cpp.obj
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/movie_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seance_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/seat_repository.hpp
- C:/Users/Cezary Petryka/Desktop/cinemas/repository/ticket_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/repository/user_repository.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/service/cinema_management.hpp
  C:/Users/Cezary Petryka/Desktop/cinemas/service/movie_and_seance_management.hpp

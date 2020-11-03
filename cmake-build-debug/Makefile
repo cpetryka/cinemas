@@ -478,6 +478,33 @@ service\sources\movie_and_seance_management.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.s
 .PHONY : service\sources\movie_and_seance_management.cpp.s
 
+service\sources\ticket_management.obj: service\sources\ticket_management.cpp.obj
+
+.PHONY : service\sources\ticket_management.obj
+
+# target to build an object file
+service\sources\ticket_management.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj
+.PHONY : service\sources\ticket_management.cpp.obj
+
+service\sources\ticket_management.i: service\sources\ticket_management.cpp.i
+
+.PHONY : service\sources\ticket_management.i
+
+# target to preprocess a source file
+service\sources\ticket_management.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.i
+.PHONY : service\sources\ticket_management.cpp.i
+
+service\sources\ticket_management.s: service\sources\ticket_management.cpp.s
+
+.PHONY : service\sources\ticket_management.s
+
+# target to generate assembly for a file
+service\sources\ticket_management.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cinemas.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.s
+.PHONY : service\sources\ticket_management.cpp.s
+
 service\sources\user_management.obj: service\sources\user_management.cpp.obj
 
 .PHONY : service\sources\user_management.obj
@@ -553,6 +580,9 @@ help:
 	@echo ... service/sources/movie_and_seance_management.obj
 	@echo ... service/sources/movie_and_seance_management.i
 	@echo ... service/sources/movie_and_seance_management.s
+	@echo ... service/sources/ticket_management.obj
+	@echo ... service/sources/ticket_management.i
+	@echo ... service/sources/ticket_management.s
 	@echo ... service/sources/user_management.obj
 	@echo ... service/sources/user_management.i
 	@echo ... service/sources/user_management.s

@@ -5,7 +5,7 @@
 int main() {
     try {
         CinemaManagement cm{"cinemas.json"};
-        MovieAndSeanceManagement masm{"movies.josn", "seances.json"};
+        MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};
     }
     catch (const std::exception& e) {
@@ -16,9 +16,18 @@ int main() {
 }
 
 /*
- * Dostaje plik json i na jego podstawie musze stworzyc tabele: cinemas, cinema_rooms, seats
- *
- * JSON     ->      Cinema      ->     CinemaRepository
- *          ->      CinemaRoom  ->     CinemaRoomRepository
- *          ->      Seats       ->     SeatRepository
- * */
+ * user -> role -> mozna zrobic enum / walidacje
+ * customer -> gender -> mozna zrobic enum / walidacje
+ * ticket -> status -> mozna zrobic enum / walidacje
+ * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
+ *                        ale i tak bedzie przekonwertowany na typ 'numeric'
+ */
+
+/*
+* A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
+* B. user wybiera -> zwracam informacje o miejscach (tablica dwuwymiarowa) ->
+*    user wybiera miejsca do zarezerwowania + rezerwacja/kupno
+* C. analiza miejsca (ok, czy zajete) -> wyliczenie ceny + zapisanie do db + email
+* D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
+*    analiza stanu zarezerwowanych biletow co 15 minut
+* */
