@@ -7,6 +7,12 @@ int main() {
         CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};
+
+        auto ss = SeanceRepository::find_by_parameters("ACTION", "WARSAW", "2020-11-10", "14");
+
+        for(const auto& one_seance : ss) {
+            std::cout << one_seance->movie_title << " " << one_seance->seance_date_time << std::endl;
+        }
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
