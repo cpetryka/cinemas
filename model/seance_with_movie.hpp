@@ -16,6 +16,9 @@ struct SeanceWithMovie {
     std::string movie_genre;
     std::string movie_author;
 
+    friend std::ostream& operator<<(std::ostream& out, const SeanceWithMovie& swm) {
+        return out << swm.movie_title << " CREATED BY " << swm.movie_author << "; " << swm.seance_date_time;
+    }
 };
 
 #endif //CINEMAS_SEANCE_WITH_MOVIE_HPP
