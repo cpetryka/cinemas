@@ -31,6 +31,7 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seat_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\user_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\cinema_management.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\movie_and_seance_management.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\ticket_management.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\user_management.hpp
 
 CMakeFiles\cinemas.dir\repository\sources\cinema_repository.cpp.obj: ..\connection\db_connection.hpp
@@ -127,6 +128,13 @@ CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.obj: ..\r
 CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.obj: ..\service\movie_and_seance_management.hpp
 CMakeFiles\cinemas.dir\service\sources\movie_and_seance_management.cpp.obj: ..\service\sources\movie_and_seance_management.cpp
 
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\connection\db_connection.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\json.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\libs.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\sqlite3.h
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\seance.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\seance_with_movie.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\seance_repository.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\service\sources\ticket_management.cpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\service\ticket_management.hpp
 

@@ -16,6 +16,7 @@ public:
     void update(const int id, const CinemaRoom& cinema_room);
     void remove(const int id);
     int find_pos_by_name(const std::string& name);
+    std::optional<std::unique_ptr<CinemaRoom>> find_by_id(const int idx);
 };
 
 

@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <exception>
+#include <optional>
 
 #include "sqlite3.h"
 #include "json.hpp"

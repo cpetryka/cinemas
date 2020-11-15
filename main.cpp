@@ -9,8 +9,8 @@ int main() {
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};*/
 
-        TicketManagement tm;
-        tm.buy_ticket();
+        /*TicketManagement tm;
+        tm.buy_ticket();*/
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
@@ -36,5 +36,5 @@ int main() {
 *    user wybiera miejsca do zarezerwowania + rezerwacja/kupno
 * C. analiza miejsca (ok, czy zajete) -> wyliczenie ceny + zapisanie do db + email
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
-*    analiza stanu zarezerwowanych biletow co 15 minut
+*    analiza stanu zarezerwowanych biletow co 15 minut - CZY TO MOZE BYC PO PROSTU TICKET_ID?
 * */
