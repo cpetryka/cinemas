@@ -9,7 +9,7 @@
 
 class TicketManagement {
     std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
-    int seance_choice(const std::string& user_prefs_str) const;
+    std::optional<std::unique_ptr<SeanceWithMovie>> seance_choice(const std::string& user_prefs_str) const;
 public:
     TicketManagement() = default;
 
