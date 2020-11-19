@@ -60,3 +60,21 @@ void TicketRepository::remove(const int id) {
 
     sqlite3_finalize(stmt);
 }
+
+std::vector<int> TicketRepository::find_reserved_seats(const int seance_id) {
+    std::vector<int> reserved_seats;
+
+    const std::string sql = "select seat_id from ticket where seance_id = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_int(stmt, 1, seance_id);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        reserved_seats.emplace_back(sqlite3_column_int(stmt, 0));
+    }
+
+    sqlite3_finalize(stmt);
+    return reserved_seats;
+}

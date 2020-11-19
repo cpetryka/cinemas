@@ -14,6 +14,7 @@ public:
     void insert(const Ticket& ticket);
     void update(const int id, const Ticket& ticket);
     void remove(const int id);
+    static std::vector<int> find_reserved_seats(const int seance_id);
 };
 
 
