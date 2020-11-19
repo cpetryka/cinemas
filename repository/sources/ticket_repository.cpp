@@ -64,7 +64,7 @@ void TicketRepository::remove(const int id) {
 std::vector<int> TicketRepository::find_reserved_seats(const int seance_id) {
     std::vector<int> reserved_seats;
 
-    const std::string sql = "select seat_id from ticket where seance_id = ?";
+    const std::string sql = "select seat_id from tickets where seance_id = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);

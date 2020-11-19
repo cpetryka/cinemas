@@ -9,11 +9,16 @@ int main() {
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};*/
 
-        TicketManagement tm;
-        tm.buy_ticket();
+        /*TicketManagement tm;
+        tm.buy_ticket();*/
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
+
+        /*const auto x = TicketRepository::find_reserved_seats(41);
+        for(const auto& xx : x) {
+            std::cout << xx << std::endl;
+        }*/
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
