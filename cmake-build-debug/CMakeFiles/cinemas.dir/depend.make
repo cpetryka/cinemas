@@ -21,6 +21,7 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\movie.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seance.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seance_with_movie.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\seat.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\ticket.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\model\user.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\cinema_room_repository.hpp
@@ -28,6 +29,7 @@ CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\customer_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\movie_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seance_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\seat_repository.hpp
+CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\ticket_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\repository\user_repository.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\cinema_management.hpp
 CMakeFiles\cinemas.dir\main.cpp.obj: ..\service\movie_and_seance_management.hpp
