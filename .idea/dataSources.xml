@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ticketoffice" uuid="7e1e7698-916c-481f-941c-1f28a67518dd">
+    <data-source source="LOCAL" name="ticketoffice.db" uuid="f86c1821-f73d-44c0-90ae-426616a05b6a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Cezary Petryka\Desktop\cinemas\cmake-build-debug\ticketoffice.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Cezary Petryka\Desktop\cinema\cmake-build-debug\ticketoffice.db</jdbc-url>
     </data-source>
   </component>
 </project>

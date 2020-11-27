@@ -12,6 +12,8 @@
 #include <vector>
 #include <exception>
 #include <optional>
+#include <algorithm>
+#include <typeinfo>
 
 #include "sqlite3.h"
 #include "json.hpp"
