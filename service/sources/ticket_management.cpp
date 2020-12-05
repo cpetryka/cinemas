@@ -37,120 +37,67 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(
     return std::make_unique<SeanceWithMovie>(*available_seances.at(user_choice));
 }
 
-int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
+std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
     // Pobieram informacje o wszystkich miejscach w danej sali
     CinemaRoomRepository crr;
-    auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
+    auto cinema_room_tmp = crr.find_by_id(room_id);
 
     // Generuje wektor z miejscami
-    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room;
-    SeatRepository sr;
-    int counter = 0;
-
-    for(auto i = 0; i < cinema_room_tmp.value()->rows; ++i) {
-        for(auto j = 0; j < cinema_room_tmp.value()->places; ++j) {
-            seats_in_cinema_room.emplace_back(std::make_unique<Seat>(*sr.find_by_parameters(cinema_room_id, i + 1, j + 1).value()));
-        }
-    }
+    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = crr.find_all_seats_in_given_room(room_id, rows, places);
 
     // Sprawdzam ktore miejsca sa zajete
     std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
 
     // Uwzgledniam zajete miejsca w pierwszym wektorze
-    std::for_each(reserved_seats.begin(), reserved_seats.end(), [&seats_in_cinema_room](const auto& reserved_seat) {
-        std::for_each(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_seat) {
-            if(one_seat->id == reserved_seat) {
-                one_seat->id = -1;
-            }
-        });
-    });
-
     std::for_each(reserved_seats.begin(), reserved_seats.end(), [&seats_in_cinema_room](const auto& reserved_seat) {
         auto found_element = std::find_if(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_seat) {
             return one_seat->id == reserved_seat;
         });
 
         if(found_element != seats_in_cinema_room.end()) {
-            std::cout << "FOUND!" << std::endl;
+            (*found_element)->id = -1;
         }
     });
 
-    std::for_each(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [](const auto& one_seat) {
-            if(one_seat->id != -1) {
-                std::cout << one_seat->id << "\t";
-            }
-            else {
-                std::cout << "XX" << "\t";
-            }
-    });
+    return seats_in_cinema_room;
+}
 
-    // SOLUTION 2
-    /*// Pobieram informacje o wszystkich miejscach w danej sali
+int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
+    // Pobieram informacje o wszystkich miejscach w danej sali
     CinemaRoomRepository crr;
     auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
 
-    // Generuje wektor z miejscami
-    std::vector<std::vector<std::unique_ptr<Seat>>> seats_in_cinema_room (cinema_room_tmp.value()->rows);
-    SeatRepository sr;
-    int counter = 0;
+    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = find_available_places(seance_id, cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
 
-    for(auto i = 0; i < cinema_room_tmp.value()->rows; ++i) {
-        for(auto j = 0; j < cinema_room_tmp.value()->places; ++j) {
-            seats_in_cinema_room.at(i).emplace_back(std::make_unique<Seat>(*sr.find_by_parameters(cinema_room_id, i + 1, j + 1).value()));
-        }
-    }
+    /*// Generuje wektor z miejscami
+    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = crr.find_all_seats_in_given_room(cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
 
     // Sprawdzam ktore miejsca sa zajete
     std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
 
     // Uwzgledniam zajete miejsca w pierwszym wektorze
     std::for_each(reserved_seats.begin(), reserved_seats.end(), [&seats_in_cinema_room](const auto& reserved_seat) {
-        std::for_each(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_row) {
-            std::for_each(one_row.begin(), one_row.end(), [&reserved_seat](const auto& one_seat) {
-                if(one_seat->id == reserved_seat) {
-                    one_seat->id = -1;
-                }
-            });
-        });
-    });
-
-    std::for_each(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [](const auto& one_row) {
-        std::for_each(one_row.begin(), one_row.end(), [](const auto& one_seat) {
-            if(one_seat->id != -1) {
-                std::cout << one_seat->id << "\t";
-            }
-            else {
-                std::cout << "XX" << "\t";
-            }
+        auto found_element = std::find_if(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_seat) {
+            return one_seat->id == reserved_seat;
         });
 
-        std::cout << std::endl;
-    });*/
-
-    // SOLUTION 1
-    /*std::for_each(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seats](const auto& one_row){
-
-        for(const auto& value : reserved_seats) {
-
-            auto found_element = std::find_if(one_row.begin(), one_row.end(), [&value](const auto& one_elem){
-                std::cout << "=> " << one_elem.value()->id << std::endl;
-                return one_elem.value()->id == value;
-            });
-
-            // std::cout << std::type_info(found_element).name() << std::endl;
-            // std::cout << *(*(*found_element).value()) << std::end;
-            // std::cout << *(*found_element).value()->id << std::endl;
-            // std::cout << *(*found_element.value())->id << std::endl;
-
-
-            do {
-
-                //found_element = std::find_if(one_row.begin(), one_row.end(), [&value](const auto& one_elem){
-                //    return one_elem == value;
-                //});
-            } while(found_element != one_row.end());
+        if(found_element != seats_in_cinema_room.end()) {
+            (*found_element)->id = -1;
         }
     });*/
+
+    for(auto i = 0; i < seats_in_cinema_room.size(); ++i) {
+        if(seats_in_cinema_room.at(i)->id != -1) {
+            std::cout << i + 1 << "\t";
+        }
+        else {
+            std::cout << "----" << "\t";
+        }
+
+        if((i + 1) % cinema_room_tmp.value()->places == 0) {
+            std::cout << std::endl;
+        }
+    }
 
     return 0;
 }

@@ -32,9 +32,9 @@ int main() {
 
 /*
 * A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
-* B. user wybiera || -> zwracam informacje o miejscach (tablica dwuwymiarowa) ->
-*    user wybiera miejsca do zarezerwowania + rezerwacja/kupno
-* C. analiza miejsca (ok, czy zajete) -> wyliczenie ceny + zapisanie do db + email
+* B. user wybiera || -> zwracam informacje o miejscach ->
+*    user wybiera miejsca do zarezerwowania + analiza miejsca (ok, czy zajete)
+* C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
-*    analiza stanu zarezerwowanych biletow co 15 minut - CZY TO MOZE BYC PO PROSTU TICKET_ID?
+*    analiza stanu zarezerwowanych biletow co 15 minut
 * */
