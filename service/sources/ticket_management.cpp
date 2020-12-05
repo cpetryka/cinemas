@@ -38,12 +38,8 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(
 }
 
 std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
-    // Pobieram informacje o wszystkich miejscach w danej sali
-    CinemaRoomRepository crr;
-    auto cinema_room_tmp = crr.find_by_id(room_id);
-
     // Generuje wektor z miejscami
-    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = crr.find_all_seats_in_given_room(room_id, rows, places);
+    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = CinemaRoomRepository::find_all_seats_in_given_room(room_id, rows, places);
 
     // Sprawdzam ktore miejsca sa zajete
     std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
@@ -63,29 +59,13 @@ std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const
 }
 
 int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
-    // Pobieram informacje o wszystkich miejscach w danej sali
     CinemaRoomRepository crr;
     auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
 
+    // Pobiera informacje o dostepnych miejscach
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = find_available_places(seance_id, cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
 
-    /*// Generuje wektor z miejscami
-    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = crr.find_all_seats_in_given_room(cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
-
-    // Sprawdzam ktore miejsca sa zajete
-    std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
-
-    // Uwzgledniam zajete miejsca w pierwszym wektorze
-    std::for_each(reserved_seats.begin(), reserved_seats.end(), [&seats_in_cinema_room](const auto& reserved_seat) {
-        auto found_element = std::find_if(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_seat) {
-            return one_seat->id == reserved_seat;
-        });
-
-        if(found_element != seats_in_cinema_room.end()) {
-            (*found_element)->id = -1;
-        }
-    });*/
-
+    // Wyswietlam informacje o miejscach
     for(auto i = 0; i < seats_in_cinema_room.size(); ++i) {
         if(seats_in_cinema_room.at(i)->id != -1) {
             std::cout << i + 1 << "\t";
@@ -99,7 +79,20 @@ int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id)
         }
     }
 
-    return 0;
+    // Wybor miejsca
+    auto user_choice = 0;
+
+    while(true) {
+        std::cout << "I've chosen place number:" << std::endl;
+        std::cin >> user_choice; std::cin.get();
+
+        if(seats_in_cinema_room.at(user_choice - 1)->id != -1) {
+            user_choice = seats_in_cinema_room.at(user_choice)->id;
+            break;
+        }
+    }
+
+    return user_choice;
 }
 
 void TicketManagement::buy_ticket() const {
@@ -110,4 +103,6 @@ void TicketManagement::buy_ticket() const {
     auto chosen_seance = seance_choice(user_preferences);
     auto chosen_seat_id = seat_choice(chosen_seance.value()->seance_id,
                                       chosen_seance.value()->seance_cinema_room_id);
+
+    std::cout << chosen_seat_id << std::endl;
 }
