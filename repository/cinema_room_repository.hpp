@@ -18,7 +18,7 @@ public:
     void remove(const int id);
     int find_pos_by_name(const std::string& name);
     std::optional<std::unique_ptr<CinemaRoom>> find_by_id(const int idx);
-    std::vector<std::unique_ptr<Seat>> find_all_seats_in_given_room(const int room_id, const int rows, const int places);
+    static std::vector<std::unique_ptr<Seat>> find_all_seats_in_given_room(const int room_id, const int rows, const int places);
 };
 
 
