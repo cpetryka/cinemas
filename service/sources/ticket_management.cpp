@@ -95,6 +95,18 @@ int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id)
     return user_choice;
 }
 
+std::string TicketManagement::reservation_or_order() const {
+    auto choice = 0;
+
+    do {
+        std::cout << "Do you want to reserve or buy (1 - reserve, 2 - buy)?:" << std::endl;
+        std::cin >> choice; std::cin.get();
+    } while(choice != 1 && choice != 2);
+
+    return (choice == 1) ? "RESERVED" : "ORDERED";
+}
+
+
 void TicketManagement::buy_ticket() const {
     std::cout << "Specify your preferences (movie_genre, city, date, time): " << std::endl;
     std::string user_preferences;
@@ -103,6 +115,5 @@ void TicketManagement::buy_ticket() const {
     auto chosen_seance = seance_choice(user_preferences);
     auto chosen_seat_id = seat_choice(chosen_seance.value()->seance_id,
                                       chosen_seance.value()->seance_cinema_room_id);
-
-    std::cout << chosen_seat_id << std::endl;
+    auto state = reservation_or_order();
 }
