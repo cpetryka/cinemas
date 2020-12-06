@@ -20,6 +20,7 @@ public:
     TicketManagement() = default;
 
     void buy_ticket() const;
+    void manage_reserved_seat(const int ticket_id) const;
 };
 
 #endif //CINEMAS_TICKET_MANAGEMENT_HPP

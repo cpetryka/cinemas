@@ -117,3 +117,30 @@ void TicketManagement::buy_ticket() const {
                                       chosen_seance.value()->seance_cinema_room_id);
     auto state = reservation_or_order();
 }
+
+void TicketManagement::manage_reserved_seat(const int ticket_id) const {
+    TicketRepository tr;
+    auto ticket_tmp = tr.find_by_id(ticket_id);
+    auto user_choice = 0;
+
+    if(ticket_tmp.has_value()) {
+        std::cout << "What do you want to do?" << std::endl;
+        std::cout << "1 - pay the ticket" << std::endl;
+        std::cout << "2 - cancel" << std::endl;
+        std::cout << "Your choice:" << std::endl;
+        std::cin >> user_choice; std::cin.get();
+
+        switch (user_choice) {
+            case 1:
+                // TODO: platnosc
+                ticket_tmp.value()->state = "ORDERED";
+                tr.update(ticket_id, *ticket_tmp.value());
+                break;
+            case 2:
+                tr.remove(ticket_id);
+                break;
+            default:
+                std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
+        }
+    }
+}
