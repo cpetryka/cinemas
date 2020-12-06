@@ -116,6 +116,14 @@ void TicketManagement::buy_ticket() const {
     auto chosen_seat_id = seat_choice(chosen_seance.value()->seance_id,
                                       chosen_seance.value()->seance_cinema_room_id);
     auto state = reservation_or_order();
+
+    TicketRepository tr;
+    tr.insert(Ticket{0, -1, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+
+    if(state == "RESERVED") {
+        std::cout << "Your ticket ID: " << std::endl;
+        std::cout << "You can use this ID to pay for or cancel your order." << std::endl;
+    }
 }
 
 void TicketManagement::manage_reserved_seat(const int ticket_id) const {

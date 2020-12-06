@@ -28,12 +28,17 @@ int main() {
  * ticket -> status -> mozna zrobic enum / walidacje
  * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
+ * wysylanie email
+ * analiza stanu zarezerwowanych biletow co 15 minut
+ * wlasciwa obluga klienta itp.
+ * REFAKTORYZACJA
+ * przy anulowaniu zamowienia lepiej ustawic state na "CANCELLED" czy po prostu usunac ??
  */
 
 /*
 * A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
 * B. user wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
-* C. rezerwacja/kupno || -> wyliczenie ceny + zapisanie do db + email
+* C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
 *    analiza stanu zarezerwowanych biletow co 15 minut
 * */
