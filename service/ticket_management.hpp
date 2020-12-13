@@ -14,7 +14,8 @@ class TicketManagement {
     std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
     std::optional<std::unique_ptr<SeanceWithMovie>> seance_choice(const std::string& user_prefs_str) const;
     std::vector<std::unique_ptr<Seat>> find_available_places(const int seance_id, const int room_id, const int rows, const int places) const;
-    int seat_choice(const int seance_id, const int cinema_room_id) const;
+    bool check_if_chosen_places_are_available(std::vector<int>& chosen_places, const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
+    std::vector<int> seat_choice(const int seance_id, const int cinema_room_id) const;
     std::string reservation_or_order() const;
 public:
     TicketManagement() = default;

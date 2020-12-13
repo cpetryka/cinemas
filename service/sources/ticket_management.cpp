@@ -58,7 +58,21 @@ std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const
     return seats_in_cinema_room;
 }
 
-int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
+bool TicketManagement::check_if_chosen_places_are_available(std::vector<int>& chosen_places,
+                                                            const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const {
+    for(auto& one_of_chosen_places : chosen_places) {
+        if(seats_in_cinema_room.at(one_of_chosen_places - 1)->id != -1) {
+            one_of_chosen_places = seats_in_cinema_room.at(one_of_chosen_places)->id;
+        }
+        else {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+std::vector<int> TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
     CinemaRoomRepository crr;
     auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
 
@@ -80,19 +94,28 @@ int TicketManagement::seat_choice(const int seance_id, const int cinema_room_id)
     }
 
     // Wybor miejsca
-    auto user_choice = 0;
+    std::vector<int> chosen_places;
+    std::string user_choice;
 
     while(true) {
-        std::cout << "I've chosen place number:" << std::endl;
-        std::cin >> user_choice; std::cin.get();
+        std::cout << "Enter the selected places (separate them by commas):" << std::endl;
+        std::getline(std::cin, user_choice);
 
-        if(seats_in_cinema_room.at(user_choice - 1)->id != -1) {
-            user_choice = seats_in_cinema_room.at(user_choice)->id;
+        auto tmp = convert_string_to_vector(user_choice, ',');
+        chosen_places.resize(tmp.size());
+        std::transform(tmp.begin(), tmp.end(), chosen_places.begin(), [](const auto& one_string) {
+            return std::stoi(one_string);
+        });
+
+        if(check_if_chosen_places_are_available(chosen_places, seats_in_cinema_room)) {
             break;
+        }
+        else {
+            std::cout << "== ERROR! - Incorrect input! Try again. ==" << std::endl;
         }
     }
 
-    return user_choice;
+    return chosen_places;
 }
 
 std::string TicketManagement::reservation_or_order() const {
@@ -113,12 +136,14 @@ void TicketManagement::buy_ticket() const {
     std::getline(std::cin, user_preferences);
 
     auto chosen_seance = seance_choice(user_preferences);
-    auto chosen_seat_id = seat_choice(chosen_seance.value()->seance_id,
+    auto chosen_seats = seat_choice(chosen_seance.value()->seance_id,
                                       chosen_seance.value()->seance_cinema_room_id);
     auto state = reservation_or_order();
 
     TicketRepository tr;
-    tr.insert(Ticket{0, -1, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+    for(int & chosen_seat_id : chosen_seats) {
+        tr.insert(Ticket{0, 5, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+    }
 
     if(state == "RESERVED") {
         std::cout << "Your ticket ID: " << std::endl;
