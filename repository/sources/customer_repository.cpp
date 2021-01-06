@@ -85,7 +85,7 @@ int CustomerRepository::find_pos(const Customer &customer) {
 }
 
 int CustomerRepository::find_customer_by_username_and_password(const std::string &username, const std::string &password) {
-    const std::string sql = "select c.id from customers c join user u on c.user_id = u.id where u.username = ? and u.password = ?";
+    const std::string sql = "select c.id from customers c join users u on c.user_id = u.id where u.username = ? and u.password = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);

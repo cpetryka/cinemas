@@ -45,3 +45,15 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
         }
     });
 }
+
+int UserManagement::sign_in() {
+    std::cout << "Enter your username:" << std::endl;
+    std::string username;
+    std::getline(std::cin, username);
+
+    std::cout << "Enter your password:" << std::endl;
+    std::string password;
+    std::getline(std::cin, password);
+
+    return CustomerRepository::find_customer_by_username_and_password(username, password);
+}

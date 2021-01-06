@@ -15,6 +15,7 @@ public:
     explicit UserManagement(const std::string& file_name);
 
     void get_users_to_the_database(const std::string& file_name) const;
+    int sign_in();
 };
 
 

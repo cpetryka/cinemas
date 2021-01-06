@@ -45,7 +45,11 @@ int main() {
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};*/
 
-        menu();
+        // menu();
+
+        UserManagement ur;
+        auto x = ur.sign_in();
+        std::cout << "===========" << x << "===============";
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
