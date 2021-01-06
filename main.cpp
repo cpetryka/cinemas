@@ -45,11 +45,7 @@ int main() {
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};*/
 
-        // menu();
-
-        UserManagement ur;
-        auto x = ur.sign_in();
-        std::cout << "===========" << x << "===============";
+        menu();
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
@@ -68,7 +64,6 @@ int main() {
  * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
  *
- * wlasciwa obluga klienta itp.
  * REFAKTORYZACJA: przejrzeć, obluga bledow itp.
  * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut

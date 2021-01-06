@@ -141,9 +141,11 @@ void TicketManagement::buy_ticket() const {
                                       chosen_seance.value()->seance_cinema_room_id);
     auto state = reservation_or_order();
 
+    auto customer_id = UserManagement::sign_in();
+
     TicketRepository tr;
     for(int & chosen_seat_id : chosen_seats) {
-        tr.insert(Ticket{0, 5, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+        tr.insert(Ticket{0, customer_id, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
     }
 
     if(state == "RESERVED") {

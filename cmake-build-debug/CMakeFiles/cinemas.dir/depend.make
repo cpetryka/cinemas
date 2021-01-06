@@ -139,16 +139,21 @@ CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\json.h
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\libs.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\libs\sqlite3.h
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\cinema_room.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\customer.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\seance.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\seance_with_movie.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\seat.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\ticket.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\model\user.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\cinema_room_repository.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\customer_repository.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\seance_repository.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\seat_repository.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\ticket_repository.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\repository\user_repository.hpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\service\sources\ticket_management.cpp
 CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\service\ticket_management.hpp
+CMakeFiles\cinemas.dir\service\sources\ticket_management.cpp.obj: ..\service\user_management.hpp
 
 CMakeFiles\cinemas.dir\service\sources\user_management.cpp.obj: ..\connection\db_connection.hpp
 CMakeFiles\cinemas.dir\service\sources\user_management.cpp.obj: ..\libs\json.hpp

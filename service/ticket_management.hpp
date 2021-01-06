@@ -9,6 +9,7 @@
 #include "../repository/seat_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
 #include "../repository/ticket_repository.hpp"
+#include "user_management.hpp"
 
 class TicketManagement {
     std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
