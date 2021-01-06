@@ -32,6 +32,7 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(
     do {
         std::cout << "Which seance do you choose?" << std::endl;
         std::cin >> user_choice; std::cin.get();
+        user_choice;
     } while(user_choice < 0 || user_choice > available_seances.size() - 1);
 
     return std::make_unique<SeanceWithMovie>(*available_seances.at(user_choice));
@@ -104,7 +105,7 @@ std::vector<int> TicketManagement::seat_choice(const int seance_id, const int ci
         auto tmp = convert_string_to_vector(user_choice, ',');
         chosen_places.resize(tmp.size());
         std::transform(tmp.begin(), tmp.end(), chosen_places.begin(), [](const auto& one_string) {
-            return std::stoi(one_string);
+            return std::stoi(one_string) - 1;
         });
 
         if(check_if_chosen_places_are_available(chosen_places, seats_in_cinema_room)) {

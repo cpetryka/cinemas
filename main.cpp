@@ -12,7 +12,7 @@ void menu() {
         std::cout << "== 2. MANAGE RESERVED TICKETS" << std::endl;
         std::cout << "== 3. MANAGE YOUR ACCOUNT" << std::endl;
         std::cout << "== 9. LOG OUT" << std::endl;
-        std::cout << "==================== MENU ====================" << std::endl;
+        std::cout << "==============================================" << std::endl;
 
         std::cout << "Your choice: " << std::endl;
         std::cin >> user_choice; std::cin.get();
@@ -64,11 +64,10 @@ int main() {
  * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
  *
+ * wlasciwa obluga klienta itp.
+ * REFAKTORYZACJA: przejrzeć, obluga bledow itp.
  * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut
- * wlasciwa obluga klienta itp.
- * obsluga bledow
- * REFAKTORYZACJA
  */
 
 /*
@@ -78,3 +77,9 @@ int main() {
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
 *    analiza stanu zarezerwowanych biletow co 15 minut
 * */
+
+/*
+ * Wybieram kino itp.
+ * Wybieram film i miejsca
+ * Loguje sie
+ * */
