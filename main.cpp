@@ -86,7 +86,7 @@ int main() {
  *
  * 2. Czy oplaca sie int obudowywac w std::optional, nie lepiej zwrocic np. -1
  *
- * 3. "cinema_management.hpp" --> Robic osobne funkcje?
+ * 3. "CinemaManagement" i "MovieAndSeanceManagement" --> robic osobne funkcje?
  *
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale

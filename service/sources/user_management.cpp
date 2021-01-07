@@ -27,11 +27,11 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_user) {
-        UserRepository ur;
         User u {0, one_user["username"], one_user["password"], one_user["role"]};
 
         // If there is no such user, this adds it
         if(!UserRepository::find_pos(u).has_value()) {
+            UserRepository ur;
             ur.insert(u);
         }
 
@@ -48,14 +48,23 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
 }
 
 int UserManagement::sign_in() {
-    std::cout << "Enter your username:" << std::endl;
-    std::string username;
-    std::getline(std::cin, username);
+    auto counter = 0;
+    std::string username, password;
+    std::optional<int> found_customer;
 
-    std::cout << "Enter your password:" << std::endl;
-    std::string password;
-    std::getline(std::cin, password);
+    do {
+        std::cout << "Enter your username:" << std::endl;
+        std::getline(std::cin, username);
 
-    // TODO: tymczasowo daje tak, pozniej sie pobawic z wlasciwym logowaniem
-    return CustomerRepository::find_customer_by_username_and_password(username, password).value();
+        std::cout << "Enter your password:" << std::endl;
+        std::getline(std::cin, password);
+
+        found_customer = CustomerRepository::find_customer_by_username_and_password(username, password);
+    } while(++counter < 3 && !found_customer.has_value());
+
+    if(!found_customer.has_value()) {
+        throw std::runtime_error{"There is no user with a given login or password."};
+    }
+
+    return found_customer.value();
 }
