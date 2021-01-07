@@ -56,5 +56,6 @@ int UserManagement::sign_in() {
     std::string password;
     std::getline(std::cin, password);
 
-    return CustomerRepository::find_customer_by_username_and_password(username, password);
+    // TODO: tymczasowo daje tak, pozniej sie pobawic z wlasciwym logowaniem
+    return CustomerRepository::find_customer_by_username_and_password(username, password).value();
 }
