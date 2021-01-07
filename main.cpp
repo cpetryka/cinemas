@@ -41,11 +41,11 @@ void menu() {
 
 int main() {
     try {
-        /*CinemaManagement cm{"cinemas.json"};
+        CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};*/
+        UserManagement am{"users.json"};
 
-        menu();
+        // menu();
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
@@ -91,3 +91,12 @@ int main() {
  *
  *
  * */
+
+/*
+ * CINEMA ROOM REPO
+ * CUSTOMER REPO
+ * MOVIE REPO
+ * SEANCE REPO
+ * SEAT REPO
+ * TICKET REPO
+ */

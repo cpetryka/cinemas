@@ -14,7 +14,7 @@ public:
     void insert(const Seat& seat);
     void update(const int id, const Seat& seat);
     void remove(const int id);
-    int find_pos(const Seat& seat);
+    static std::optional<int> find_pos(const Seat& seat);
     std::optional<std::unique_ptr<Seat>> find_by_parameters(const int cinema_room_id, const int row, const int place);
 };
 

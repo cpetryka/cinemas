@@ -46,13 +46,13 @@ void CinemaManagement::add_datas_to_the_database(const std::string &file_name) c
 
             // Add seats
             auto one_cinema_room_pos = crr.find_pos_by_name(one_cinema_room["name"]);
-            SeatRepository sr;
 
             for(auto i = 1; i <= one_cinema_room["rows"]; ++i) {
                 for(auto j = 1; j <= one_cinema_room["places"]; ++j) {
                     Seat s{0, one_cinema_room_pos, i, j};
 
-                    if(sr.find_pos(s) == -1) {
+                    if(!SeatRepository::find_pos(s).has_value()) {
+                        SeatRepository sr;
                         sr.insert(s);
                     }
                 }
