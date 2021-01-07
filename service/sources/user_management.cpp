@@ -40,7 +40,7 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
             auto user_id = UserRepository::find_pos(u).value();
             Customer c{0, one_user["name"], one_user["surname"], one_user["age"], one_user["gender"], one_user["city"], user_id};
 
-            if(cr.find_pos(c) == -1) {
+            if(!CustomerRepository::find_pos(c).has_value()) {
                 cr.insert(c);
             }
         }

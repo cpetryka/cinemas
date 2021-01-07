@@ -14,7 +14,7 @@ public:
     void insert(const Customer& customer);
     void update(const int id, const Customer& customer);
     void remove(const int id);
-    int find_pos(const Customer& customer);
+    static std::optional<int> find_pos(const Customer& customer);
     static int find_customer_by_username_and_password(const std::string& username, const std::string& password);
 };
 

@@ -41,11 +41,11 @@ void menu() {
 
 int main() {
     try {
-        CinemaManagement cm{"cinemas.json"};
+        /*CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};
+        UserManagement am{"users.json"};*/
 
-        // menu();
+        menu();
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
@@ -65,6 +65,7 @@ int main() {
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
  *
  * REFAKTORYZACJA: przejrzeć, obluga bledow itp.
+ * Rezerwacja ostatniego miejsca
  * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut
  */
@@ -78,12 +79,6 @@ int main() {
 * */
 
 /*
- * Wybieram kino itp.
- * Wybieram film i miejsca
- * Loguje sie
- * */
-
-/*
  *
  * 1. "db_connection.cpp" --> czy dla każdej bazy danych opłaca się tworzyć osobną
  * zmienną "error_message", "result" itp., czy lepiej stworzyc pojedyncza zmienna na poczatku
@@ -95,5 +90,4 @@ int main() {
 /*
  * CINEMA ROOM REPO
  * CUSTOMER REPO
- * MOVIE REPO
  */
