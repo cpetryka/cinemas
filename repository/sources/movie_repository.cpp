@@ -75,7 +75,7 @@ std::optional<int> MovieRepository::find_pos(const Movie& movie) {
     return std::nullopt;
 }
 
-int MovieRepository::find_pos_by_title(const std::string &title) {
+std::optional<int> MovieRepository::find_pos_by_title(const std::string &title) {
     const std::string sql = "select id from movies where title = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
@@ -84,9 +84,9 @@ int MovieRepository::find_pos_by_title(const std::string &title) {
 
     auto result = 0;
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-        return sqlite3_column_int(stmt, 0);
+        return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
-    return -1;
+    return std::nullopt;
 }
