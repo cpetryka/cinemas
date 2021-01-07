@@ -57,7 +57,7 @@ void MovieRepository::remove(const int id) {
     sqlite3_finalize(stmt);
 }
 
-int MovieRepository::find_pos(const Movie& movie) {
+std::optional<int> MovieRepository::find_pos(const Movie& movie) {
     const std::string sql = "select id from movies where title = ? and genre = ? and author = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
@@ -68,11 +68,11 @@ int MovieRepository::find_pos(const Movie& movie) {
 
     auto result = 0;
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-        return sqlite3_column_int(stmt, 0);
+        return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
-    return -1;
+    return std::nullopt;
 }
 
 int MovieRepository::find_pos_by_title(const std::string &title) {
