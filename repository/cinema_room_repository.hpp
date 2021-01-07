@@ -16,7 +16,7 @@ public:
     void insert(const CinemaRoom& cinema_room);
     void update(const int id, const CinemaRoom& cinema_room);
     void remove(const int id);
-    int find_pos_by_name(const std::string& name);
+    static std::optional<int> find_pos_by_name(const std::string& name);
     std::optional<std::unique_ptr<CinemaRoom>> find_by_id(const int idx);
     static std::vector<std::unique_ptr<Seat>> find_all_seats_in_given_room(const int room_id, const int rows, const int places);
 };

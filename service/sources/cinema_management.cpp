@@ -37,15 +37,15 @@ void CinemaManagement::add_datas_to_the_database(const std::string &file_name) c
             CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], CinemaRepository::find_pos(cinema_tmp).value(), one_cinema_room["rows"], one_cinema_room["places"]};
             CinemaRoomRepository crr;
 
-            if(crr.find_pos_by_name(one_cinema_room["name"]) == -1) {
+            if(!CinemaRoomRepository::find_pos_by_name(one_cinema_room["name"]).has_value()) {
                 crr.insert(cinema_room_tmp);
             }
             else {
-                crr.update(crr.find_pos_by_name(one_cinema_room["name"]), cinema_room_tmp);
+                crr.update(CinemaRoomRepository::find_pos_by_name(one_cinema_room["name"]).value(), cinema_room_tmp);
             }
 
             // Add seats
-            auto one_cinema_room_pos = crr.find_pos_by_name(one_cinema_room["name"]);
+            auto one_cinema_room_pos = CinemaRoomRepository::find_pos_by_name(one_cinema_room["name"]).value();
 
             for(auto i = 1; i <= one_cinema_room["rows"]; ++i) {
                 for(auto j = 1; j <= one_cinema_room["places"]; ++j) {

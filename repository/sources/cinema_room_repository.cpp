@@ -67,7 +67,7 @@ void CinemaRoomRepository::remove(const int id) {
     sqlite3_finalize(stmt);
 }
 
-int CinemaRoomRepository::find_pos_by_name(const std::string &name) {
+std::optional<int> CinemaRoomRepository::find_pos_by_name(const std::string &name) {
     const std::string sql = "select id from cinema_rooms where name = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
@@ -76,11 +76,11 @@ int CinemaRoomRepository::find_pos_by_name(const std::string &name) {
 
     auto result = 0;
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-        return sqlite3_column_int(stmt, 0);
+        return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
-    return -1;
+    return std::nullopt;
 }
 
 std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(const int idx) {
