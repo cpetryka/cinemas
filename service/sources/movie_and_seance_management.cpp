@@ -27,10 +27,9 @@ MovieAndSeanceManagement::MovieAndSeanceManagement(const std::string &movies_fil
 
 void MovieAndSeanceManagement::add_movies_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
-    Movie m;
 
-    std::for_each(data.begin(), data.end(), [&m](const auto& one_movie) {
-        m = {0, one_movie["title"], one_movie["genre"], one_movie["author"]};
+    std::for_each(data.begin(), data.end(), [](const auto& one_movie) {
+        Movie m = {0, one_movie["title"], one_movie["genre"], one_movie["author"]};
 
         if(!MovieRepository::find_pos(m).has_value()) {
             MovieRepository mr;
