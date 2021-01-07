@@ -39,10 +39,10 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(
 }
 
 std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
-    // Generuje wektor z miejscami
+    // Generate a vecotr with seats
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = CinemaRoomRepository::find_all_seats_in_given_room(room_id, rows, places);
 
-    // Sprawdzam ktore miejsca sa zajete
+    // Check which places are not available
     std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
 
     // Uwzgledniam zajete miejsca w pierwszym wektorze
@@ -156,7 +156,7 @@ void TicketManagement::buy_ticket() const {
 
 void TicketManagement::manage_reserved_seat(const int ticket_id) const {
     TicketRepository tr;
-    auto ticket_tmp = tr.find_by_id(ticket_id);
+    auto ticket_tmp = TicketRepository::find_by_id(ticket_id);
     auto user_choice = 0;
 
     if(ticket_tmp.has_value()) {

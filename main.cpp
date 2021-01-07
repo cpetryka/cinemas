@@ -97,6 +97,5 @@ int main() {
  * CUSTOMER REPO
  * MOVIE REPO
  * SEANCE REPO
- * SEAT REPO
  * TICKET REPO
  */
