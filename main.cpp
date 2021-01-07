@@ -41,11 +41,11 @@ void menu() {
 
 int main() {
     try {
-        /*CinemaManagement cm{"cinemas.json"};
+        CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};*/
+        UserManagement am{"users.json"};
 
-        menu();
+        // menu();
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
@@ -84,12 +84,12 @@ int main() {
  * */
 
 /*
- * "db_connection.cpp"
- * czy dla każdej bazy danych opłaca się tworzyć osobną zmienną "error_message", "result" itp., czy
- * lepiej stworzyc pojedyncza zmienna na poczatku i pozniej z niej korzystac, czy bardzo wplywa to
- * na wydajnosc
  *
+ * 1. "db_connection.cpp" --> czy dla każdej bazy danych opłaca się tworzyć osobną
+ * zmienną "error_message", "result" itp., czy lepiej stworzyc pojedyncza zmienna na poczatku
+ * i pozniej z niej korzystac, czy bardzo wplywa to na wydajnosc
  *
+ * 2. Czy oplaca sie int obudowywac w std::optional, nie lepiej zwrocic np. -1
  * */
 
 /*
@@ -97,5 +97,4 @@ int main() {
  * CUSTOMER REPO
  * MOVIE REPO
  * SEANCE REPO
- * TICKET REPO
  */

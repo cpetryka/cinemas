@@ -66,7 +66,7 @@ void SeanceRepository::remove(const int id) {
     sqlite3_finalize(stmt);
 }
 
-int SeanceRepository::find_pos(const Seance &seance) {
+std::optional<int> SeanceRepository::find_pos(const Seance &seance) {
     const std::string sql = "select id from seances where movie_id = ? and cinema_room_id = ? and date_time = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
@@ -77,11 +77,11 @@ int SeanceRepository::find_pos(const Seance &seance) {
 
     auto result = 0;
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-        return sqlite3_column_int(stmt, 0);
+        return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
-    return -1;
+    return std::nullopt;
 }
 
 std::vector<std::unique_ptr<SeanceWithMovie>>

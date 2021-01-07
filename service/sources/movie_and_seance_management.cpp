@@ -45,7 +45,6 @@ void MovieAndSeanceManagement::add_seances_to_the_database(const std::string &fi
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
         // Check if given cinema exists
-        // CinemaRepository cr;
         auto cinema_id = CinemaRepository::find_pos(Cinema{0, one_cinema["cinema_name"], one_cinema["cinema_city"]});
 
         if(cinema_id.has_value()) {
@@ -59,10 +58,10 @@ void MovieAndSeanceManagement::add_seances_to_the_database(const std::string &fi
                         CinemaRoomRepository crr;
                         auto cinema_room_id = crr.find_pos_by_name(one_detail["cinema_room_name"]);
 
-                        SeanceRepository sr;
                         Seance s{0, movie_id, cinema_room_id, one_detail["date_time"]};
 
-                        if(sr.find_pos(s) == -1) {
+                        if(!SeanceRepository::find_pos(s).has_value()) {
+                            SeanceRepository sr;
                             sr.insert(s);
                         }
                     });
