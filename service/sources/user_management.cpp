@@ -30,13 +30,14 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
         UserRepository ur;
         User u {0, one_user["username"], one_user["password"], one_user["role"]};
 
-        if(ur.find_pos(u) == -1) {
+        // If there is no such user, this adds it
+        if(!UserRepository::find_pos(u).has_value()) {
             ur.insert(u);
         }
 
         if(u.role == "CUSTOMER") {
             CustomerRepository cr;
-            auto user_id = ur.find_pos(u);
+            auto user_id = UserRepository::find_pos(u).value();
             Customer c{0, one_user["name"], one_user["surname"], one_user["age"], one_user["gender"], one_user["city"], user_id};
 
             if(cr.find_pos(c) == -1) {
