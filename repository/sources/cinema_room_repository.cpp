@@ -83,6 +83,27 @@ std::optional<int> CinemaRoomRepository::find_pos_by_name(const std::string &nam
     return std::nullopt;
 }
 
+
+std::optional<int> CinemaRoomRepository::find_pos(const CinemaRoom &cinema_room) {
+    const std::string sql = "select id from cinema_rooms where name = ? and cinema_id = ? and rows = ? and places = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, cinema_room.name.c_str(), -1, 0);
+    sqlite3_bind_int(stmt, 2, cinema_room.cinema_id);
+    sqlite3_bind_int(stmt, 3, cinema_room.rows);
+    sqlite3_bind_int(stmt, 4, cinema_room.places);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return std::make_optional(sqlite3_column_int(stmt, 0));
+    }
+
+    sqlite3_finalize(stmt);
+    return std::nullopt;
+}
+
+
 std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(const int idx) {
     const std::string sql = "select id, name, cinema_id, rows, places from cinema_rooms where id = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
