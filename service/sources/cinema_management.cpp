@@ -27,13 +27,14 @@ void CinemaManagement::add_datas_to_the_database(const std::string &file_name) c
         Cinema cinema_tmp = {0, one_cinema["name"], one_cinema["city"]};
         CinemaRepository cr;
 
-        if(cr.find_pos(cinema_tmp) == -1) {
+        // If there is no such cinema, thsis adds it
+        if(!CinemaRepository::find_pos(cinema_tmp).has_value()) {
             cr.insert(cinema_tmp);
         }
 
         // Add rooms
         std::for_each(one_cinema["cinema_rooms"].begin(), one_cinema["cinema_rooms"].end(), [&cr, &cinema_tmp](const auto& one_cinema_room) {
-            CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], cr.find_pos(cinema_tmp), one_cinema_room["rows"], one_cinema_room["places"]};
+            CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], CinemaRepository::find_pos(cinema_tmp).value(), one_cinema_room["rows"], one_cinema_room["places"]};
             CinemaRoomRepository crr;
 
             if(crr.find_pos_by_name(one_cinema_room["name"]) == -1) {

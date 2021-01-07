@@ -82,3 +82,12 @@ int main() {
  * Wybieram film i miejsca
  * Loguje sie
  * */
+
+/*
+ * "db_connection.cpp"
+ * czy dla każdej bazy danych opłaca się tworzyć osobną zmienną "error_message", "result" itp., czy
+ * lepiej stworzyc pojedyncza zmienna na poczatku i pozniej z niej korzystac, czy bardzo wplywa to
+ * na wydajnosc
+ *
+ *
+ * */
