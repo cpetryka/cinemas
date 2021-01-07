@@ -108,11 +108,10 @@ std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(cons
 std::vector<std::unique_ptr<Seat>>
 CinemaRoomRepository::find_all_seats_in_given_room(const int room_id, const int rows, const int places) {
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room;
-    SeatRepository sr;
 
     for(auto i = 0; i < rows; ++i) {
         for(auto j = 0; j < places; ++j) {
-            seats_in_cinema_room.emplace_back(std::make_unique<Seat>(*sr.find_by_parameters(room_id, i + 1, j + 1).value()));
+            seats_in_cinema_room.emplace_back(std::make_unique<Seat>(*SeatRepository::find_by_parameters(room_id, i + 1, j + 1).value()));
         }
     }
 
