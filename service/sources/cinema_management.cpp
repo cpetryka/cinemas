@@ -27,7 +27,7 @@ void CinemaManagement::add_datas_to_the_database(const std::string &file_name) c
         Cinema cinema_tmp = {0, one_cinema["name"], one_cinema["city"]};
         CinemaRepository cr;
 
-        // If there is no such cinema, thsis adds it
+        // If there is no such cinema, this adds it
         if(!CinemaRepository::find_pos(cinema_tmp).has_value()) {
             cr.insert(cinema_tmp);
         }
