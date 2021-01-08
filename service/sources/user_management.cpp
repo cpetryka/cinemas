@@ -19,6 +19,19 @@ json UserManagement::get_data_from_json_file(const std::string &file_name) const
     return j;
 }
 
+void UserManagement::change_password(const int customer_id) {
+    std::cout << "Enter new password: " << std::endl;
+    std::string new_password;
+    std::getline(std::cin, new_password);
+
+    CustomerRepository cr;
+    auto customer = cr.find_by_id(customer_id).value();
+
+    UserRepository ur;
+    auto user = ur.find_by_id(customer->user_id).value();
+    ur.update(user->id, User{user->id, user->username, new_password, user->role});
+}
+
 UserManagement::UserManagement(const std::string &file_name) {
     get_users_to_the_database(file_name);
 }
@@ -67,4 +80,29 @@ int UserManagement::sign_in() {
     }
 
     return found_customer.value();
+}
+
+void UserManagement::account_management() {
+    auto customer_id = sign_in();
+    auto user_choice = 0;
+
+    while(true) {
+        std::cout << "================ ACCOUNT MENU ================" << std::endl;
+        std::cout << "== 1. CHANGE PASSWORD" << std::endl;
+        std::cout << "== 9. EXIT" << std::endl;
+        std::cout << "==============================================" << std::endl;
+
+        std::cout << "Your choice: " << std::endl;
+        std::cin >> user_choice; std::cin.get();
+
+        switch (user_choice) {
+            case 1:
+                change_password(customer_id);
+                break;
+            case 9:
+                return;
+            default:
+                std::cout << "There is no such option! Try again." << std::endl;
+        }
+    }
 }

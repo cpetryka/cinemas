@@ -10,12 +10,14 @@
 
 class UserManagement {
     json get_data_from_json_file(const std::string &file_name) const;
+    static void change_password(const int customer_id);
 public:
     explicit UserManagement() = default;
     explicit UserManagement(const std::string& file_name);
 
     void get_users_to_the_database(const std::string& file_name) const;
     static int sign_in();
+    static void account_management();
 };
 
 

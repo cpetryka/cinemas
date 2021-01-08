@@ -4,6 +4,14 @@
 
 #include "../user_repository.hpp"
 
+std::string UserRepository::from_unsigned_char_to_std_string(const unsigned char *value) {
+    std::string result = "";
+    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
+        result += value[i];
+    }
+    return result;
+}
+
 void UserRepository::insert(const User& user) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into users(username, password, role) values (?, ?, ?)";
@@ -69,6 +77,27 @@ std::optional<int> UserRepository::find_pos(const User &user) {
     auto result = 0;
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
+    }
+
+    sqlite3_finalize(stmt);
+    return std::nullopt;
+}
+
+std::optional<std::unique_ptr<User>> UserRepository::find_by_id(const int idx) {
+    const std::string sql = "select username, password, role from users where id = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_int(stmt, 1, idx);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        return std::make_optional(std::make_unique<User>(User{
+            idx,
+            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 0)),
+            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 1)),
+            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 2))
+        }));
     }
 
     sqlite3_finalize(stmt);

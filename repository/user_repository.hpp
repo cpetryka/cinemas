@@ -10,11 +10,13 @@
 #include "../connection/db_connection.hpp"
 
 class UserRepository {
+    std::string from_unsigned_char_to_std_string(const unsigned char *value);
 public:
     void insert(const User& user);
     void update(const int id, const User& user);
     void remove(const int id);
     static std::optional<int> find_pos(const User& user);
+    std::optional<std::unique_ptr<User>> find_by_id(const int idx);
 };
 
 

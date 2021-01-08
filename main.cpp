@@ -36,6 +36,7 @@ void menu() {
                 tm.manage_reserved_seat(ticket_id_tmp);
                 break;
             case 3:
+                UserManagement::account_management();
                 break;
             case 9:
                 return;
@@ -70,7 +71,6 @@ int main() {
  * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
  *
- * REFAKTORYZACJA: przejrzeć, obluga bledow itp.
  * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut
  */
@@ -85,14 +85,16 @@ int main() {
 
 /*
  *
- * 1. "db_connection.cpp" --> czy dla każdej bazy danych opłaca się tworzyć osobną
+ * 1. Czy oplaca sie int obudowywac w std::optional, nie lepiej zwrocic np. -1
+ *
+ * 2. '.gitignore'
+ *
+ * 3. "db_connection.cpp" --> czy dla każdej bazy danych opłaca się tworzyć osobną
  * zmienną "error_message", "result" itp., czy lepiej stworzyc pojedyncza zmienna na poczatku
  * i pozniej z niej korzystac, czy bardzo wplywa to na wydajnosc
  *
- * 2. Czy oplaca sie int obudowywac w std::optional, nie lepiej zwrocic np. -1
- *
- * 3. "CinemaManagement" i "MovieAndSeanceManagement" --> robic osobne funkcje?
- *
+ * 4. "CinemaManagement" i "MovieAndSeanceManagement" --> robic osobne funkcje?
+ * -------------------------------------------------------------------------
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale
  * */
