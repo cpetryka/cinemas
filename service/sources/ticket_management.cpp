@@ -4,6 +4,18 @@
 
 #include "../ticket_management.hpp"
 
+std::string TicketManagement::get_user_preferences() const {
+    std::cout << "Specify your preferences (movie_genre, city, date, time): " << std::endl;
+    std::string user_preferences;
+    std::getline(std::cin, user_preferences);
+
+    if(user_preferences.empty()) {
+        std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
+    }
+
+    return user_preferences;
+}
+
 std::vector<std::string> TicketManagement::convert_string_to_vector(const std::string& str, const char separator) const {
     std::vector<std::string> strings;
     std::string one_string;
@@ -16,30 +28,53 @@ std::vector<std::string> TicketManagement::convert_string_to_vector(const std::s
     return strings;
 }
 
-std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(const std::string& user_prefs_str) const {
-    auto user_prefs = convert_string_to_vector(user_prefs_str, ',');
-    auto available_seances = SeanceRepository::find_by_parameters(user_prefs.at(0), user_prefs.at(1), user_prefs.at(2), user_prefs.at(3));
-    auto user_choice = 0;
-
-    if(available_seances.size() == 0) {
-        return std::nullopt;
-    }
+std::string TicketManagement::generate_available_seance_info(
+        const std::vector<std::unique_ptr<SeanceWithMovie>> &available_seances) const {
+    std::stringstream ss;
 
     for(auto i = 0; i < available_seances.size(); ++i) {
-        std::cout << i << " -> " << *available_seances.at(i) << std::endl;
+        ss << i + 1 << " --> " << *available_seances.at(i) << std::endl;
     }
+
+    return ss.str();
+}
+
+int TicketManagement::get_selected_seance(const int seance_number) const {
+    auto user_choice = 0;
 
     do {
         std::cout << "Which seance do you choose?" << std::endl;
         std::cin >> user_choice; std::cin.get();
-        user_choice;
-    } while(user_choice < 0 || user_choice > available_seances.size() - 1);
+        --user_choice;
+    } while(user_choice < 0 || user_choice > seance_number - 1);
+
+    return user_choice;
+}
+
+std::optional<std::unique_ptr<SeanceWithMovie>> TicketManagement::seance_choice(const std::string& user_prefs_str) const {
+    auto user_prefs = convert_string_to_vector(user_prefs_str, ',');
+
+    if(user_prefs.size() != 4) {
+        throw std::runtime_error("Incorrect input! Try again later!");
+    }
+
+    auto available_seances = SeanceRepository::find_by_parameters(user_prefs.at(0), user_prefs.at(1), user_prefs.at(2), user_prefs.at(3));
+
+    if(available_seances.size() == 0) {
+        throw std::runtime_error("Incorrect input! There is no seance with such data. Try again later!");
+    }
+
+    // Shows info about available seances
+    std::cout << generate_available_seance_info(available_seances) << std::endl;
+
+    // Get information about chosen seance
+    auto user_choice = get_selected_seance(available_seances.size());
 
     return std::make_unique<SeanceWithMovie>(*available_seances.at(user_choice));
 }
 
 std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
-    // Generate a vecotr with seats
+    // Generate a vector with seats
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = CinemaRoomRepository::find_all_seats_in_given_room(room_id, rows, places);
 
     // Check which places are not available
@@ -59,10 +94,10 @@ std::vector<std::unique_ptr<Seat>> TicketManagement::find_available_places(const
     return seats_in_cinema_room;
 }
 
-bool TicketManagement::check_if_chosen_places_are_available(std::vector<int>& chosen_places,
-                                                            const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const {
+bool TicketManagement::check_if_places_are_available_and_conversion(std::vector<int>& chosen_places,
+                                                                    const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const {
     for(auto& one_of_chosen_places : chosen_places) {
-        if(seats_in_cinema_room.at(one_of_chosen_places - 1)->id != -1) {
+        if(seats_in_cinema_room.at(one_of_chosen_places)->id != -1) {
             one_of_chosen_places = seats_in_cinema_room.at(one_of_chosen_places)->id;
         }
         else {
@@ -73,30 +108,31 @@ bool TicketManagement::check_if_chosen_places_are_available(std::vector<int>& ch
     return true;
 }
 
-std::vector<int> TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
-    CinemaRoomRepository crr;
-    auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
+std::string
+TicketManagement::generate_available_places_info(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room,
+                                                 const int places) const {
+    std::stringstream ss;
 
-    // Pobiera informacje o dostepnych miejscach
-    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = find_available_places(seance_id, cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
-
-    // Wyswietlam informacje o miejscach
     for(auto i = 0; i < seats_in_cinema_room.size(); ++i) {
         if(seats_in_cinema_room.at(i)->id != -1) {
-            std::cout << i + 1 << "\t";
+            ss << i + 1 << "\t";
         }
         else {
-            std::cout << "----" << "\t";
+            ss << "----" << "\t";
         }
 
-        if((i + 1) % cinema_room_tmp.value()->places == 0) {
-            std::cout << std::endl;
+        if((i + 1) % places == 0) {
+            ss << std::endl;
         }
     }
 
-    // Wybor miejsca
-    std::vector<int> chosen_places;
+    return ss.str();
+}
+
+std::vector<int>
+TicketManagement::get_selected_places(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room) const {
     std::string user_choice;
+    std::vector<int> chosen_places;
 
     while(true) {
         std::cout << "Enter the selected places (separate them by commas):" << std::endl;
@@ -108,13 +144,29 @@ std::vector<int> TicketManagement::seat_choice(const int seance_id, const int ci
             return std::stoi(one_string) - 1;
         });
 
-        if(check_if_chosen_places_are_available(chosen_places, seats_in_cinema_room)) {
+        if(check_if_places_are_available_and_conversion(chosen_places, seats_in_cinema_room)) {
             break;
         }
         else {
             std::cout << "== ERROR! - Incorrect input! Try again. ==" << std::endl;
         }
     }
+
+    return chosen_places;
+}
+
+
+std::vector<int> TicketManagement::seat_choice(const int seance_id, const int cinema_room_id) const {
+    CinemaRoomRepository crr;
+    auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
+
+    std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = find_available_places(seance_id, cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
+
+    // Shows information about places
+    std::cout << generate_available_places_info(seats_in_cinema_room, cinema_room_tmp.value()->places) << std::endl;
+
+    // Seat choice
+    auto chosen_places = get_selected_places(seats_in_cinema_room);
 
     return chosen_places;
 }
@@ -132,9 +184,7 @@ std::string TicketManagement::reservation_or_order() const {
 
 
 void TicketManagement::buy_ticket() const {
-    std::cout << "Specify your preferences (movie_genre, city, date, time): " << std::endl;
-    std::string user_preferences;
-    std::getline(std::cin, user_preferences);
+    std::string user_preferences = get_user_preferences();
 
     auto chosen_seance = seance_choice(user_preferences);
     auto chosen_seats = seat_choice(chosen_seance.value()->seance_id,
@@ -168,7 +218,7 @@ void TicketManagement::manage_reserved_seat(const int ticket_id) const {
 
         switch (user_choice) {
             case 1:
-                // TODO: platnosc
+                // TODO: PLATNOSC
                 ticket_tmp.value()->state = "ORDERED";
                 tr.update(ticket_id, *ticket_tmp.value());
                 break;

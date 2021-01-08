@@ -12,10 +12,15 @@
 #include "user_management.hpp"
 
 class TicketManagement {
+    std::string get_user_preferences() const;
     std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
+    std::string generate_available_seance_info(const std::vector<std::unique_ptr<SeanceWithMovie>>& available_seances) const;
+    int get_selected_seance(const int seance_number) const;
     std::optional<std::unique_ptr<SeanceWithMovie>> seance_choice(const std::string& user_prefs_str) const;
     std::vector<std::unique_ptr<Seat>> find_available_places(const int seance_id, const int room_id, const int rows, const int places) const;
-    bool check_if_chosen_places_are_available(std::vector<int>& chosen_places, const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
+    bool check_if_places_are_available_and_conversion(std::vector<int>& chosen_places, const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
+    std::string generate_available_places_info(const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room, const int places) const;
+    std::vector<int> get_selected_places(const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
     std::vector<int> seat_choice(const int seance_id, const int cinema_room_id) const;
     std::string reservation_or_order() const;
 public:

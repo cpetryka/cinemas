@@ -11,7 +11,7 @@ void menu() {
         std::cout << "== 1. BUY TICKETS" << std::endl;
         std::cout << "== 2. MANAGE RESERVED TICKETS" << std::endl;
         std::cout << "== 3. MANAGE YOUR ACCOUNT" << std::endl;
-        std::cout << "== 9. LOG OUT" << std::endl;
+        std::cout << "== 9. EXIT" << std::endl;
         std::cout << "==============================================" << std::endl;
 
         std::cout << "Your choice: " << std::endl;
@@ -22,7 +22,13 @@ void menu() {
 
         switch (user_choice) {
             case 1:
-                tm.buy_ticket();
+                try {
+                    tm.buy_ticket();
+                }
+                catch (const std::exception& e) {
+                    std::cout << e.what() << std::endl;
+                }
+
                 break;
             case 2:
                 std::cout << "Enter your ticket id: " << std::endl;
@@ -65,7 +71,6 @@ int main() {
  *                        ale i tak bedzie przekonwertowany na typ 'numeric'
  *
  * REFAKTORYZACJA: przejrzeć, obluga bledow itp.
- * Rezerwacja ostatniego miejsca
  * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut
  */
@@ -90,5 +95,4 @@ int main() {
  *
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale
- *
  * */
