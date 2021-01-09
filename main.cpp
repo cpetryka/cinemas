@@ -93,7 +93,6 @@ int main() {
  * zmienną "error_message", "result" itp., czy lepiej stworzyc pojedyncza zmienna na poczatku
  * i pozniej z niej korzystac, czy bardzo wplywa to na wydajnosc
  *
- * 4. "CinemaManagement" i "MovieAndSeanceManagement" --> robic osobne funkcje?
  * -------------------------------------------------------------------------
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale

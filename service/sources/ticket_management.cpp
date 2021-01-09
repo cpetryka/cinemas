@@ -218,7 +218,7 @@ void TicketManagement::manage_reserved_seat(const int ticket_id) const {
 
         switch (user_choice) {
             case 1:
-                // TODO: PLATNOSC
+                // PLATNOSC
                 ticket_tmp.value()->state = "ORDERED";
                 tr.update(ticket_id, *ticket_tmp.value());
                 break;
