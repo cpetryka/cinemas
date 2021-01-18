@@ -48,9 +48,9 @@ void menu() {
 
 int main() {
     try {
-        /*CinemaManagement cm{"cinemas.json"};
+        CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};*/
+        UserManagement am{"users.json"};
 
         menu();
 
@@ -65,14 +65,11 @@ int main() {
 }
 
 /*
- * user -> role -> mozna zrobic enum / walidacje
- * customer -> gender -> mozna zrobic enum / walidacje
- * ticket -> status -> mozna zrobic enum / walidacje
- * seance -> date_time -> teraz jest jako napis, mozna zrobic jako 'datetime',
- *                        ale i tak bedzie przekonwertowany na typ 'numeric'
- *
- * wysylanie email
  * analiza stanu zarezerwowanych biletow co 15 minut
+ * Dodajac seansy powinien byc tez autor dla odroznienia filmow
+ * Powtarzajace sie sale
+ * Walidacja (user role, customer gender, ticket status)
+ * seance -> date_time -> specjalny typ do przechowywania dat i czasu
  */
 
 /*
@@ -82,18 +79,3 @@ int main() {
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
 *    analiza stanu zarezerwowanych biletow co 15 minut
 * */
-
-/*
- *
- * 1. Czy oplaca sie int obudowywac w std::optional, nie lepiej zwrocic np. -1
- *
- * 2. '.gitignore'
- *
- * 3. "db_connection.cpp" --> czy dla każdej bazy danych opłaca się tworzyć osobną
- * zmienną "error_message", "result" itp., czy lepiej stworzyc pojedyncza zmienna na poczatku
- * i pozniej z niej korzystac, czy bardzo wplywa to na wydajnosc
- *
- * -------------------------------------------------------------------------
- * Dodajac seansy powinien byc tez autor dla odroznienia filmow
- * Powtarzajace sie sale
- * */
