@@ -19,7 +19,7 @@ void SeanceRepository::insert(const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    std::string date_time_tmp_str = seance.date_time.convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
+    std::string date_time_tmp_str = seance.date_time->convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
     sqlite3_bind_text(stmt, 3, date_time_tmp_str.c_str(), -1, SQLITE_STATIC);
     const auto result = sqlite3_step(stmt);
 
@@ -38,7 +38,7 @@ void SeanceRepository::update(const int id, const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    std::string date_time_tmp_str = seance.date_time.convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
+    std::string date_time_tmp_str = seance.date_time->convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
     sqlite3_bind_text(stmt, 3, date_time_tmp_str.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 4, id);
     const auto result = sqlite3_step(stmt);
@@ -74,7 +74,7 @@ std::optional<int> SeanceRepository::find_pos(const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    std::string date_time_tmp_str = seance.date_time.convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
+    std::string date_time_tmp_str = seance.date_time->convert_date_and_time_into_string(); // nie mam pojecia dlaczego inaczej nie dziala
     sqlite3_bind_text(stmt, 3, date_time_tmp_str.c_str(), -1, 0);
 
     auto result = 0;
@@ -107,7 +107,7 @@ SeanceRepository::find_by_parameters(const std::string &genre, const std::string
                 sqlite3_column_int(stmt, 0),
                 sqlite3_column_int(stmt, 1),
                 sqlite3_column_int(stmt, 2),
-                DateTime{from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 3))},
+                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 3)),
                 from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 4)),
                 from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 5)),
                 from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 6))

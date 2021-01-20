@@ -69,7 +69,6 @@ int main() {
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale
  * Walidacja (user role, customer gender, ticket status)
- * seance -> date_time -> specjalny typ do przechowywania dat i czasu
  */
 
 /*
@@ -79,26 +78,3 @@ int main() {
 * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
 *    analiza stanu zarezerwowanych biletow co 15 minut
 * */
-
-/*
-  // std::chrono::seconds x {10000};
-  // auto time = time_of_day<std::chrono::seconds>{x};
-  // std::cout << time << std::endl;
-
-  // 2021-01-08 16:00:00
-  // 1. Dostaje sie do 16:00:00
-  // 2. Wykonuje obliczenia:
-  // std::chrono::seconds x { hours * 3600s + minutes * 60 + seconds };
-  // Oczywiscie z napisu konwertuje na int za pomoca std::stoi
-
-  std::string temp = "2021-01-08 16:00:00";
-  std::string substr = temp.substr(temp.size() - 8);
-  auto hours = std::stoi(substr.substr(0,2));
-  auto minutes = std::stoi(substr.substr(3,2));
-  auto seconds = std::stoi(substr.substr(6,2));
-
-  std::chrono::seconds seconds_sum {hours * 3600 + minutes * 60 + seconds};
-  auto time = time_of_day<std::chrono::seconds> {seconds_sum};
-  std::cout << time << std::endl;
-  std::cout << time.hours().count() << std::endl;
-*/

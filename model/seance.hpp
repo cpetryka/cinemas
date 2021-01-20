@@ -12,8 +12,15 @@ struct Seance {
     int id;
     int movie_id;
     int cinema_room_id;
-    // std::string date_time;
-    DateTime date_time;
+    std::unique_ptr<DateTime> date_time;
+
+    Seance(const int id, const int movie_id, const int cinema_room_id, const std::string& date_time);
+
+    Seance(Seance& seance);
+    Seance(Seance&& seance);
+
+    Seance& operator=(Seance& seance);
+    Seance& operator=(Seance&& seance);
 };
 
 #endif //CINEMAS_SEANCE_HPP
