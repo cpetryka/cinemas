@@ -42,7 +42,7 @@ namespace UserRole
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("no color with index " + std::to_string(pos));
+            throw std::runtime_error("no role with index " + std::to_string(pos));
         }
 
         return Types[pos];

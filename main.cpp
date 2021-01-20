@@ -69,7 +69,7 @@ int main() {
  * analiza stanu zarezerwowanych biletow co 15 minut
  * Dodajac seansy powinien byc tez autor dla odroznienia filmow
  * Powtarzajace sie sale
- * Walidacja (customer gender, ticket status)
+ * Walidacja (ticket status)
  */
 
 /*
