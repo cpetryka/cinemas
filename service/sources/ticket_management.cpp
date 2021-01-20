@@ -219,7 +219,7 @@ void TicketManagement::manage_reserved_seat(const int ticket_id) const {
         switch (user_choice) {
             case 1:
                 // PLATNOSC
-                ticket_tmp.value()->state = "ORDERED";
+                ticket_tmp.value()->state = TicketState::from_string("ORDERED");
                 tr.update(ticket_id, *ticket_tmp.value());
                 break;
             case 2:

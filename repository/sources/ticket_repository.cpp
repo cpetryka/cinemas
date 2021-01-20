@@ -21,7 +21,8 @@ void TicketRepository::insert(const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    sqlite3_bind_text(stmt, 5, ticket.state.c_str(), -1, SQLITE_STATIC);
+    std::string ticket_state_tmp = TicketState::to_string(ticket.state);
+    sqlite3_bind_text(stmt, 5, ticket_state_tmp.c_str(), -1, SQLITE_STATIC);
     const auto result = sqlite3_step(stmt);
 
     if(SQLITE_DONE != result) {
@@ -41,7 +42,8 @@ void TicketRepository::update(const int id, const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    sqlite3_bind_text(stmt, 5, ticket.state.c_str(), -1, SQLITE_STATIC);
+    std::string ticket_state_tmp = TicketState::to_string(ticket.state);
+    sqlite3_bind_text(stmt, 5, ticket_state_tmp.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 6, id);
     const auto result = sqlite3_step(stmt);
 
