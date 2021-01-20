@@ -55,7 +55,7 @@ void MovieAndSeanceManagement::add_seances_to_the_database(const std::string &fi
                         CinemaRoomRepository crr;
                         auto cinema_room_id = crr.find_pos_by_name(one_detail["cinema_room_name"]);
 
-                        Seance s{0, movie_id.value(), cinema_room_id.value(), one_detail["date_time"]};
+                        Seance s{0, movie_id.value(), cinema_room_id.value(), DateTime{one_detail["date_time"]}};
 
                         if(!SeanceRepository::find_pos(s).has_value()) {
                             SeanceRepository sr;

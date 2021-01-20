@@ -17,7 +17,10 @@
 
 #include "sqlite3.h"
 #include "json.hpp"
+#include "date.hpp"
 
 using json = nlohmann::json;
+using namespace date;
+using namespace std::chrono;
 
 #endif //CINEMAS_LIBS_HPP
