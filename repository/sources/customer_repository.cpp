@@ -20,7 +20,8 @@ void CustomerRepository::insert(const Customer &customer) {
     sqlite3_bind_text(stmt, 1, customer.name.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, customer.surname.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 3, customer.age);
-    sqlite3_bind_text(stmt, 4, customer.gender.c_str(), -1, SQLITE_STATIC);
+    std::string customer_gender_tmp = CustomerGender::to_string(customer.gender);
+    sqlite3_bind_text(stmt, 4, customer_gender_tmp.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 5, customer.city.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 6, customer.user_id);
     const auto result = sqlite3_step(stmt);
@@ -41,7 +42,8 @@ void CustomerRepository::update(const int id, const Customer &customer) {
     sqlite3_bind_text(stmt, 1, customer.name.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, customer.surname.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 3, customer.age);
-    sqlite3_bind_text(stmt, 4, customer.gender.c_str(), -1, SQLITE_STATIC);
+    std::string customer_gender_tmp = CustomerGender::to_string(customer.gender);
+    sqlite3_bind_text(stmt, 4, customer_gender_tmp.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 5, customer.city.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 6, customer.user_id);
     sqlite3_bind_int(stmt, 7, id);
@@ -106,7 +108,8 @@ std::optional<int> CustomerRepository::find_pos(const Customer &customer) {
     sqlite3_bind_text(stmt, 1, customer.name.c_str(), -1, 0);
     sqlite3_bind_text(stmt, 2, customer.surname.c_str(), -1, 0);
     sqlite3_bind_int(stmt, 3, customer.age);
-    sqlite3_bind_text(stmt, 4, customer.gender.c_str(), -1, 0);
+    std::string customer_gender_tmp = CustomerGender::to_string(customer.gender);
+    sqlite3_bind_text(stmt, 4, customer_gender_tmp.c_str(), -1, 0);
     sqlite3_bind_text(stmt, 5, customer.city.c_str(), -1, 0);
     sqlite3_bind_int(stmt, 6, customer.user_id);
 

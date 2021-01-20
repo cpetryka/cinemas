@@ -52,7 +52,8 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
         if(UserRole::to_string(u.role) == "CUSTOMER") {
             CustomerRepository cr;
             auto user_id = UserRepository::find_pos(u).value();
-            Customer c{0, one_user["name"], one_user["surname"], one_user["age"], one_user["gender"], one_user["city"], user_id};
+            std::string gender_tmp = one_user["gender"];
+            Customer c{0, one_user["name"], one_user["surname"], one_user["age"], gender_tmp, one_user["city"], user_id};
 
             if(!CustomerRepository::find_pos(c).has_value()) {
                 cr.insert(c);
