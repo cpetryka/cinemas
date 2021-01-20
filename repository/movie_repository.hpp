@@ -15,7 +15,7 @@ public:
     void update(const int id, const Movie& movie);
     void remove(const int id);
     static std::optional<int> find_pos(const Movie& movie);
-    static std::optional<int> find_pos_by_title(const std::string& title);
+    static std::optional<int> find_pos_by_parameters(const std::string& title, const std::string& author);
 };
 
 
