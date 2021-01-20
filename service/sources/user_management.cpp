@@ -40,7 +40,8 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_user) {
-        User u {0, one_user["username"], one_user["password"], one_user["role"]};
+        std::string user_role_tmp = one_user["role"];
+        User u {0, one_user["username"], one_user["password"], user_role_tmp};
 
         // If there is no such user, this adds it
         if(!UserRepository::find_pos(u).has_value()) {
@@ -48,7 +49,7 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
             ur.insert(u);
         }
 
-        if(u.role == "CUSTOMER") {
+        if(UserRole::to_string(u.role) == "CUSTOMER") {
             CustomerRepository cr;
             auto user_id = UserRepository::find_pos(u).value();
             Customer c{0, one_user["name"], one_user["surname"], one_user["age"], one_user["gender"], one_user["city"], user_id};

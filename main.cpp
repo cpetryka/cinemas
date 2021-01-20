@@ -2,6 +2,7 @@
 #include "service/movie_and_seance_management.hpp"
 #include "service/user_management.hpp"
 #include "service/ticket_management.hpp"
+#include "enums/user_role.hpp"
 
 void menu() {
     auto user_choice = 0;
