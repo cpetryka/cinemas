@@ -16,6 +16,7 @@ public:
     void insert(const Ticket& ticket);
     void update(const int id, const Ticket& ticket);
     void remove(const int id);
+    void cancel_ticket_by_id(const int idx);
     static std::vector<int> find_reserved_seats(const int seance_id);
     static std::optional<std::unique_ptr<Ticket>> find_by_id(const int idx);
     static std::vector<int> find_reservations_to_cancel();
