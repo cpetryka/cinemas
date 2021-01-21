@@ -2,8 +2,11 @@
 #include "service/movie_and_seance_management.hpp"
 #include "service/user_management.hpp"
 #include "service/ticket_management.hpp"
-#include "enums/user_role.hpp"
-#include "useful/call_back_timer.hpp"
+#include "service/ticket_status_analysis.hpp"
+
+void x() {
+    std::cout << "xx" << std::endl;
+}
 
 void menu() {
     auto user_choice = 0;
@@ -48,20 +51,20 @@ void menu() {
     }
 }
 
-void process() {
-    std::cout << "PROCESS" << std::endl;
-}
-
 int main() {
     try {
-        /*CinemaManagement cm{"cinemas.json"};
+        CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};
 
-        menu();*/
+        CallBackTimer cbt;
+        cbt.start(10000, TicketStatusAnalysis::analyse_tickets_state);
 
-        // "ACTION", "WARSAW", "2020-11-10", "14"
-        // ACTION,WARSAW,2020-11-10,14
+        menu();
+
+        if(cbt.is_running()) {
+            cbt.stop();
+        }
     }
     catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
@@ -71,9 +74,13 @@ int main() {
 }
 
 /*
-* A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
-* B. user wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
-* C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
-* D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
-*    analiza stanu zarezerwowanych biletow co 15 minut
+ * A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
+ * B. user wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
+ * C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
+ * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
+ *    analiza stanu zarezerwowanych biletow co 15 minut
+ *
+ * PRZYKLADOWE DANE:
+ * "ACTION", "WARSAW", "2020-11-10", "14"
+ * ACTION,WARSAW,2020-11-10,14
 * */

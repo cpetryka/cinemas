@@ -10,10 +10,11 @@
 #include "../useful/call_back_timer.hpp"
 
 class TicketStatusAnalysis {
-    void analyse_tickets_state();
-    void repetitive_ticket_state_analysis();
 public:
-    TicketStatusAnalysis();
+    TicketStatusAnalysis() = default;
+
+    static void analyse_tickets_state();
+    // void repetitive_ticket_state_analysis();
 };
 
 #endif //CINEMAS_TICKET_STATUS_ANALYSIS_HPP

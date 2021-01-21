@@ -12,12 +12,3 @@ void TicketStatusAnalysis::analyse_tickets_state() {
         tr.cancel_ticket_by_id(idx);
     });
 }
-
-void TicketStatusAnalysis::repetitive_ticket_state_analysis() {
-    CallBackTimer cbt;
-    cbt.start(1000, std::bind(&TicketStatusAnalysis::analyse_tickets_state, this));
-}
-
-TicketStatusAnalysis::TicketStatusAnalysis() {
-    repetitive_ticket_state_analysis();
-}
