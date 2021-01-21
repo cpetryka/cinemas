@@ -14,7 +14,11 @@ class DateTime {
     std::vector<int> convert_date_time_str_into_parts_of_date(const std::string &date_time_str) const;
     year_month_day convert_data_into_date(const std::string &date_time_str) const;
     int convert_date_time_str_into_seconds_since_midnight(const std::string &date_time_str) const;
+
+    year_month_day indicate_current_date() const;
+    time_of_day<std::chrono::seconds> indicate_current_time() const;
 public:
+    DateTime();
     DateTime(const std::string& date_time_str);
 
     year_month_day get_date() const;

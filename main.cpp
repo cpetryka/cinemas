@@ -49,11 +49,14 @@ void menu() {
 
 int main() {
     try {
-        CinemaManagement cm{"cinemas.json"};
+        /*CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};
 
-        menu();
+        menu();*/
+
+        DateTime dt{};
+        std::cout << dt << std::endl;
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14

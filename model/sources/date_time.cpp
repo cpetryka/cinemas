@@ -28,6 +28,27 @@ int DateTime::convert_date_time_str_into_seconds_since_midnight(const std::strin
     return hours * 3600 + minutes * 60 + seconds;
 }
 
+year_month_day DateTime::indicate_current_date() const {
+    auto now = system_clock::now();
+    return year_month_day{ floor<days>(now) };
+}
+
+time_of_day<std::chrono::seconds> DateTime::indicate_current_time() const {
+    auto now = system_clock::now();
+    auto date_tmp = floor<days>(now);
+    auto time_tmp = make_time(now-date_tmp);
+
+    // dziele przez 10000000 aby otrzymac wynik w sekundach
+    // dodaje 3600 zeby zgadzala sie godzina
+    return time_of_day<std::chrono::seconds> {std::chrono::seconds{ (time_tmp.to_duration().count() / 10000000) + 3600 }};
+}
+
+// Indicates the current date and time
+DateTime::DateTime() {
+    date = indicate_current_date();
+    time = indicate_current_time();
+}
+
 DateTime::DateTime(const std::string &date_time_str) {
     date = convert_data_into_date(date_time_str);
     time = time_of_day<std::chrono::seconds> { std::chrono::seconds(convert_date_time_str_into_seconds_since_midnight(date_time_str)) };
