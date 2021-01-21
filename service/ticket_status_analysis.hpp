@@ -5,10 +5,20 @@
 #ifndef CINEMAS_TICKET_STATUS_ANALYSIS_HPP
 #define CINEMAS_TICKET_STATUS_ANALYSIS_HPP
 
+#include "../libs/libs.hpp"
 
 class TicketStatusAnalysis {
 
 };
 
+/*
+ * Aplikacja powinna co 15 min analizowac stan zarezerwowanych biletow
+ * i te ktore sa zarezerwowane dla seansow, ktore zaczyna
+ * za mniej niz pol godziny to nalezy te rezerwacje anulowac.
+ * ------------------------------------------------------------------------
+ * 1. Wyznaczam aktualna godzine
+ * 2. Sprawdzam ktore seanse sa zarezerwowane + zaczynaja sie za mniej niz 30 minut
+ * 3. Anulowanie (state: cancelled)
+ */
 
 #endif //CINEMAS_TICKET_STATUS_ANALYSIS_HPP

@@ -111,3 +111,22 @@ std::optional<std::unique_ptr<Ticket>> TicketRepository::find_by_id(const int id
     sqlite3_finalize(stmt);
     return std::nullopt;
 }
+
+std::vector<int> TicketRepository::find_reservations_to_cancel() {
+    std::vector<int> found_reservations;
+
+    const std::string sql = "select t.id from tickets t join seances s on t.seance_id = s.id where t.state = 'RESERVED' and ((strftime('%s', s.date_time) - strftime('%s', ?)) between 0 and 1800)";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+
+    sqlite3_bind_text(stmt, 1, (std::string{"xx"}).c_str(), -1, 0);
+
+    auto result = 0;
+    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+        found_reservations.emplace_back(sqlite3_column_int(stmt, 0));
+    }
+
+    sqlite3_finalize(stmt);
+    return found_reservations;
+}
