@@ -223,7 +223,7 @@ void TicketManagement::manage_reserved_seat(const int ticket_id) const {
                 tr.update(ticket_id, *ticket_tmp.value());
                 break;
             case 2:
-                tr.remove(ticket_id);
+                tr.cancel_ticket_by_id(ticket_id);
                 break;
             default:
                 std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
