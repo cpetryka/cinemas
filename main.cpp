@@ -53,12 +53,7 @@ int main() {
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};*/
 
-        // menu();
-
-        TicketRepository tr;
-        tr.cancel_ticket_by_id(1);
-        tr.cancel_ticket_by_id(7);
-
+        menu();
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14

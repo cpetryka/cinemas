@@ -6,9 +6,12 @@
 #define CINEMAS_TICKET_STATUS_ANALYSIS_HPP
 
 #include "../libs/libs.hpp"
+#include "../repository/ticket_repository.hpp"
 
 class TicketStatusAnalysis {
-
+    void analyse_tickets_state();
+public:
+    TicketStatusAnalysis() = default;
 };
 
 /*
