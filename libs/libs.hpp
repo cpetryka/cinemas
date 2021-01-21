@@ -14,6 +14,8 @@
 #include <optional>
 #include <algorithm>
 #include <typeinfo>
+#include <thread>
+#include <functional>
 
 #include "sqlite3.h"
 #include "json.hpp"

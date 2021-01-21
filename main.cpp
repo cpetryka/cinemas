@@ -3,6 +3,7 @@
 #include "service/user_management.hpp"
 #include "service/ticket_management.hpp"
 #include "enums/user_role.hpp"
+#include "useful/call_back_timer.hpp"
 
 void menu() {
     auto user_choice = 0;
@@ -47,13 +48,17 @@ void menu() {
     }
 }
 
+void process() {
+    std::cout << "PROCESS" << std::endl;
+}
+
 int main() {
     try {
-        CinemaManagement cm{"cinemas.json"};
+        /*CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
         UserManagement am{"users.json"};
 
-        menu();
+        menu();*/
 
         // "ACTION", "WARSAW", "2020-11-10", "14"
         // ACTION,WARSAW,2020-11-10,14
