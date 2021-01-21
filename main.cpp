@@ -66,11 +66,6 @@ int main() {
 }
 
 /*
- * analiza stanu zarezerwowanych biletow co 15 minut
- * Powtarzajace sie sale
- */
-
-/*
 * A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
 * B. user wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
 * C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
