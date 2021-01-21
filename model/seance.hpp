@@ -6,7 +6,7 @@
 #define CINEMAS_SEANCE_HPP
 
 #include "../libs/libs.hpp"
-#include "date_time.hpp"
+#include "../useful/date_time.hpp"
 
 struct Seance {
     int id;

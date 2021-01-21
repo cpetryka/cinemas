@@ -49,9 +49,9 @@ void menu() {
 
 int main() {
     try {
-        /*CinemaManagement cm{"cinemas.json"};
+        CinemaManagement cm{"cinemas.json"};
         MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};*/
+        UserManagement am{"users.json"};
 
         menu();
 

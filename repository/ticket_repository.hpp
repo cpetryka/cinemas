@@ -8,7 +8,7 @@
 #include "../libs/libs.hpp"
 #include "../model/ticket.hpp"
 #include "../connection/db_connection.hpp"
-#include "../model/date_time.hpp"
+#include "../useful/date_time.hpp"
 
 class TicketRepository {
     static std::string from_unsigned_char_to_std_string(const unsigned char* value);
