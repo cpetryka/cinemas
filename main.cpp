@@ -4,10 +4,6 @@
 #include "service/ticket_management.hpp"
 #include "service/ticket_status_analysis.hpp"
 
-void x() {
-    std::cout << "xx" << std::endl;
-}
-
 void menu() {
     auto user_choice = 0;
 
@@ -58,7 +54,7 @@ int main() {
         UserManagement am{"users.json"};
 
         CallBackTimer cbt;
-        cbt.start(10000, TicketStatusAnalysis::analyse_tickets_state);
+        cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);
 
         menu();
 

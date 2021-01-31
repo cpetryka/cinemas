@@ -27,6 +27,7 @@ void CallBackTimer::start(int interval, std::function<void(void)> func) {
                                        std::chrono::milliseconds(interval));
                            }
                        });
+    _thd.detach();
 }
 
 bool CallBackTimer::is_running() const noexcept {
