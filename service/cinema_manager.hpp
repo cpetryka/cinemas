@@ -2,18 +2,18 @@
 // Created by Cezary Petryka on 21.10.2020.
 //
 
-#ifndef CINEMAS_CINEMA_MANAGEMENT_HPP
-#define CINEMAS_CINEMA_MANAGEMENT_HPP
+#ifndef CINEMAS_CINEMA_MANAGER_HPP
+#define CINEMAS_CINEMA_MANAGER_HPP
 
 #include "../repository/cinema_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
 #include "../repository/seat_repository.hpp"
 
-class CinemaManagement {
+class CinemaManager {
     json get_data_from_json_file(const std::string &file_name) const;
 public:
-    explicit CinemaManagement() = default;
-    explicit CinemaManagement(const std::string& file_name);
+    explicit CinemaManager() = default;
+    explicit CinemaManager(const std::string& file_name);
 
     void add_datas_to_the_database(const std::string &file_name) const;
 };
@@ -26,4 +26,4 @@ public:
  *          ->      Seats       ->     SeatRepository
  * */
 
-#endif //CINEMAS_CINEMA_MANAGEMENT_HPP
+#endif //CINEMAS_CINEMA_MANAGER_HPP

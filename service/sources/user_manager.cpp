@@ -2,9 +2,9 @@
 // Created by Cezary Petryka on 27.10.2020.
 //
 
-#include "../user_management.hpp"
+#include "../user_manager.hpp"
 
-json UserManagement::get_data_from_json_file(const std::string &file_name) const {
+json UserManager::get_data_from_json_file(const std::string &file_name) const {
     std::ifstream reading(file_name);
     json j;
 
@@ -19,7 +19,7 @@ json UserManagement::get_data_from_json_file(const std::string &file_name) const
     return j;
 }
 
-void UserManagement::change_password(const int customer_id) {
+void UserManager::change_password(const int customer_id) {
     std::cout << "Enter new password: " << std::endl;
     std::string new_password;
     std::getline(std::cin, new_password);
@@ -32,11 +32,11 @@ void UserManagement::change_password(const int customer_id) {
     ur.update(user->id, User{user->id, user->username, new_password, user->role});
 }
 
-UserManagement::UserManagement(const std::string &file_name) {
+UserManager::UserManager(const std::string &file_name) {
     get_users_to_the_database(file_name);
 }
 
-void UserManagement::get_users_to_the_database(const std::string &file_name) const {
+void UserManager::get_users_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_user) {
@@ -62,7 +62,7 @@ void UserManagement::get_users_to_the_database(const std::string &file_name) con
     });
 }
 
-int UserManagement::sign_in() {
+int UserManager::sign_in() {
     auto counter = 0;
     std::string username, password;
     std::optional<int> found_customer;
@@ -84,7 +84,7 @@ int UserManagement::sign_in() {
     return found_customer.value();
 }
 
-void UserManagement::account_management() {
+void UserManager::account_management() {
     auto customer_id = sign_in();
     auto user_choice = 0;
 
