@@ -5,7 +5,7 @@
 #ifndef CINEMAS_SEAT_HPP
 #define CINEMAS_SEAT_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 struct Seat {
     int id;

@@ -5,8 +5,8 @@
 #ifndef CINEMAS_SEANCE_WITH_MOVIE_HPP
 #define CINEMAS_SEANCE_WITH_MOVIE_HPP
 
-#include "../libs/libs.hpp"
-#include "../useful/date_time.hpp"
+#include "../libs/headers.hpp"
+#include "../helpers/date_time.hpp"
 
 struct SeanceWithMovie {
     int seance_id;

@@ -5,10 +5,10 @@
 #ifndef CINEMAS_TICKET_REPOSITORY_HPP
 #define CINEMAS_TICKET_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/ticket.hpp"
 #include "../connection/db_connection.hpp"
-#include "../useful/date_time.hpp"
+#include "../helpers/date_time.hpp"
 
 class TicketRepository {
     static std::string from_unsigned_char_to_std_string(const unsigned char* value);

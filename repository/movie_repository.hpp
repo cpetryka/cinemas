@@ -5,7 +5,7 @@
 #ifndef CINEMAS_MOVIE_REPOSITORY_HPP
 #define CINEMAS_MOVIE_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/movie.hpp"
 #include "../connection/db_connection.hpp"
 

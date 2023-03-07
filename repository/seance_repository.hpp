@@ -5,7 +5,7 @@
 #ifndef CINEMAS_SEANCE_REPOSITORY_HPP
 #define CINEMAS_SEANCE_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/seance.hpp"
 #include "../model/seance_with_movie.hpp"
 #include "../connection/db_connection.hpp"

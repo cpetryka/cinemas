@@ -5,7 +5,7 @@
 #ifndef CINEMAS_USER_HPP
 #define CINEMAS_USER_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../enums/user_role.hpp"
 
 struct User {

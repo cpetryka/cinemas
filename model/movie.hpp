@@ -5,7 +5,7 @@
 #ifndef CINEMAS_MOVIE_HPP
 #define CINEMAS_MOVIE_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 struct Movie {
     int id;

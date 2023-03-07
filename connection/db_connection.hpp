@@ -5,7 +5,7 @@
 #ifndef CINEMAS_DB_CONNECTION_HPP
 #define CINEMAS_DB_CONNECTION_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 class DbConnection
 {

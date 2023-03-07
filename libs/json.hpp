@@ -9439,7 +9439,7 @@ constexpr number_float_t get_number_float() const noexcept
 return value_float;
 }
 
-/// return current string value (implicitly resets the token; useful only once)
+/// return current string value (implicitly resets the token; helpers only once)
 string_t& get_string()
 {
 return token_buffer;

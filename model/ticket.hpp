@@ -5,7 +5,7 @@
 #ifndef CINEMAS_TICKET_HPP
 #define CINEMAS_TICKET_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../enums/ticket_state.hpp"
 
 struct Ticket {

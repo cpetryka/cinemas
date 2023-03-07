@@ -5,7 +5,7 @@
 #ifndef CINEMAS_CUSTOMER_GENDER_HPP
 #define CINEMAS_CUSTOMER_GENDER_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 namespace CustomerGender
 {

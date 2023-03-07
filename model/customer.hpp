@@ -5,7 +5,7 @@
 #ifndef CINEMAS_CUSTOMER_HPP
 #define CINEMAS_CUSTOMER_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../enums/customer_gender.hpp"
 
 struct Customer {
