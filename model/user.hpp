@@ -12,7 +12,6 @@ struct User {
     int id;
     std::string username;
     std::string password;
-    // std::string role;
     user_role role;
 
     User(const int id, const std::string& username, const std::string& password, const std::string& role)

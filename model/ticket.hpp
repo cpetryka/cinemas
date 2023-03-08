@@ -21,7 +21,7 @@ struct Ticket {
           state{TicketState::from_string(state)} {}
 
     Ticket(const int id, const int customer_id, const int seance_id, const int seat_id, const int price, const ticket_state& state)
-            : id{id}, customer_id{customer_id}, seance_id{seance_id}, seat_id{seat_id}, price{price}, state{state} {}
+        : id{id}, customer_id{customer_id}, seance_id{seance_id}, seat_id{seat_id}, price{price}, state{state} {}
 };
 
 #endif //CINEMAS_TICKET_HPP

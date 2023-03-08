@@ -17,7 +17,9 @@ struct SeanceWithMovie {
     std::string movie_genre;
     std::string movie_author;
 
-    SeanceWithMovie(const int seance_id, const int seance_movie_id, const int seance_cinema_room_id, const std::string& seance_date_time, const std::string& movie_title, const std::string& movie_genre, const std::string& movie_author);
+    SeanceWithMovie(const int seance_id, const int seance_movie_id, const int seance_cinema_room_id,
+                    const std::string& seance_date_time, const std::string& movie_title, const std::string& movie_genre,
+                    const std::string& movie_author);
 
     SeanceWithMovie(SeanceWithMovie& swm);
     SeanceWithMovie(SeanceWithMovie&& swm);
