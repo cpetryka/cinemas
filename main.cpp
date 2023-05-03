@@ -43,9 +43,9 @@ void menu() {
 
 int main() {
     // Creats database - tables for cinemas, movies, seances, users, tickets etc.
-    CinemaManager cm{"cinemas.json"};
-    MovieAndSeanceManager masm{"movies.json", "seances.json"};
-    UserManager am{"users.json"};
+    CinemaManager cm{"../data/cinemas.json"};
+    MovieAndSeanceManager masm{"../data/movies.json", "../data/seances.json"};
+    UserManager am{"../data/users.json"};
 
     CallBackTimer cbt;
     cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);

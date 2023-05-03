@@ -1,0 +1,60 @@
+[
+  {
+    "name": "CINEMA X",
+    "city": "WARSAW",
+    "cinema_rooms": [
+      {
+        "name": "ROOM A",
+        "rows": 3,
+        "places": 4
+      },
+      {
+        "name": "ROOM B",
+        "rows": 5,
+        "places": 4
+      },
+      {
+        "name": "ROOM C",
+        "rows": 8,
+        "places": 6
+      },
+      {
+        "name": "ROOM D",
+        "rows": 4,
+        "places": 6
+      }
+    ]
+  },
+  {
+    "name": "CINEMA Y",
+    "city": "WARSAW",
+    "cinema_rooms": [
+      {
+        "name": "ROOM K",
+        "rows": 2,
+        "places": 10
+      },
+      {
+        "name": "ROOM L",
+        "rows": 6,
+        "places": 4
+      },
+      {
+        "name": "ROOM M",
+        "rows": 4,
+        "places": 10
+      }
+    ]
+  },
+  {
+    "name": "CINEMA Z",
+    "city": "CRACOW",
+    "cinema_rooms": [
+      {
+        "name": "ROOM I",
+        "rows": 6,
+        "places": 8
+      }
+    ]
+  }
+]

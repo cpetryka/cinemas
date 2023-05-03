@@ -1,0 +1,62 @@
+[
+  {
+    "username": "CEZXXX",
+    "password": "CXXX",
+    "role": "USER"
+  },
+  {
+    "username": "ADMIN",
+    "password": "WOKXYZ",
+    "role": "USER"
+  },
+  {
+    "username": "KRETT",
+    "password": "TTT",
+    "role": "CUSTOMER",
+    "name": "DAWID",
+    "surname": "KRET",
+    "age": 20,
+    "gender": "MALE",
+    "city": "WARSAW"
+  },
+  {
+    "username": "PAULA",
+    "password": "PAULA123",
+    "role": "CUSTOMER",
+    "name": "PAULINA",
+    "surname": "KWIAT",
+    "age": 30,
+    "gender": "FEMALE",
+    "city": "WARSAW"
+  },
+  {
+    "username": "ADXA",
+    "password": "ADAM345",
+    "role": "CUSTOMER",
+    "name": "ADAM",
+    "surname": "STONOGA",
+    "age": 25,
+    "gender": "MALE",
+    "city": "WARSAW"
+  },
+  {
+    "username": "JANKOW",
+    "password": "KOWJAN",
+    "role": "CUSTOMER",
+    "name": "JAN",
+    "surname": "KOWALSKI",
+    "age": 40,
+    "gender": "MALE",
+    "city": "WARSAW"
+  },
+  {
+    "username": "DAWKWIAT",
+    "password": "DAWCIO",
+    "role": "CUSTOMER",
+    "name": "DAWID",
+    "surname": "KWIATKOWSKI",
+    "age": 28,
+    "gender": "MALE",
+    "city": "CRACOW"
+  }
+]

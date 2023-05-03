@@ -5,7 +5,7 @@
 #include "db_connection.hpp"
 
 DbConnection::DbConnection() {
-    if (SQLITE_OK != sqlite3_open(database_name.c_str(), &connection))
+    if (SQLITE_OK != sqlite3_open(DATABASE_NAME.c_str(), &connection))
     {
         throw std::runtime_error{ sqlite3_errmsg(connection) };
     }
