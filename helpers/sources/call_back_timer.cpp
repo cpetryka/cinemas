@@ -4,40 +4,37 @@
 
 #include "../call_back_timer.hpp"
 
-CallBackTimer::CallBackTimer()
-        :_execute(false)
-{}
+CallBackTimer::CallBackTimer() : execute(false) {}
 
 void CallBackTimer::stop() {
-    _execute.store(false, std::memory_order_release);
-    if( _thd.joinable() )
-        _thd.join();
+    execute.store(false, std::memory_order_release);
+    if(thd.joinable()) {
+        thd.join();
+    }
 }
 
 void CallBackTimer::start(int interval, std::function<void(void)> func) {
-    if( _execute.load(std::memory_order_acquire) ) {
+    if(execute.load(std::memory_order_acquire)) {
         stop();
     }
-    _execute.store(true, std::memory_order_release);
-    _thd = std::thread([this, interval, func]()
-                       {
-                           while (_execute.load(std::memory_order_acquire)) {
-                               func();
-                               std::this_thread::sleep_for(
-                                       std::chrono::milliseconds(interval));
-                           }
-                       });
-    _thd.detach();
+    execute.store(true, std::memory_order_release);
+    thd = std::thread([this, interval, func]()
+            {
+                while (execute.load(std::memory_order_acquire)) {
+                    func();
+                    std::this_thread::sleep_for(std::chrono::milliseconds(interval));
+                }
+            });
+    thd.detach();
 }
 
 bool CallBackTimer::is_running() const noexcept {
-    return ( _execute.load(std::memory_order_acquire) &&
-             _thd.joinable() );
+    return execute.load(std::memory_order_acquire) && thd.joinable();
 }
 
 
 CallBackTimer::~CallBackTimer() {
-    if( _execute.load(std::memory_order_acquire) ) {
+    if(execute.load(std::memory_order_acquire)) {
         stop();
     }
 }

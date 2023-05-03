@@ -8,8 +8,8 @@
 #include "../libs/headers.hpp"
 
 class CallBackTimer {
-    std::atomic<bool> _execute;
-    std::thread _thd;
+    std::atomic<bool> execute;
+    std::thread thd;
 public:
     CallBackTimer();
 
