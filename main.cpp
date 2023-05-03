@@ -17,6 +17,7 @@ void menu() {
 
         std::cout << "Your choice: " << std::endl;
         std::cin >> user_choice; std::cin.get();
+        system("cls");
 
         TicketManager tm;
         auto ticket_id_tmp = 0;
@@ -28,6 +29,7 @@ void menu() {
             case 2:
                 std::cout << "Enter your ticket id: " << std::endl;
                 std::cin >> ticket_id_tmp; std::cin.get();
+                system("cls");
                 tm.manage_reserved_seat(ticket_id_tmp);
                 break;
             case 3:

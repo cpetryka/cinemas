@@ -23,6 +23,7 @@ void UserManager::change_password(const int customer_id) {
     std::cout << "Enter new password: " << std::endl;
     std::string new_password;
     std::getline(std::cin, new_password);
+    system("cls");
 
     CustomerRepository cr;
     auto customer = cr.find_by_id(customer_id).value();
@@ -75,6 +76,7 @@ int UserManager::sign_in() {
         std::getline(std::cin, password);
 
         found_customer = CustomerRepository::find_customer_by_username_and_password(username, password);
+        system("cls");
     } while(++counter < 3 && !found_customer.has_value());
 
     if(!found_customer.has_value()) {
@@ -96,6 +98,7 @@ void UserManager::account_management() {
 
         std::cout << "Your choice: " << std::endl;
         std::cin >> user_choice; std::cin.get();
+        system("cls");
 
         switch (user_choice) {
             case 1:

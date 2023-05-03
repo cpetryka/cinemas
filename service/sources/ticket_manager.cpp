@@ -8,6 +8,7 @@ std::string TicketManager::get_user_preferences() const {
     std::cout << "Specify your preferences (movie_genre, city, date, time): " << std::endl;
     std::string user_preferences;
     std::getline(std::cin, user_preferences);
+    system("cls");
 
     if(user_preferences.empty()) {
         std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
@@ -46,6 +47,7 @@ int TicketManager::get_selected_seance(const int seance_number) const {
         std::cout << "Which seance do you choose?" << std::endl;
         std::cin >> user_choice; std::cin.get();
         --user_choice;
+        system("cls");
     } while(user_choice < 0 || user_choice > seance_number - 1);
 
     return user_choice;
@@ -135,8 +137,9 @@ TicketManager::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
     std::vector<int> chosen_places;
 
     while(true) {
-        std::cout << "Enter the selected places (separate them by commas):" << std::endl;
+        std::cout << "Enter the desired places (separate them by a comma):" << std::endl;
         std::getline(std::cin, user_choice);
+        system("cls");
 
         auto tmp = convert_string_to_vector(user_choice, ',');
         chosen_places.resize(tmp.size());
@@ -177,6 +180,7 @@ std::string TicketManager::reservation_or_order() const {
     do {
         std::cout << "Do you want to reserve or buy (1 - reserve, 2 - buy)?:" << std::endl;
         std::cin >> choice; std::cin.get();
+        system("cls");
     } while(choice != 1 && choice != 2);
 
     return (choice == 1) ? "RESERVED" : "ORDERED";
@@ -200,7 +204,13 @@ void TicketManager::buy_ticket() const {
     if(state == "RESERVED") {
         std::cout << "Your ticket ID: ..." << std::endl;
         std::cout << "You can use this ID to pay for or cancel your order." << std::endl;
+        std::this_thread::sleep_for(3000ms);
+        system("cls");
     }
+
+    std::cout << "Thank you for buying/reserving the tickets!" << std::endl;
+    std::this_thread::sleep_for(2000ms);
+    system("cls");
 }
 
 void TicketManager::manage_reserved_seat(const int ticket_id) const {
@@ -212,17 +222,29 @@ void TicketManager::manage_reserved_seat(const int ticket_id) const {
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "1 - pay the ticket" << std::endl;
         std::cout << "2 - cancel" << std::endl;
-        std::cout << "Your choice:" << std::endl;
+
+        std::cout << std::endl << "Your choice:" << std::endl;
         std::cin >> user_choice; std::cin.get();
+        system("cls");
 
         switch (user_choice) {
             case 1:
-                // PLATNOSC
                 ticket_tmp.value()->state = TicketState::from_string("ORDERED");
                 tr.update(ticket_id, *ticket_tmp.value());
+
+                system("cls");
+                std::cout << "Thank you for paying for the ticket!" << std::endl;
+                std::this_thread::sleep_for(2000ms);
+                system("cls");
+
                 break;
             case 2:
                 tr.cancel_ticket_by_id(ticket_id);
+
+                system("cls");
+                std::cout << "Ticket cancellation successful!" << std::endl;
+                std::this_thread::sleep_for(2000ms);
+                system("cls");
                 break;
             default:
                 std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
