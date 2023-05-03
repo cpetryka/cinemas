@@ -23,13 +23,7 @@ void menu() {
 
         switch (user_choice) {
             case 1:
-                try {
-                    tm.buy_ticket();
-                }
-                catch (const std::exception& e) {
-                    std::cout << e.what() << std::endl;
-                }
-
+                tm.buy_ticket();
                 break;
             case 2:
                 std::cout << "Enter your ticket id: " << std::endl;
@@ -48,28 +42,25 @@ void menu() {
 }
 
 int main() {
-    try {
-        CinemaManager cm{"cinemas.json"};
-        MovieAndSeanceManager masm{"movies.json", "seances.json"};
-        UserManager am{"users.json"};
+    // Creats database - tables for cinemas, movies, seances, users, tickets etc.
+    CinemaManager cm{"cinemas.json"};
+    MovieAndSeanceManager masm{"movies.json", "seances.json"};
+    UserManager am{"users.json"};
 
-        CallBackTimer cbt;
-        cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);
+    CallBackTimer cbt;
+    cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);
 
-        menu();
+    menu();
 
-        if(cbt.is_running()) {
-            cbt.stop();
-        }
-    }
-    catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
+    if(cbt.is_running()) {
+        cbt.stop();
     }
 
     return 0;
 }
 
 /*
+ * ZASADA DZIALANIA:
  * 1. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
  * 2. User wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
  * 3. Rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email*

@@ -182,7 +182,6 @@ std::string TicketManager::reservation_or_order() const {
     return (choice == 1) ? "RESERVED" : "ORDERED";
 }
 
-
 void TicketManager::buy_ticket() const {
     std::string user_preferences = get_user_preferences();
 
@@ -199,7 +198,7 @@ void TicketManager::buy_ticket() const {
     }
 
     if(state == "RESERVED") {
-        std::cout << "Your ticket ID: " << std::endl;
+        std::cout << "Your ticket ID: ..." << std::endl;
         std::cout << "You can use this ID to pay for or cancel your order." << std::endl;
     }
 }
