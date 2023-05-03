@@ -5,7 +5,7 @@
 #ifndef CINEMAS_USER_ROLE_HPP
 #define CINEMAS_USER_ROLE_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 namespace UserRole
 {
@@ -19,10 +19,7 @@ namespace UserRole
 
     static Type from_string(const std::string& value)
     {
-        std::string lowercase = value;
-        std::transform(value.begin(), value.end(), lowercase.begin(), [](const char& c) { return tolower(c); });
-
-        if (lowercase == "customer")
+        if (Utils::convert_string_to_lowercase(value) == "customer")
         {
             return Type::CUSTOMER;
         }
@@ -42,7 +39,7 @@ namespace UserRole
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("no role with index " + std::to_string(pos));
+            throw std::runtime_error("No role at index no " + std::to_string(pos));
         }
 
         return Types[pos];

@@ -38,8 +38,6 @@ time_of_day<std::chrono::seconds> DateTime::indicate_current_time() const {
     auto date_tmp = floor<days>(now);
     auto time_tmp = make_time(now-date_tmp);
 
-    // dziele przez 10000000 aby otrzymac wynik w sekundach
-    // dodaje 3600 zeby zgadzala sie godzina
     return time_of_day<std::chrono::seconds> {std::chrono::seconds{ (time_tmp.to_duration().count() / 10000000) + 3600 }};
 }
 

@@ -5,7 +5,7 @@
 #ifndef CINEMAS_CINEMA_ROOM_HPP
 #define CINEMAS_CINEMA_ROOM_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 
 struct CinemaRoom {
     int id;

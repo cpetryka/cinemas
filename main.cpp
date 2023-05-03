@@ -1,7 +1,7 @@
-#include "service/cinema_management.hpp"
-#include "service/movie_and_seance_management.hpp"
-#include "service/user_management.hpp"
-#include "service/ticket_management.hpp"
+#include "service/cinema_manager.hpp"
+#include "service/movie_and_seance_manager.hpp"
+#include "service/user_manager.hpp"
+#include "service/ticket_manager.hpp"
 #include "service/ticket_status_analysis.hpp"
 
 void menu() {
@@ -17,27 +17,23 @@ void menu() {
 
         std::cout << "Your choice: " << std::endl;
         std::cin >> user_choice; std::cin.get();
+        system("cls");
 
-        TicketManagement tm;
+        TicketManager tm;
         auto ticket_id_tmp = 0;
 
         switch (user_choice) {
             case 1:
-                try {
-                    tm.buy_ticket();
-                }
-                catch (const std::exception& e) {
-                    std::cout << e.what() << std::endl;
-                }
-
+                tm.buy_ticket();
                 break;
             case 2:
                 std::cout << "Enter your ticket id: " << std::endl;
                 std::cin >> ticket_id_tmp; std::cin.get();
+                system("cls");
                 tm.manage_reserved_seat(ticket_id_tmp);
                 break;
             case 3:
-                UserManagement::account_management();
+                UserManager::account_management();
                 break;
             case 9:
                 return;
@@ -48,35 +44,30 @@ void menu() {
 }
 
 int main() {
-    try {
-        CinemaManagement cm{"cinemas.json"};
-        MovieAndSeanceManagement masm{"movies.json", "seances.json"};
-        UserManagement am{"users.json"};
+    // Creats database - tables for cinemas, movies, seances, users, tickets etc.
+    CinemaManager cm{"../data/cinemas.json"};
+    MovieAndSeanceManager masm{"../data/movies.json", "../data/seances.json"};
+    UserManager am{"../data/users.json"};
 
-        CallBackTimer cbt;
-        cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);
+    CallBackTimer cbt;
+    cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);
 
-        menu();
+    menu();
 
-        if(cbt.is_running()) {
-            cbt.stop();
-        }
-    }
-    catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
+    if(cbt.is_running()) {
+        cbt.stop();
     }
 
     return 0;
 }
 
 /*
- * A. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
- * B. user wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
- * C. rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email
- * D. kiedy rezerwacja przydzielic unikalne oznaczenie, ktore user moze wykorzystac
- *    analiza stanu zarezerwowanych biletow co 15 minut
+ * ZASADA DZIALANIA:
+ * 1. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
+ * 2. User wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
+ * 3. Rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email*
+ * 4. Kiedy rezerwacja przydzielić unikalne id, które user będzie mógł wykorzystać (np. do opłacenia zamówienia)
  *
  * PRZYKLADOWE DANE:
- * "ACTION", "WARSAW", "2020-11-10", "14"
  * ACTION,WARSAW,2020-11-10,14
-* */
+ */

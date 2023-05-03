@@ -5,7 +5,7 @@
 #ifndef CINEMAS_CINEMA_ROOM_REPOSITORY_HPP
 #define CINEMAS_CINEMA_ROOM_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/cinema_room.hpp"
 #include "../repository/seat_repository.hpp"
 #include "../connection/db_connection.hpp"

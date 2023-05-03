@@ -5,7 +5,7 @@
 #ifndef CINEMAS_CUSTOMER_REPOSITORY_HPP
 #define CINEMAS_CUSTOMER_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/customer.hpp"
 #include "../connection/db_connection.hpp"
 

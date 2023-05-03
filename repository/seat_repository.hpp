@@ -5,7 +5,7 @@
 #ifndef CINEMAS_SEAT_REPOSITORY_HPP
 #define CINEMAS_SEAT_REPOSITORY_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../model/seat.hpp"
 #include "../connection/db_connection.hpp"
 

@@ -5,14 +5,13 @@
 #ifndef CINEMAS_USER_HPP
 #define CINEMAS_USER_HPP
 
-#include "../libs/libs.hpp"
+#include "../libs/headers.hpp"
 #include "../enums/user_role.hpp"
 
 struct User {
     int id;
     std::string username;
     std::string password;
-    // std::string role;
     user_role role;
 
     User(const int id, const std::string& username, const std::string& password, const std::string& role)

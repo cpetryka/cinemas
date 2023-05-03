@@ -2,9 +2,9 @@
 // Created by Cezary Petryka on 21.10.2020.
 //
 
-#include "../cinema_management.hpp"
+#include "../cinema_manager.hpp"
 
-json CinemaManagement::get_data_from_json_file(const std::string &file_name) const {
+json CinemaManager::get_data_from_json_file(const std::string &file_name) const {
     std::ifstream reading(file_name);
     json j;
 
@@ -19,7 +19,7 @@ json CinemaManagement::get_data_from_json_file(const std::string &file_name) con
     return j;
 }
 
-void CinemaManagement::add_datas_to_the_database(const std::string &file_name) const {
+void CinemaManager::add_datas_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
@@ -58,6 +58,6 @@ void CinemaManagement::add_datas_to_the_database(const std::string &file_name) c
     });
 }
 
-CinemaManagement::CinemaManagement(const std::string &file_name) {
+CinemaManager::CinemaManager(const std::string &file_name) {
     add_datas_to_the_database(file_name);
 }

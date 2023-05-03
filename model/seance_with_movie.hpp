@@ -5,8 +5,8 @@
 #ifndef CINEMAS_SEANCE_WITH_MOVIE_HPP
 #define CINEMAS_SEANCE_WITH_MOVIE_HPP
 
-#include "../libs/libs.hpp"
-#include "../useful/date_time.hpp"
+#include "../libs/headers.hpp"
+#include "../helpers/date_time.hpp"
 
 struct SeanceWithMovie {
     int seance_id;
@@ -17,7 +17,9 @@ struct SeanceWithMovie {
     std::string movie_genre;
     std::string movie_author;
 
-    SeanceWithMovie(const int seance_id, const int seance_movie_id, const int seance_cinema_room_id, const std::string& seance_date_time, const std::string& movie_title, const std::string& movie_genre, const std::string& movie_author);
+    SeanceWithMovie(const int seance_id, const int seance_movie_id, const int seance_cinema_room_id,
+                    const std::string& seance_date_time, const std::string& movie_title,
+                    const std::string& movie_genre, const std::string& movie_author);
 
     SeanceWithMovie(SeanceWithMovie& swm);
     SeanceWithMovie(SeanceWithMovie&& swm);
