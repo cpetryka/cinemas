@@ -19,10 +19,7 @@ namespace CustomerGender
 
     static Type from_string(const std::string& value)
     {
-        std::string lowercase = value;
-        std::transform(value.begin(), value.end(), lowercase.begin(), [](const char& c) { return tolower(c); });
-
-        if (lowercase == "male")
+        if (Utils::convert_string_to_lowercase(value) == "male")
         {
             return Type::MALE;
         }
@@ -42,7 +39,7 @@ namespace CustomerGender
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("no gender with index " + std::to_string(pos));
+            throw std::runtime_error("No gender at index no " + std::to_string(pos));
         }
 
         return Types[pos];

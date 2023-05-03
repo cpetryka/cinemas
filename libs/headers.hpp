@@ -17,6 +17,8 @@
 #include <thread>
 #include <functional>
 
+#include "../helpers/utils.hpp"
+
 #include "sqlite3.h"
 #include "json.hpp"
 #include "date.hpp"
