@@ -60,14 +60,3 @@ int main() {
 
     return 0;
 }
-
-/*
- * ZASADA DZIALANIA:
- * 1. "AKCJA,WARSZAWA,21" -> szukam pasujace seansy -> zwraca liste pasujacych seansow
- * 2. User wybiera -> zwracam informacje o miejscach -> user wybiera miejsca do zarezerwowania
- * 3. Rezerwacja/kupno -> wyliczenie ceny + zapisanie do db + email*
- * 4. Kiedy rezerwacja przydzielić unikalne id, które user będzie mógł wykorzystać (np. do opłacenia zamówienia)
- *
- * PRZYKLADOWE DANE:
- * ACTION,WARSAW,2020-11-10,14
- */
