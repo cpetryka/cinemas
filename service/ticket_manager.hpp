@@ -11,22 +11,101 @@
 #include "../repository/ticket_repository.hpp"
 #include "user_manager.hpp"
 
+/**
+ * @brief Class that is responsible for managing tickets.
+ */
 class TicketManager {
+    /**
+     * @brief Method that allows to get user preferences.
+     * @return std::string representing user preferences.
+     */
     std::string get_user_preferences() const;
+
+    /**
+     * @brief Method that allows to convert string to vector.
+     * @param std::string representing string to convert.
+     * @param char representing separator.
+     * @return std::vector<std::string> representing converted string.
+     */
     std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
+
+    /**
+     * @brief Method that allows to get available seances.
+     * @param std::vector<std::unique_ptr<SeanceWithMovie>> representing available seances.
+     * @return std::string representing available seances.
+     */
     std::string generate_available_seance_info(const std::vector<std::unique_ptr<SeanceWithMovie>>& available_seances) const;
+
+    /**
+     * @brief Method that allows to get selected seance.
+     * @param int representing seance number.
+     * @return int representing selected seance.
+     */
     int get_selected_seance(const int seance_number) const;
+
+    /**
+     * @brief Method that allows to choose seance.
+     * @param std::string representing user preferences.
+     * @return std::optional<std::unique_ptr<SeanceWithMovie>> representing chosen seance.
+     */
     std::optional<std::unique_ptr<SeanceWithMovie>> seance_choice(const std::string& user_prefs_str) const;
+
+    /**
+     * @brief Method that allows to get available places.
+     * @param int representing seance id.
+     * @param int representing cinema room id.
+     * @param int representing number of rows.
+     * @param int representing number of places.
+     * @return std::vector<std::unique_ptr<Seat>> representing available places.
+     */
     std::vector<std::unique_ptr<Seat>> find_available_places(const int seance_id, const int room_id, const int rows, const int places) const;
+
+    /**
+     * @brief Method that allows to check if places are available and convert them.
+     * @param std::vector<int> representing chosen places.
+     * @param std::vector<std::unique_ptr<Seat>> representing available places.
+     * @return bool representing if places are available and converted.
+     */
     bool check_if_places_are_available_and_conversion(std::vector<int>& chosen_places, const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
+
+    /**
+     * @brief Method that allows to get available places.
+     * @param std::vector<std::unique_ptr<Seat>> representing available places.
+     * @param int representing number of places.
+     * @return std::string representing available places.
+     */
     std::string generate_available_places_info(const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room, const int places) const;
+
+    /**
+     * @brief Method that allows to get selected places.
+     * @param std::vector<std::unique_ptr<Seat>> representing available places.
+     * @return std::vector<int> representing selected places.
+     */
     std::vector<int> get_selected_places(const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const;
+
+    /**
+     * @brief Method that allows to choose places.
+     * @param int representing seance id.
+     * @param int representing cinema room id.
+     * @return std::vector<int> representing chosen places.
+     */
     std::vector<int> seat_choice(const int seance_id, const int cinema_room_id) const;
+
+    /**
+     * @brief Method that allows to choose reservation or order.
+     */
     std::string reservation_or_order() const;
 public:
     TicketManager() = default;
 
+    /**
+     * @brief Method that allows to buy a ticket.
+     */
     void buy_ticket() const;
+
+    /**
+     * @brief Method that allows to manage reserved seat.
+     */
     void manage_reserved_seat(const int ticket_id) const;
 };
 

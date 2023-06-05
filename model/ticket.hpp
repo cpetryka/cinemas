@@ -8,6 +8,9 @@
 #include "../libs/headers.hpp"
 #include "../enums/ticket_state.hpp"
 
+/**
+ * @brief Class that represents ticket.
+ */
 struct Ticket {
     int id;
     int customer_id;

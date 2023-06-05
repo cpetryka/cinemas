@@ -7,6 +7,9 @@
 
 #include "../libs/headers.hpp"
 
+/**
+ * @brief Class that allows to call function periodically.
+ */
 class CallBackTimer {
     std::atomic<bool> execute;
     std::thread thd;

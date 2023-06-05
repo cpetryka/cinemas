@@ -8,6 +8,9 @@
 #include "../libs/headers.hpp"
 #include "../enums/user_role.hpp"
 
+/**
+ * @brief Class that represents user.
+ */
 struct User {
     int id;
     std::string username;

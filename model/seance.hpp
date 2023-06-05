@@ -8,6 +8,9 @@
 #include "../libs/headers.hpp"
 #include "../helpers/date_time.hpp"
 
+/**
+ * @brief Class that represents seance.
+ */
 struct Seance {
     int id;
     int movie_id;

@@ -9,12 +9,44 @@
 #include "../model/seat.hpp"
 #include "../connection/db_connection.hpp"
 
+/**
+ * @brief Class that is responsible for executing queries on 'seat' table.
+ */
 class SeatRepository {
 public:
+    /**
+     * @brief Method that allows to insert new seat to database.
+     * @param Seat object to insert.
+     */
     void insert(const Seat& seat);
+
+    /**
+     * @brief Methods that allows to update a seat at a given id.
+     * @param int id of seat to update.
+     * @param Seat object to update.
+     */
     void update(const int id, const Seat& seat);
+
+    /**
+     * @brief Method that allows to remove a seat at a given id.
+     * @param int id of seat to remove.
+     */
     void remove(const int id);
+
+    /**
+     * @brief Method that allows to find a seat in database.
+     * @param Seat object to find.
+     * @return std::optional<int> position of seat in database.
+     */
     static std::optional<int> find_pos(const Seat& seat);
+
+    /**
+     * @brief Method that allows to find a seat in database by their cinema room id, row and place.
+     * @param int cinema_room_id of seat to find.
+     * @param int row of seat to find.
+     * @param int place of seat to find.
+     * @return std::optional<int> position of seat in database.
+     */
     static std::optional<std::unique_ptr<Seat>> find_by_parameters(const int cinema_room_id, const int row, const int place);
 };
 

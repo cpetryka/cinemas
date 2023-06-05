@@ -7,6 +7,9 @@
 
 #include "../libs/headers.hpp"
 
+/**
+ * @brief Class that represents seat.
+ */
 struct Seat {
     int id;
     int cinema_room_id;

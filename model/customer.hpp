@@ -8,6 +8,9 @@
 #include "../libs/headers.hpp"
 #include "../enums/customer_gender.hpp"
 
+/**
+ * @brief Class that represents customer.
+ */
 struct Customer {
     int id;
     std::string name;

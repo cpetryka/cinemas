@@ -7,6 +7,9 @@
 
 #include "../libs/headers.hpp"
 
+/**
+ * @brief Class that represents cinema.
+ */
 struct Cinema {
     int id;
     std::string name;
