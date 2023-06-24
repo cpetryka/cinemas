@@ -17,18 +17,6 @@ std::string TicketManager::get_user_preferences() const {
     return user_preferences;
 }
 
-std::vector<std::string> TicketManager::convert_string_to_vector(const std::string& str, const char separator) const {
-    std::vector<std::string> strings;
-    std::string one_string;
-    std::stringstream ss(str);
-
-    while(getline(ss, one_string, separator)) {
-        strings.emplace_back(one_string);
-    }
-
-    return strings;
-}
-
 std::string TicketManager::generate_available_seance_info(
         const std::vector<std::unique_ptr<SeanceWithMovie>> &available_seances) const {
     std::stringstream ss;
@@ -54,7 +42,7 @@ int TicketManager::get_selected_seance(const int seance_number) const {
 }
 
 std::optional<std::unique_ptr<SeanceWithMovie>> TicketManager::seance_choice(const std::string& user_prefs_str) const {
-    auto user_prefs = convert_string_to_vector(user_prefs_str, ',');
+    auto user_prefs = Utils::convert_string_to_vector(user_prefs_str, ',');
 
     if(user_prefs.size() != 4) {
         throw std::runtime_error("Incorrect input! Try again later!");
@@ -141,7 +129,7 @@ TicketManager::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
         std::getline(std::cin, user_choice);
         system("cls");
 
-        auto tmp = convert_string_to_vector(user_choice, ',');
+        auto tmp = Utils::convert_string_to_vector(user_choice, ',');
         chosen_places.resize(tmp.size());
         std::transform(tmp.begin(), tmp.end(), chosen_places.begin(), [](const auto& one_string) {
             return std::stoi(one_string) - 1;

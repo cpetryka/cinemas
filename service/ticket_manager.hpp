@@ -22,14 +22,6 @@ class TicketManager {
     std::string get_user_preferences() const;
 
     /**
-     * @brief Method that allows to convert string to vector.
-     * @param std::string representing string to convert.
-     * @param char representing separator.
-     * @return std::vector<std::string> representing converted string.
-     */
-    std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator) const;
-
-    /**
      * @brief Method that allows to get available seances.
      * @param std::vector<std::unique_ptr<SeanceWithMovie>> representing available seances.
      * @return std::string representing available seances.
