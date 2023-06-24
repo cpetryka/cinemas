@@ -12,7 +12,7 @@
 - Periodically unpaid tickets are automatically deleted.
 
 **How the application works:**
-1. The user enters a specific query (e.g. AKCJA,WARSZAWA,2020-11-10,14), and the application searches and displays matching screenings.
+1. The user enters a specific query (e.g. ACTION,WARSAW,2024-11-10,14), and the application searches and displays matching screenings.
 2. The user selects the desired screening.
 3. The information about seats is displayed and the user selects the desired seats.
 4. The user decides whether to buy tickets or just reserve them (the user has a set time to pay for the reserved tickets, if not, they are automatically cancelled).
