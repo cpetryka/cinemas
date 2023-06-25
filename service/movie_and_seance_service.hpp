@@ -2,8 +2,8 @@
 // Created by Cezary Petryka on 25.10.2020.
 //
 
-#ifndef CINEMAS_MOVIE_AND_SEANCE_MANAGER_HPP
-#define CINEMAS_MOVIE_AND_SEANCE_MANAGER_HPP
+#ifndef CINEMAS_MOVIE_AND_SEANCE_SERVICE_HPP
+#define CINEMAS_MOVIE_AND_SEANCE_SERVICE_HPP
 
 #include "../repository/movie_repository.hpp"
 #include "../repository/seance_repository.hpp"
@@ -13,7 +13,7 @@
 /**
  * @brief Class that is responsible for managing movies and seances.
  */
-class MovieAndSeanceManager {
+class MovieAndSeanceService {
     /**
      * @brief Method that allows to get data from json file.
      * @param std::string representing file name.
@@ -21,8 +21,8 @@ class MovieAndSeanceManager {
      */
     json get_data_from_json_file(const std::string &file_name) const;
 public:
-    explicit MovieAndSeanceManager() = default;
-    explicit MovieAndSeanceManager(const std::string& movies_file_name, const std::string& seances_file_name);
+    explicit MovieAndSeanceService() = default;
+    explicit MovieAndSeanceService(const std::string& movies_file_name, const std::string& seances_file_name);
 
     /**
      * @brief Method that allows to add movies to the database.
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif //CINEMAS_MOVIE_AND_SEANCE_MANAGER_HPP
+#endif //CINEMAS_MOVIE_AND_SEANCE_SERVICE_HPP

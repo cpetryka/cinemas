@@ -1,7 +1,7 @@
-#include "service/cinema_manager.hpp"
-#include "service/movie_and_seance_manager.hpp"
-#include "service/user_manager.hpp"
-#include "service/ticket_manager.hpp"
+#include "service/cinema_service.hpp"
+#include "service/movie_and_seance_service.hpp"
+#include "service/user_service.hpp"
+#include "service/ticket_service.hpp"
 #include "service/ticket_status_analysis.hpp"
 
 void menu() {
@@ -19,7 +19,7 @@ void menu() {
         std::cin >> user_choice; std::cin.get();
         system("cls");
 
-        TicketManager tm;
+        TicketService tm;
         auto ticket_id_tmp = 0;
 
         switch (user_choice) {
@@ -33,7 +33,7 @@ void menu() {
                 tm.manage_reserved_seat(ticket_id_tmp);
                 break;
             case 3:
-                UserManager::account_management();
+                UserService::account_management();
                 break;
             case 9:
                 return;
@@ -45,9 +45,9 @@ void menu() {
 
 int main() {
     // Creats database - tables for cinemas, movies, seances, users, tickets etc.
-    CinemaManager cm{"../data/cinemas.json"};
-    MovieAndSeanceManager masm{"../data/movies.json", "../data/seances.json"};
-    UserManager am{"../data/users.json"};
+    CinemaService cm{"../data/cinemas.json"};
+    MovieAndSeanceService masm{"../data/movies.json", "../data/seances.json"};
+    UserService am{"../data/users.json"};
 
     CallBackTimer cbt;
     cbt.start(900000, TicketStatusAnalysis::analyse_tickets_state);

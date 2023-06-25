@@ -2,19 +2,19 @@
 // Created by Cezary Petryka on 03.11.2020.
 //
 
-#ifndef CINEMAS_TICKET_MANAGER_HPP
-#define CINEMAS_TICKET_MANAGER_HPP
+#ifndef CINEMAS_TICKET_SERVICE_HPP
+#define CINEMAS_TICKET_SERVICE_HPP
 
 #include "../repository/seance_repository.hpp"
 #include "../repository/seat_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
 #include "../repository/ticket_repository.hpp"
-#include "user_manager.hpp"
+#include "user_service.hpp"
 
 /**
  * @brief Class that is responsible for managing tickets.
  */
-class TicketManager {
+class TicketService {
     /**
      * @brief Method that allows to get user preferences.
      * @return std::string representing user preferences.
@@ -88,7 +88,7 @@ class TicketManager {
      */
     std::string reservation_or_order() const;
 public:
-    TicketManager() = default;
+    TicketService() = default;
 
     /**
      * @brief Method that allows to buy a ticket.
@@ -101,4 +101,4 @@ public:
     void manage_reserved_seat(const int ticket_id) const;
 };
 
-#endif //CINEMAS_TICKET_MANAGER_HPP
+#endif //CINEMAS_TICKET_SERVICE_HPP

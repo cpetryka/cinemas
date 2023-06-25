@@ -2,9 +2,9 @@
 // Created by Cezary Petryka on 25.10.2020.
 //
 
-#include "../movie_and_seance_manager.hpp"
+#include "../movie_and_seance_service.hpp"
 
-json MovieAndSeanceManager::get_data_from_json_file(const std::string &file_name) const {
+json MovieAndSeanceService::get_data_from_json_file(const std::string &file_name) const {
     std::ifstream reading(file_name);
     json j;
 
@@ -19,13 +19,13 @@ json MovieAndSeanceManager::get_data_from_json_file(const std::string &file_name
     return j;
 }
 
-MovieAndSeanceManager::MovieAndSeanceManager(const std::string &movies_file_name,
+MovieAndSeanceService::MovieAndSeanceService(const std::string &movies_file_name,
                                              const std::string &seances_file_name) {
     add_movies_to_the_database(movies_file_name);
     add_seances_to_the_database(seances_file_name);
 }
 
-void MovieAndSeanceManager::add_movies_to_the_database(const std::string &file_name) const {
+void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_movie) {
@@ -38,7 +38,7 @@ void MovieAndSeanceManager::add_movies_to_the_database(const std::string &file_n
     });
 }
 
-void MovieAndSeanceManager::add_seances_to_the_database(const std::string &file_name) const {
+void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {

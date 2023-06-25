@@ -2,8 +2,8 @@
 // Created by Cezary Petryka on 21.10.2020.
 //
 
-#ifndef CINEMAS_CINEMA_MANAGER_HPP
-#define CINEMAS_CINEMA_MANAGER_HPP
+#ifndef CINEMAS_CINEMA_SERVICE_HPP
+#define CINEMAS_CINEMA_SERVICE_HPP
 
 #include "../repository/cinema_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
@@ -12,7 +12,7 @@
 /**
  * @brief Class that is responsible for managing cinemas.
  */
-class CinemaManager {
+class CinemaService {
     /**
      * @brief Method that allows to get data from json file.
      * @param std::string representing file name.
@@ -20,8 +20,8 @@ class CinemaManager {
      */
     json get_data_from_json_file(const std::string &file_name) const;
 public:
-    explicit CinemaManager() = default;
-    explicit CinemaManager(const std::string& file_name);
+    explicit CinemaService() = default;
+    explicit CinemaService(const std::string& file_name);
 
     /**
      * @brief Method that allows to add cinemas to the database.
@@ -30,4 +30,4 @@ public:
     void add_datas_to_the_database(const std::string &file_name) const;
 };
 
-#endif //CINEMAS_CINEMA_MANAGER_HPP
+#endif //CINEMAS_CINEMA_SERVICE_HPP

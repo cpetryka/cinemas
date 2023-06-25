@@ -2,9 +2,9 @@
 // Created by Cezary Petryka on 03.11.2020.
 //
 
-#include "../ticket_manager.hpp"
+#include "../ticket_service.hpp"
 
-std::string TicketManager::get_user_preferences() const {
+std::string TicketService::get_user_preferences() const {
     std::cout << "Specify your preferences (movie_genre, city, date, time): " << std::endl;
     std::string user_preferences;
     std::getline(std::cin, user_preferences);
@@ -17,7 +17,7 @@ std::string TicketManager::get_user_preferences() const {
     return user_preferences;
 }
 
-std::string TicketManager::generate_available_seance_info(
+std::string TicketService::generate_available_seance_info(
         const std::vector<std::unique_ptr<SeanceWithMovie>> &available_seances) const {
     std::stringstream ss;
 
@@ -28,7 +28,7 @@ std::string TicketManager::generate_available_seance_info(
     return ss.str();
 }
 
-int TicketManager::get_selected_seance(const int seance_number) const {
+int TicketService::get_selected_seance(const int seance_number) const {
     auto user_choice = 0;
 
     do {
@@ -41,7 +41,7 @@ int TicketManager::get_selected_seance(const int seance_number) const {
     return user_choice;
 }
 
-std::optional<std::unique_ptr<SeanceWithMovie>> TicketManager::seance_choice(const std::string& user_prefs_str) const {
+std::optional<std::unique_ptr<SeanceWithMovie>> TicketService::seance_choice(const std::string& user_prefs_str) const {
     auto user_prefs = Utils::convert_string_to_vector(user_prefs_str, ',');
 
     if(user_prefs.size() != 4) {
@@ -63,7 +63,7 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketManager::seance_choice(con
     return std::make_unique<SeanceWithMovie>(*available_seances.at(user_choice));
 }
 
-std::vector<std::unique_ptr<Seat>> TicketManager::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
+std::vector<std::unique_ptr<Seat>> TicketService::find_available_places(const int seance_id, const int room_id, const int rows, const int places) const {
     // Generate a vector with seats
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = CinemaRoomRepository::find_all_seats_in_given_room(room_id, rows, places);
 
@@ -84,7 +84,7 @@ std::vector<std::unique_ptr<Seat>> TicketManager::find_available_places(const in
     return seats_in_cinema_room;
 }
 
-bool TicketManager::check_if_places_are_available_and_conversion(std::vector<int>& chosen_places,
+bool TicketService::check_if_places_are_available_and_conversion(std::vector<int>& chosen_places,
                                                                  const std::vector<std::unique_ptr<Seat>>& seats_in_cinema_room) const {
     for(auto& one_of_chosen_places : chosen_places) {
         if(seats_in_cinema_room.at(one_of_chosen_places)->id != -1) {
@@ -99,7 +99,7 @@ bool TicketManager::check_if_places_are_available_and_conversion(std::vector<int
 }
 
 std::string
-TicketManager::generate_available_places_info(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room,
+TicketService::generate_available_places_info(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room,
                                               const int places) const {
     std::stringstream ss;
 
@@ -120,7 +120,7 @@ TicketManager::generate_available_places_info(const std::vector<std::unique_ptr<
 }
 
 std::vector<int>
-TicketManager::get_selected_places(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room) const {
+TicketService::get_selected_places(const std::vector<std::unique_ptr<Seat>> &seats_in_cinema_room) const {
     std::string user_choice;
     std::vector<int> chosen_places;
 
@@ -147,7 +147,7 @@ TicketManager::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
 }
 
 
-std::vector<int> TicketManager::seat_choice(const int seance_id, const int cinema_room_id) const {
+std::vector<int> TicketService::seat_choice(const int seance_id, const int cinema_room_id) const {
     CinemaRoomRepository crr;
     auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
 
@@ -162,7 +162,7 @@ std::vector<int> TicketManager::seat_choice(const int seance_id, const int cinem
     return chosen_places;
 }
 
-std::string TicketManager::reservation_or_order() const {
+std::string TicketService::reservation_or_order() const {
     auto choice = 0;
 
     do {
@@ -174,7 +174,7 @@ std::string TicketManager::reservation_or_order() const {
     return (choice == 1) ? "RESERVED" : "ORDERED";
 }
 
-void TicketManager::buy_ticket() const {
+void TicketService::buy_ticket() const {
     std::string user_preferences = get_user_preferences();
 
     auto chosen_seance = seance_choice(user_preferences);
@@ -182,7 +182,7 @@ void TicketManager::buy_ticket() const {
                                       chosen_seance.value()->seance_cinema_room_id);
     auto state = reservation_or_order();
 
-    auto customer_id = UserManager::sign_in();
+    auto customer_id = UserService::sign_in();
 
     TicketRepository tr;
     for(int & chosen_seat_id : chosen_seats) {
@@ -201,7 +201,7 @@ void TicketManager::buy_ticket() const {
     system("cls");
 }
 
-void TicketManager::manage_reserved_seat(const int ticket_id) const {
+void TicketService::manage_reserved_seat(const int ticket_id) const {
     TicketRepository tr;
     auto ticket_tmp = TicketRepository::find_by_id(ticket_id);
     auto user_choice = 0;

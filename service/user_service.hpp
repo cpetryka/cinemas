@@ -2,8 +2,8 @@
 // Created by Cezary Petryka on 27.10.2020.
 //
 
-#ifndef CINEMAS_USER_MANAGER_HPP
-#define CINEMAS_USER_MANAGER_HPP
+#ifndef CINEMAS_USER_SERVICE_HPP
+#define CINEMAS_USER_SERVICE_HPP
 
 #include "../repository/user_repository.hpp"
 #include "../repository/customer_repository.hpp"
@@ -11,7 +11,7 @@
 /**
  * @brief Class that is responsible for managing users.
  */
-class UserManager {
+class UserService {
     /**
      * @brief Method that allows to get data from json file.
      * @param std::string representing file name.
@@ -24,8 +24,8 @@ class UserManager {
      */
     static void change_password(const int customer_id);
 public:
-    explicit UserManager() = default;
-    explicit UserManager(const std::string& file_name);
+    explicit UserService() = default;
+    explicit UserService(const std::string& file_name);
 
     /**
      * @brief Method that allows to add users to the database.
@@ -46,4 +46,4 @@ public:
 };
 
 
-#endif //CINEMAS_USER_MANAGER_HPP
+#endif //CINEMAS_USER_SERVICE_HPP
