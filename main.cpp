@@ -2,7 +2,7 @@
 #include "service/movie_and_seance_service.hpp"
 #include "service/user_service.hpp"
 #include "service/ticket_service.hpp"
-#include "helpers/ticket_status_analysis.hpp"
+#include "utils/ticket_status_analyser.hpp"
 
 void menu() {
     auto user_choice = 0;
@@ -50,7 +50,7 @@ int main() {
     UserService am{"../data/users.json"};
 
     CallBackTimer cbt;
-    cbt.start(900000, TicketStatusAnalysis::cancel_unpaid_tickets);
+    cbt.start(900000, TicketStatusAnalyser::cancel_unpaid_tickets);
 
     menu();
 

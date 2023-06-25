@@ -2,9 +2,9 @@
 // Created by Cezary Petryka on 18.01.2021.
 //
 
-#include "../ticket_status_analysis.hpp"
+#include "../ticket_status_analyser.hpp"
 
-void TicketStatusAnalysis::cancel_unpaid_tickets() {
+void TicketStatusAnalyser::cancel_unpaid_tickets() {
     TicketRepository tr;
     auto tickets_to_cancel = tr.find_reservations_to_cancel();
 

@@ -2790,14 +2790,14 @@ namespace nlohmann
 @brief detail namespace with internal helper functions
 
 This namespace collects functions that should not be exposed,
-implementations of some @ref basic_json methods, and meta-programming helpers.
+implementations of some @ref basic_json methods, and meta-programming utils.
 
 @since version 2.1.0
 */
 namespace detail
 {
 /////////////
-// helpers //
+// utils //
 /////////////
 
 // Note to maintainers:
@@ -2815,7 +2815,7 @@ NLOHMANN_BASIC_JSON_TPL_DECLARATION
 struct is_basic_json<NLOHMANN_BASIC_JSON_TPL> : std::true_type {};
 
 //////////////////////
-// json_ref helpers //
+// json_ref utils //
 //////////////////////
 
 template <typename>
@@ -9439,7 +9439,7 @@ constexpr number_float_t get_number_float() const noexcept
 return value_float;
 }
 
-/// return current string value (implicitly resets the token; helpers only once)
+/// return current string value (implicitly resets the token; utils only once)
 string_t& get_string()
 {
 return token_buffer;

@@ -6,7 +6,7 @@
 #define CINEMAS_SEANCE_WITH_MOVIE_HPP
 
 #include "../libs/headers.hpp"
-#include "../helpers/date_time.hpp"
+#include "../utils/date_time.hpp"
 
 /**
  * @brief Class that represents seance with movie.

@@ -19,7 +19,7 @@
 #include <functional>
 #include <stdlib.h>
 
-#include "../helpers/utils.hpp"
+#include "../utils/utils.hpp"
 
 #include "sqlite3.h"
 #include "json.hpp"

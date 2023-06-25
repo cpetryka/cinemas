@@ -237,7 +237,7 @@ SQLITE_API int sqlite3_threadsafe(void);
 ** KEYWORDS: {database connection} {database connections}
 **
 ** Each open SQLite database is represented by a pointer to an instance of
-** the opaque structure named "sqlite3".  It is helpers to think of an sqlite3
+** the opaque structure named "sqlite3".  It is utils to think of an sqlite3
 ** pointer as an object.  The [sqlite3_open()], [sqlite3_open16()], and
 ** [sqlite3_open_v2()] interfaces are its constructors, and [sqlite3_close()]
 ** and [sqlite3_close_v2()] are its destructors.  There are many other
@@ -904,7 +904,7 @@ int (*xUnfetch)(sqlite3_file*, sqlite3_int64 iOfst, void *p);
 ** files used for transaction control
 ** are automatically deleted when the latest connection to the database
 ** closes.  Setting persistent WAL mode causes those files to persist after
-** close.  Persisting the files is helpers when other processes that do not
+** close.  Persisting the files is utils when other processes that do not
 ** have write permission on the directory containing the database file want
 ** to read the database file, as the WAL and shared memory files must exist
 ** in order for the database to be readable.  The fourth parameter to
@@ -1589,7 +1589,7 @@ SQLITE_API int sqlite3_db_config(sqlite3*, int op, ...);
 **
 ** Note that SQLite comes with several [built-in memory allocators]
 ** that are perfectly adequate for the overwhelming majority of applications
-** and that this object is only helpers to a tiny minority of applications
+** and that this object is only utils to a tiny minority of applications
 ** with specialized memory allocation requirements.  This object is
 ** also used during testing of SQLite in order to specify an alternative
 ** memory allocator that simulates memory out-of-memory conditions in
@@ -2446,7 +2446,7 @@ SQLITE_API void sqlite3_interrupt(sqlite3*);
 /*
 ** CAPI3REF: Determine If An SQL Statement Is Complete
 **
-** These routines are helpers during command-line input to determine if the
+** These routines are utils during command-line input to determine if the
 ** currently entered text seems to form a complete SQL statement or
 ** if additional input is needed before sending the text into
 ** SQLite for parsing.  ^These routines return 1 if the input string
@@ -2672,7 +2672,7 @@ SQLITE_API void sqlite3_free_table(char **result);
 ** backwards compatibility.  ^(Note also that sqlite3_snprintf()
 ** returns a pointer to its buffer instead of the number of
 ** characters actually written into the buffer.)^  We admit that
-** the number of characters written would be a more helpers return
+** the number of characters written would be a more utils return
 ** value but we cannot change the implementation of sqlite3_snprintf()
 ** now without breaking compatibility.
 **
@@ -3319,7 +3319,7 @@ SQLITE_API void sqlite3_progress_handler(sqlite3*, int, int(*)(void*), void*);
 **
 **  <li> <b>nolock</b>: ^The nolock parameter is a boolean query parameter
 **     which if set disables file locking in rollback journal modes.  This
-**     is helpers for accessing a database on a filesystem that does not
+**     is utils for accessing a database on a filesystem that does not
 **     support locking.  Caution:  Database corruption might result if two
 **     or more processes write to the same database and any one of those
 **     processes uses nolock=1.
@@ -3409,7 +3409,7 @@ const char *zVfs        /* Name of VFS module to use */
 /*
 ** CAPI3REF: Obtain Values For URI Parameters
 **
-** These are utility routines, helpers to VFS implementations, that check
+** These are utility routines, utils to VFS implementations, that check
 ** to see if a database file was a URI that contained a specific query
 ** parameter, and if so obtains the value of that query parameter.
 **
@@ -4586,7 +4586,7 @@ SQLITE_API int sqlite3_data_count(sqlite3_stmt *pStmt);
 ** to routines like [sqlite3_value_int()], [sqlite3_value_text()],
 ** or [sqlite3_value_bytes()], the behavior is not threadsafe.
 ** Hence, the sqlite3_column_value() interface
-** is normally only helpers within the implementation of
+** is normally only utils within the implementation of
 ** [application-defined SQL functions] or [virtual tables], not within
 ** top-level application code.
 **
@@ -5203,7 +5203,7 @@ SQLITE_API sqlite3 *sqlite3_context_db_handle(sqlite3_context*);
 ** associate metadata with argument values. If the same value is passed to
 ** multiple invocations of the same SQL function during query execution, under
 ** some circumstances the associated metadata may be preserved.  An example
-** of where this might be helpers is in a regular-expression matching
+** of where this might be utils is in a regular-expression matching
 ** function. The compiled version of the regular expression can be stored as
 ** metadata associated with the pattern string.
 ** Then as long as the pattern string remains the same,
@@ -8101,7 +8101,7 @@ typedef struct sqlite3_backup sqlite3_backup;
 ** CAPI3REF: Online Backup API.
 **
 ** The backup API copies the content of one database into another.
-** It is helpers either for creating backups of databases or
+** It is utils either for creating backups of databases or
 ** for copying in-memory databases to or from persistent files.
 **
 ** See Also: [Using the SQLite Online Backup API]

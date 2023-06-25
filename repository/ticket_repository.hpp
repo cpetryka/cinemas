@@ -8,7 +8,7 @@
 #include "../libs/headers.hpp"
 #include "../model/ticket.hpp"
 #include "../connection/db_connection.hpp"
-#include "../helpers/date_time.hpp"
+#include "../utils/date_time.hpp"
 
 /**
  * @brief Class that is responsible for executing queries on 'ticket' table.
