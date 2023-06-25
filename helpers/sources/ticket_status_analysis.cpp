@@ -4,7 +4,7 @@
 
 #include "../ticket_status_analysis.hpp"
 
-void TicketStatusAnalysis::analyse_tickets_state() {
+void TicketStatusAnalysis::cancel_unpaid_tickets() {
     TicketRepository tr;
     auto tickets_to_cancel = tr.find_reservations_to_cancel();
 

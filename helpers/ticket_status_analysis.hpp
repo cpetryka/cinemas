@@ -7,7 +7,7 @@
 
 #include "../libs/headers.hpp"
 #include "../repository/ticket_repository.hpp"
-#include "../helpers/call_back_timer.hpp"
+#include "call_back_timer.hpp"
 
 /**
  * @brief Class that is responsible for analysing tickets state.
@@ -17,10 +17,9 @@ public:
     TicketStatusAnalysis() = default;
 
     /**
-     * @brief Method that allows to analyse tickets state.
+     * @brief Method that finds unpaid tickets and cancels them.
      */
-    static void analyse_tickets_state();
-    // void repetitive_ticket_state_analysis();
+    static void cancel_unpaid_tickets();
 };
 
 #endif //CINEMAS_TICKET_STATUS_ANALYSIS_HPP
