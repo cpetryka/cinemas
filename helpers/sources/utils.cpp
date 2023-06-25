@@ -21,3 +21,11 @@ std::vector<std::string> Utils::convert_string_to_vector(const std::string &str,
 
     return strings;
 }
+
+std::string Utils::convert_sqlite3_column_text_to_string(const unsigned char *value) {
+    std::string result = "";
+    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
+        result += value[i];
+    }
+    return result;
+}

@@ -13,7 +13,6 @@
  * @brief Class that is responsible for executing queries on 'customer' table.
  */
 class CustomerRepository {
-    std::string from_unsigned_char_to_std_string(const unsigned char *value);
 public:
     /**
      * @brief Method that allows to insert new customer to database.

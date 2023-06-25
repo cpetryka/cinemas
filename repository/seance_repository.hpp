@@ -14,7 +14,6 @@
  * @brief Class that is responsible for executing queries on 'seance' table.
  */
 class SeanceRepository {
-    static std::string from_unsigned_char_to_std_string(const unsigned char* value);
     static int convert_date_time_str_into_seconds_since_midnight(const std::string& date_time_str);
 public:
     /**

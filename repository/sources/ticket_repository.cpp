@@ -4,14 +4,6 @@
 
 #include "../ticket_repository.hpp"
 
-std::string TicketRepository::from_unsigned_char_to_std_string(const unsigned char *value) {
-    std::string result = "";
-    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
-        result += value[i];
-    }
-    return result;
-}
-
 void TicketRepository::insert(const Ticket &ticket) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into tickets(customer_id, seance_id, seat_id, price, state) values (?, ?, ?, ?, ?)";
@@ -121,7 +113,7 @@ std::optional<std::unique_ptr<Ticket>> TicketRepository::find_by_id(const int id
                 sqlite3_column_int(stmt, 2),
                 sqlite3_column_int(stmt, 3),
                 sqlite3_column_int(stmt, 4),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 5))
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 5))
         }));
     }
 

@@ -14,7 +14,6 @@
  * @brief Class that is responsible for executing queries on 'ticket' table.
  */
 class TicketRepository {
-    static std::string from_unsigned_char_to_std_string(const unsigned char* value);
 public:
 
     /**

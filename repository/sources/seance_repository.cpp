@@ -4,14 +4,6 @@
 
 #include "../seance_repository.hpp"
 
-std::string SeanceRepository::from_unsigned_char_to_std_string(const unsigned char *value) {
-    std::string result = "";
-    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
-        result += value[i];
-    }
-    return result;
-}
-
 void SeanceRepository::insert(const Seance &seance) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into seances(movie_id, cinema_room_id, date_time) values (?, ?, ?)";
@@ -107,10 +99,10 @@ SeanceRepository::find_by_parameters(const std::string &genre, const std::string
                 sqlite3_column_int(stmt, 0),
                 sqlite3_column_int(stmt, 1),
                 sqlite3_column_int(stmt, 2),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 3)),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 4)),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 5)),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 6))
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 3)),
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 4)),
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 5)),
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 6))
         }));
     }
 

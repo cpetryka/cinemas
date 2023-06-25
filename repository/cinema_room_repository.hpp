@@ -14,7 +14,6 @@
  * @brief Class that is responsible for executing queries on 'cinema_room' table.
  */
 class CinemaRoomRepository {
-    std::string from_unsigned_char_to_std_string(const unsigned char* value);
 public:
     /**
      * @brief Method that allows to insert new cinema_room to database.

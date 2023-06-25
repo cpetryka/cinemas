@@ -4,14 +4,6 @@
 
 #include "../cinema_room_repository.hpp"
 
-std::string CinemaRoomRepository::from_unsigned_char_to_std_string(const unsigned char* value) {
-    std::string result = "";
-    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
-        result += value[i];
-    }
-    return result;
-}
-
 void CinemaRoomRepository::insert(const CinemaRoom &cinema_room) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into cinema_rooms(name, cinema_id, rows, places) values (?, ?, ?, ?)";
@@ -115,7 +107,7 @@ std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(cons
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
         return std::make_optional(std::make_unique<CinemaRoom>(CinemaRoom{
                 sqlite3_column_int(stmt, 0),
-                from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 1)),
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 1)),
                 sqlite3_column_int(stmt, 2),
                 sqlite3_column_int(stmt, 3),
                 sqlite3_column_int(stmt, 4)

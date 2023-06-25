@@ -4,14 +4,6 @@
 
 #include "../customer_repository.hpp"
 
-std::string CustomerRepository::from_unsigned_char_to_std_string(const unsigned char *value) {
-    std::string result = "";
-    for (int i = 0; i < strlen(reinterpret_cast<const char*>(value)); ++i) {
-        result += value[i];
-    }
-    return result;
-}
-
 void CustomerRepository::insert(const Customer &customer) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into customers(name, surname, age, gender, city, user_id) values (?, ?, ?, ?, ?, ?)";
@@ -85,11 +77,11 @@ std::optional<std::unique_ptr<Customer>> CustomerRepository::find_by_id(const in
     while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
         return std::make_optional(std::make_unique<Customer>(Customer{
             idx,
-            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 0)),
-            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 1)),
+            Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 0)),
+            Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 1)),
             sqlite3_column_int(stmt, 2),
-            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 3)),
-            from_unsigned_char_to_std_string(sqlite3_column_text(stmt, 4)),
+            Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 3)),
+            Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 4)),
             sqlite3_column_int(stmt, 5)
 
         }));

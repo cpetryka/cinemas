@@ -29,6 +29,8 @@ struct Utils {
      * @return std::vector<std::string> representing converted string.
      */
     static std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator);
+
+    static std::string convert_sqlite3_column_text_to_string(const unsigned char* value);
 };
 
 #endif //CINEMAS_UTILS_HPP
