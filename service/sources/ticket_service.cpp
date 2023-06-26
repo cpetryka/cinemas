@@ -207,6 +207,13 @@ void TicketService::manage_reserved_seat(const int ticket_id) const {
     auto user_choice = 0;
 
     if(ticket_tmp.has_value()) {
+        if(ticket_tmp.value()->state != TicketState::from_string("RESERVED")) {
+            std::cout << "This ticket is not reserved!" << std::endl;
+            std::this_thread::sleep_for(2000ms);
+            system("cls");
+            return;
+        }
+
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "1 - pay the ticket" << std::endl;
         std::cout << "2 - cancel" << std::endl;
