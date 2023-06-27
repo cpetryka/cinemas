@@ -34,10 +34,10 @@ void UserService::change_password(const int customer_id) {
 }
 
 UserService::UserService(const std::string &file_name) {
-    get_users_to_the_database(file_name);
+    add_users_to_the_database(file_name);
 }
 
-void UserService::get_users_to_the_database(const std::string &file_name) const {
+void UserService::add_users_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_user) {
@@ -86,7 +86,7 @@ int UserService::sign_in() {
     return found_customer.value();
 }
 
-void UserService::account_management() {
+void UserService::manage_account() {
     auto customer_id = sign_in();
     auto user_choice = 0;
 

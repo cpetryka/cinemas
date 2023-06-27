@@ -27,7 +27,7 @@ public:
      * @brief Method that allows to add cinemas to the database.
      * @param std::string representing file name.
      */
-    void add_datas_to_the_database(const std::string &file_name) const;
+    void add_cinemas_to_the_database(const std::string &file_name) const;
 };
 
 #endif //CINEMAS_CINEMA_SERVICE_HPP

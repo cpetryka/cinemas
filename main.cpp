@@ -33,7 +33,7 @@ void menu() {
                 tm.manage_reserved_seat(ticket_id_tmp);
                 break;
             case 3:
-                UserService::account_management();
+                UserService::manage_account();
                 break;
             case 9:
                 return;

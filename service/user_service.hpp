@@ -31,7 +31,7 @@ public:
      * @brief Method that allows to add users to the database.
      * @param std::string representing file name.
      */
-    void get_users_to_the_database(const std::string& file_name) const;
+    void add_users_to_the_database(const std::string& file_name) const;
 
     /**
      * @brief Method that allows to sign in.
@@ -42,7 +42,7 @@ public:
     /**
      * @brief Method that allows to manage account.
      */
-    static void account_management();
+    static void manage_account();
 };
 
 

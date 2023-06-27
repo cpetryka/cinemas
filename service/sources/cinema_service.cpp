@@ -19,7 +19,7 @@ json CinemaService::get_data_from_json_file(const std::string &file_name) const 
     return j;
 }
 
-void CinemaService::add_datas_to_the_database(const std::string &file_name) const {
+void CinemaService::add_cinemas_to_the_database(const std::string &file_name) const {
     json data = get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
@@ -59,5 +59,5 @@ void CinemaService::add_datas_to_the_database(const std::string &file_name) cons
 }
 
 CinemaService::CinemaService(const std::string &file_name) {
-    add_datas_to_the_database(file_name);
+    add_cinemas_to_the_database(file_name);
 }
