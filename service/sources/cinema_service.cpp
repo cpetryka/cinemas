@@ -4,23 +4,8 @@
 
 #include "../cinema_service.hpp"
 
-json CinemaService::get_data_from_json_file(const std::string &file_name) const {
-    std::ifstream reading(file_name);
-    json j;
-
-    if(reading.is_open()) {
-        reading >> j;
-        reading.close();
-    }
-    else {
-        throw std::runtime_error{"the file '" + file_name + "' could not be opened"};
-    }
-
-    return j;
-}
-
 void CinemaService::add_cinemas_to_the_database(const std::string &file_name) const {
-    json data = get_data_from_json_file(file_name);
+    json data = Utils::get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
         // Add cinema

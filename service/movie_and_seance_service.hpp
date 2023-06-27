@@ -14,12 +14,6 @@
  * @brief Class that is responsible for managing movies and seances.
  */
 class MovieAndSeanceService {
-    /**
-     * @brief Method that allows to get data from json file.
-     * @param std::string representing file name.
-     * @return json object.
-     */
-    json get_data_from_json_file(const std::string &file_name) const;
 public:
     explicit MovieAndSeanceService() = default;
     explicit MovieAndSeanceService(const std::string& movies_file_name, const std::string& seances_file_name);

@@ -29,3 +29,18 @@ std::string Utils::convert_sqlite3_column_text_to_string(const unsigned char *va
     }
     return result;
 }
+
+json Utils::get_data_from_json_file(const std::string &file_name) {
+    std::ifstream read(file_name);
+    json j;
+
+    if(read.is_open()) {
+        read >> j;
+        read.close();
+    }
+    else {
+        throw std::runtime_error{"The file '" + file_name + "' could not be opened."};
+    }
+
+    return j;
+}

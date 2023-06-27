@@ -13,13 +13,6 @@
  */
 class UserService {
     /**
-     * @brief Method that allows to get data from json file.
-     * @param std::string representing file name.
-     * @return json object.
-     */
-    json get_data_from_json_file(const std::string &file_name) const;
-
-    /**
      * @brief Method that allows to change customer's password.
      */
     static void change_password(const int customer_id);

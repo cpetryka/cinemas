@@ -5,11 +5,7 @@
 #ifndef CINEMAS_UTILS_HPP
 #define CINEMAS_UTILS_HPP
 
-#include <string>
-#include <algorithm>
-#include <iterator>
-#include <vector>
-#include <sstream>
+#include "../libs/headers.hpp"
 
 /**
  * @brief Class that contains useful methods.
@@ -36,6 +32,13 @@ struct Utils {
      * @return std::string representing converted value.
      */
     static std::string convert_sqlite3_column_text_to_string(const unsigned char* value);
+
+    /**
+     * @brief Method that gets data from json file.
+     * @param std::string representing file name.
+     * @return json object.
+     * */
+    static json get_data_from_json_file(const std::string &file_name);
 };
 
 #endif //CINEMAS_UTILS_HPP

@@ -4,21 +4,6 @@
 
 #include "../user_service.hpp"
 
-json UserService::get_data_from_json_file(const std::string &file_name) const {
-    std::ifstream reading(file_name);
-    json j;
-
-    if(reading.is_open()) {
-        reading >> j;
-        reading.close();
-    }
-    else {
-        throw std::runtime_error{"the file '" + file_name + "' could not be opened"};
-    }
-
-    return j;
-}
-
 void UserService::change_password(const int customer_id) {
     std::cout << "Enter new password: " << std::endl;
     std::string new_password;
@@ -38,7 +23,7 @@ UserService::UserService(const std::string &file_name) {
 }
 
 void UserService::add_users_to_the_database(const std::string &file_name) const {
-    json data = get_data_from_json_file(file_name);
+    json data = Utils::get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_user) {
         std::string user_role_tmp = one_user["role"];

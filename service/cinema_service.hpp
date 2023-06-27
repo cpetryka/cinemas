@@ -13,12 +13,6 @@
  * @brief Class that is responsible for managing cinemas.
  */
 class CinemaService {
-    /**
-     * @brief Method that allows to get data from json file.
-     * @param std::string representing file name.
-     * @return json object.
-     */
-    json get_data_from_json_file(const std::string &file_name) const;
 public:
     explicit CinemaService() = default;
     explicit CinemaService(const std::string& file_name);

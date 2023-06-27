@@ -4,21 +4,6 @@
 
 #include "../movie_and_seance_service.hpp"
 
-json MovieAndSeanceService::get_data_from_json_file(const std::string &file_name) const {
-    std::ifstream reading(file_name);
-    json j;
-
-    if(reading.is_open()) {
-        reading >> j;
-        reading.close();
-    }
-    else {
-        throw std::runtime_error{"the file '" + file_name + "' could not be opened"};
-    }
-
-    return j;
-}
-
 MovieAndSeanceService::MovieAndSeanceService(const std::string &movies_file_name,
                                              const std::string &seances_file_name) {
     add_movies_to_the_database(movies_file_name);
@@ -39,7 +24,7 @@ void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_n
 }
 
 void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_name) const {
-    json data = get_data_from_json_file(file_name);
+    json data = Utils::get_data_from_json_file(file_name);
 
     std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
         // Check if given cinema exists
