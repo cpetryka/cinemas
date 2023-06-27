@@ -30,6 +30,11 @@ struct Utils {
      */
     static std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator);
 
+    /**
+     * @brief Method that allows to convert sqlite3_column_text to string.
+     * @param const unsigned char* representing value to convert.
+     * @return std::string representing converted value.
+     */
     static std::string convert_sqlite3_column_text_to_string(const unsigned char* value);
 };
 
