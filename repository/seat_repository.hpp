@@ -6,6 +6,7 @@
 #define CINEMAS_SEAT_REPOSITORY_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 #include "../model/seat.hpp"
 #include "../connection/db_connection.hpp"
 

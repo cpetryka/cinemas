@@ -5,6 +5,7 @@
 #ifndef CINEMAS_TICKET_SERVICE_HPP
 #define CINEMAS_TICKET_SERVICE_HPP
 
+#include "../utils/utils.hpp"
 #include "../repository/seance_repository.hpp"
 #include "../repository/seat_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"

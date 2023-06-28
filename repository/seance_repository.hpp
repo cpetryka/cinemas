@@ -6,6 +6,7 @@
 #define CINEMAS_SEANCE_REPOSITORY_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 #include "../model/seance.hpp"
 #include "../model/seance_with_movie.hpp"
 #include "../connection/db_connection.hpp"

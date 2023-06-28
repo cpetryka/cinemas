@@ -6,6 +6,7 @@
 #define CINEMAS_CUSTOMER_GENDER_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 
 /**
  * @brief Represents a customer gender.

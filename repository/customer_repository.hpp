@@ -6,6 +6,7 @@
 #define CINEMAS_CUSTOMER_REPOSITORY_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 #include "../model/customer.hpp"
 #include "../connection/db_connection.hpp"
 

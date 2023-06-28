@@ -5,6 +5,9 @@
 #ifndef CINEMAS_TICKET_STATE_HPP
 #define CINEMAS_TICKET_STATE_HPP
 
+#include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
+
 /**
  * @brief Represents a ticket state.
  */

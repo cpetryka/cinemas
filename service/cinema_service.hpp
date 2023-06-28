@@ -5,6 +5,7 @@
 #ifndef CINEMAS_CINEMA_SERVICE_HPP
 #define CINEMAS_CINEMA_SERVICE_HPP
 
+#include "../utils/utils.hpp"
 #include "../repository/cinema_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
 #include "../repository/seat_repository.hpp"

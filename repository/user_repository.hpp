@@ -6,6 +6,7 @@
 #define CINEMAS_USER_REPOSITORY_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 #include "../model/user.hpp"
 #include "../connection/db_connection.hpp"
 

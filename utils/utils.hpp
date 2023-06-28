@@ -37,7 +37,7 @@ struct Utils {
      * @brief Method that gets data from json file.
      * @param std::string representing file name.
      * @return json object.
-     * */
+     */
     static json get_data_from_json_file(const std::string &file_name);
 };
 

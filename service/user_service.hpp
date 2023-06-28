@@ -5,6 +5,7 @@
 #ifndef CINEMAS_USER_SERVICE_HPP
 #define CINEMAS_USER_SERVICE_HPP
 
+#include "../utils/utils.hpp"
 #include "../repository/user_repository.hpp"
 #include "../repository/customer_repository.hpp"
 

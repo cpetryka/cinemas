@@ -6,6 +6,7 @@
 #define CINEMAS_TICKET_REPOSITORY_HPP
 
 #include "../libs/headers.hpp"
+#include "../utils/utils.hpp"
 #include "../model/ticket.hpp"
 #include "../connection/db_connection.hpp"
 #include "../utils/date_time.hpp"

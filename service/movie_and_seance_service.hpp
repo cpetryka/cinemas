@@ -5,6 +5,7 @@
 #ifndef CINEMAS_MOVIE_AND_SEANCE_SERVICE_HPP
 #define CINEMAS_MOVIE_AND_SEANCE_SERVICE_HPP
 
+#include "../utils/utils.hpp"
 #include "../repository/movie_repository.hpp"
 #include "../repository/seance_repository.hpp"
 #include "../repository/cinema_repository.hpp"

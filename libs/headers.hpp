@@ -19,8 +19,6 @@
 #include <functional>
 #include <stdlib.h>
 
-#include "../utils/utils.hpp"
-
 #include "sqlite3.h"
 #include "json.hpp"
 #include "date.hpp"
