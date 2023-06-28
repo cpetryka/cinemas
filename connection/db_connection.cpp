@@ -7,7 +7,7 @@
 DbConnection::DbConnection() {
     if (SQLITE_OK != sqlite3_open(DATABASE_NAME.c_str(), &connection))
     {
-        throw std::runtime_error{ sqlite3_errmsg(connection) };
+        throw DatabaseConnectionException{ sqlite3_errmsg(connection) };
     }
 
     create_tables();

@@ -6,6 +6,7 @@
 #define CINEMAS_DB_CONNECTION_HPP
 
 #include "../libs/headers.hpp"
+#include "exceptions/database_connection_exception.hpp"
 #include "exceptions/table_creation_exception.hpp"
 
 /**
