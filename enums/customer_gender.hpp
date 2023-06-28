@@ -24,8 +24,8 @@ namespace CustomerGender
     /**
      * @brief Array of all possible options. It works as a helper for other methods.
      */
-    static Type Types[] = { Type::MALE, Type::FEMALE };
-    static int SIZE = 2;
+    static const auto SIZE = 2;
+    static const auto TYPES = std::array<Type, SIZE>{ Type::MALE, Type::FEMALE };
 
     /**
      * @brief Method that converts string to Type.
@@ -38,10 +38,8 @@ namespace CustomerGender
         {
             return Type::MALE;
         }
-        else
-        {
-            return Type::FEMALE;
-        }
+
+        return Type::FEMALE;
     }
 
     /**
@@ -51,7 +49,7 @@ namespace CustomerGender
      */
     static std::string to_string(Type type)
     {
-        std::string customer_genders_str[] = { "MALE", "FEMALE" };
+        auto customer_genders_str = std::array<std::string, SIZE>{ "MALE", "FEMALE" };
         return customer_genders_str[static_cast<int>(type)];
     }
 
@@ -64,10 +62,10 @@ namespace CustomerGender
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("No gender at index no " + std::to_string(pos));
+            throw std::out_of_range("No gender at index no. " + std::to_string(pos));
         }
 
-        return Types[pos];
+        return TYPES[pos];
     }
 }
 

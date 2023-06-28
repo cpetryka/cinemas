@@ -17,7 +17,8 @@
 #include <thread>
 #include <chrono>
 #include <functional>
-#include <stdlib.h>
+#include <cstdlib>
+#include <array>
 
 #include "sqlite3.h"
 #include "json.hpp"

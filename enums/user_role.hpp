@@ -24,8 +24,8 @@ namespace UserRole
     /**
      * @brief Array of all possible options. It works as a helper for other methods.
      */
-    static Type Types[] = { Type::USER, Type::CUSTOMER };
-    static int SIZE = 2;
+    static const auto SIZE = 2;
+    static const auto TYPES = std::array<Type, SIZE>{ Type::USER, Type::CUSTOMER };
 
     /**
      * @brief Method that converts string to Type.
@@ -38,10 +38,8 @@ namespace UserRole
         {
             return Type::CUSTOMER;
         }
-        else
-        {
-            return Type::USER;
-        }
+
+        return Type::USER;
     }
 
     /**
@@ -51,7 +49,7 @@ namespace UserRole
      */
     static std::string to_string(Type type)
     {
-        std::string user_roles_str[] = { "USER", "CUSTOMER" };
+        auto user_roles_str = std::array<std::string, SIZE>{ "USER", "CUSTOMER" };
         return user_roles_str[static_cast<int>(type)];
     }
 
@@ -64,10 +62,10 @@ namespace UserRole
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("No role at index no " + std::to_string(pos));
+            throw std::out_of_range("No role at index no. " + std::to_string(pos));
         }
 
-        return Types[pos];
+        return TYPES[pos];
     }
 }
 

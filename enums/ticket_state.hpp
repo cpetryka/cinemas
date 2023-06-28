@@ -24,8 +24,8 @@ namespace TicketState
     /**
      * @brief Array of all possible options. It works as a helper for other methods.
      */
-    static Type Types[] = { Type::ORDERED, Type::RESERVED, Type::CANCELLED };
-    static int SIZE = 3;
+    static const auto SIZE = 3;
+    static const auto TYPES = std::array<Type, SIZE>{ Type::ORDERED, Type::RESERVED, Type::CANCELLED };
 
     /**
      * @brief Method that converts string to Type.
@@ -34,7 +34,7 @@ namespace TicketState
      */
     static Type from_string(const std::string& value)
     {
-        std::string lowercase = Utils::convert_string_to_lowercase(value);
+        auto lowercase = std::string{ Utils::convert_string_to_lowercase(value) };
 
         if (lowercase == "ordered")
         {
@@ -56,7 +56,7 @@ namespace TicketState
      */
     static std::string to_string(Type type)
     {
-        std::string ticket_states_str[] = { "ORDERED", "RESERVED", "CANCELLED" };
+        auto ticket_states_str = std::array<std::string, SIZE>{ "ORDERED", "RESERVED", "CANCELLED" };
         return ticket_states_str[static_cast<int>(type)];
     }
 
@@ -69,10 +69,10 @@ namespace TicketState
     {
         if (pos < 0 || pos >= SIZE)
         {
-            throw std::runtime_error("No ticket state at index no " + std::to_string(pos));
+            throw std::out_of_range("No ticket state at index no. " + std::to_string(pos));
         }
 
-        return Types[pos];
+        return TYPES[pos];
     }
 }
 
