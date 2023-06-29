@@ -16,7 +16,7 @@ void MovieRepository::insert(const Movie &movie) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -35,7 +35,7 @@ void MovieRepository::update(const int id, const Movie &movie) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -51,7 +51,7 @@ void MovieRepository::remove(const int id) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);

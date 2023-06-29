@@ -10,6 +10,7 @@
 #include "../model/cinema_room.hpp"
 #include "../repository/seat_repository.hpp"
 #include "../connection/db_connection.hpp"
+#include "exceptions/table_operation_exception.hpp"
 
 /**
  * @brief Class that is responsible for executing queries on 'cinema_room' table.

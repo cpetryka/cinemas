@@ -9,6 +9,7 @@
 #include "../utils/utils.hpp"
 #include "../model/user.hpp"
 #include "../connection/db_connection.hpp"
+#include "exceptions/table_operation_exception.hpp"
 
 /**
  * @brief Class that is responsible for executing queries on 'user' table.

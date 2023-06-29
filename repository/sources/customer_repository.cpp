@@ -20,7 +20,7 @@ void CustomerRepository::insert(const Customer &customer) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -43,7 +43,7 @@ void CustomerRepository::update(const int id, const Customer &customer) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -59,7 +59,7 @@ void CustomerRepository::remove(const int id) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);

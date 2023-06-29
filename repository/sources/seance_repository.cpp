@@ -17,7 +17,7 @@ void SeanceRepository::insert(const Seance &seance) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -37,7 +37,7 @@ void SeanceRepository::update(const int id, const Seance &seance) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);
@@ -53,7 +53,7 @@ void SeanceRepository::remove(const int id) {
 
     if(SQLITE_DONE != result) {
         sqlite3_errmsg(connection);
-        throw std::exception{sqlite3_errmsg(connection)};
+        throw TableOperationException{ sqlite3_errmsg(connection) };
     }
 
     sqlite3_finalize(stmt);

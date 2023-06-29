@@ -10,6 +10,7 @@
 #include "../model/ticket.hpp"
 #include "../connection/db_connection.hpp"
 #include "../utils/date_time.hpp"
+#include "exceptions/table_operation_exception.hpp"
 
 /**
  * @brief Class that is responsible for executing queries on 'ticket' table.
