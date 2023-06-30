@@ -61,7 +61,7 @@ int UserService::sign_in() {
     } while(++counter < 3 && !found_customer.has_value());
 
     if(!found_customer.has_value()) {
-        throw std::runtime_error{"There is no user with a given login or password."};
+        throw NoSuchUserException{"There is no user with a given login or password."};
     }
 
     return found_customer.value();

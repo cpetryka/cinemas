@@ -8,6 +8,7 @@
 #include "../utils/utils.hpp"
 #include "../repository/user_repository.hpp"
 #include "../repository/customer_repository.hpp"
+#include "exceptions/no_such_user_exception.hpp"
 
 /**
  * @brief Class that is responsible for managing users.
