@@ -13,11 +13,9 @@ void TicketRepository::insert(const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    std::string ticket_state_tmp = TicketState::to_string(ticket.state);
-    sqlite3_bind_text(stmt, 5, ticket_state_tmp.c_str(), -1, SQLITE_STATIC);
-    const auto result = sqlite3_step(stmt);
+    sqlite3_bind_text(stmt, 5, TicketState::to_string(ticket.state).c_str(), -1, SQLITE_STATIC);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -34,12 +32,10 @@ void TicketRepository::update(const int id, const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    std::string ticket_state_tmp = TicketState::to_string(ticket.state);
-    sqlite3_bind_text(stmt, 5, ticket_state_tmp.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 5, TicketState::to_string(ticket.state).c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 6, id);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -53,9 +49,8 @@ void TicketRepository::remove(const int id) {
     sqlite3_stmt* stmt = nullptr;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, id);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -70,9 +65,8 @@ void TicketRepository::cancel_ticket_by_id(const int idx) {
     sqlite3_stmt* stmt = nullptr;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, idx);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -89,8 +83,7 @@ std::vector<int> TicketRepository::find_reserved_seats(const int seance_id) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance_id);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         reserved_seats.emplace_back(sqlite3_column_int(stmt, 0));
     }
 
@@ -105,16 +98,15 @@ std::optional<std::unique_ptr<Ticket>> TicketRepository::find_by_id(const int id
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, idx);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-        return std::make_optional(std::make_unique<Ticket>(Ticket{
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        return std::make_optional(std::make_unique<Ticket>(
                 sqlite3_column_int(stmt, 0),
                 sqlite3_column_int(stmt, 1),
                 sqlite3_column_int(stmt, 2),
                 sqlite3_column_int(stmt, 3),
                 sqlite3_column_int(stmt, 4),
                 Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 5))
-        }));
+        ));
     }
 
     sqlite3_finalize(stmt);
@@ -129,10 +121,9 @@ std::vector<int> TicketRepository::find_reservations_to_cancel() {
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     auto current_date_and_time_str = DateTime().convert_date_and_time_into_string();
-    sqlite3_bind_text(stmt, 1, current_date_and_time_str.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 1, current_date_and_time_str.c_str(), -1, nullptr);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         found_reservations.emplace_back(sqlite3_column_int(stmt, 0));
     }
 

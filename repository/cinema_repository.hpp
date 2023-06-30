@@ -43,5 +43,4 @@ public:
     static std::optional<int> find_pos(const Cinema& cinema);
 };
 
-
 #endif //CINEMAS_CINEMA_REPOSITORY_HPP

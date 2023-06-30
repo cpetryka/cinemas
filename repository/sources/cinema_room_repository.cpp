@@ -13,9 +13,8 @@ void CinemaRoomRepository::insert(const CinemaRoom &cinema_room) {
     sqlite3_bind_int(stmt, 2, cinema_room.cinema_id);
     sqlite3_bind_int(stmt, 3, cinema_room.rows);
     sqlite3_bind_int(stmt, 4, cinema_room.places);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -33,9 +32,8 @@ void CinemaRoomRepository::update(const int id, const CinemaRoom &cinema_room) {
     sqlite3_bind_int(stmt, 3, cinema_room.rows);
     sqlite3_bind_int(stmt, 4, cinema_room.places);
     sqlite3_bind_int(stmt, 5, id);
-    const auto results = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != results) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -49,9 +47,8 @@ void CinemaRoomRepository::remove(const int id) {
     sqlite3_stmt* stmt = nullptr;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, id);
-    const auto result = sqlite3_step(stmt);
 
-    if (SQLITE_DONE != result) {
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -64,37 +61,33 @@ std::optional<int> CinemaRoomRepository::find_pos_by_name(const std::string &nam
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
-    sqlite3_bind_text(stmt, 1, name.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 1, name.c_str(), -1, nullptr);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
     return std::nullopt;
 }
-
 
 std::optional<int> CinemaRoomRepository::find_pos(const CinemaRoom &cinema_room) {
     const std::string sql = "select id from cinema_rooms where name = ? and cinema_id = ? and rows = ? and places = ?";
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
-    sqlite3_bind_text(stmt, 1, cinema_room.name.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 1, cinema_room.name.c_str(), -1, nullptr);
     sqlite3_bind_int(stmt, 2, cinema_room.cinema_id);
     sqlite3_bind_int(stmt, 3, cinema_room.rows);
     sqlite3_bind_int(stmt, 4, cinema_room.places);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
     sqlite3_finalize(stmt);
     return std::nullopt;
 }
-
 
 std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(const int idx) {
     const std::string sql = "select id, name, cinema_id, rows, places from cinema_rooms where id = ?";
@@ -103,8 +96,7 @@ std::optional<std::unique_ptr<CinemaRoom>> CinemaRoomRepository::find_by_id(cons
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, idx);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(std::make_unique<CinemaRoom>(CinemaRoom{
                 sqlite3_column_int(stmt, 0),
                 Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 1)),

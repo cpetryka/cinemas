@@ -16,7 +16,6 @@
  * @brief Class that is responsible for executing queries on 'seance' table.
  */
 class SeanceRepository {
-    static int convert_date_time_str_into_seconds_since_midnight(const std::string& date_time_str);
 public:
     /**
      * @brief Method that allows to insert new seance to database.

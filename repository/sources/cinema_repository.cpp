@@ -11,9 +11,8 @@ void CinemaRepository::insert(const Cinema &cinema) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_text(stmt, 1, cinema.name.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, cinema.city.c_str(), -1, SQLITE_STATIC);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -29,9 +28,8 @@ void CinemaRepository::update(const int id, const Cinema &cinema) {
     sqlite3_bind_text(stmt, 1, cinema.name.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, cinema.city.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 3, id);
-    const auto results = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != results) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -45,9 +43,8 @@ void CinemaRepository::remove(const int id) {
     sqlite3_stmt* stmt = nullptr;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, id);
-    const auto result = sqlite3_step(stmt);
 
-    if (SQLITE_DONE != result) {
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -60,11 +57,10 @@ std::optional<int> CinemaRepository::find_pos(const Cinema &cinema) {
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
-    sqlite3_bind_text(stmt, 1, cinema.name.c_str(), -1, 0);
-    sqlite3_bind_text(stmt, 2, cinema.city.c_str(), -1, 0);
+    sqlite3_bind_text(stmt, 1, cinema.name.c_str(), -1, nullptr);
+    sqlite3_bind_text(stmt, 2, cinema.city.c_str(), -1, nullptr);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 

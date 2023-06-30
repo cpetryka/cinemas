@@ -12,9 +12,8 @@ void SeatRepository::insert(const Seat &seat) {
     sqlite3_bind_int(stmt, 1, seat.cinema_room_id);
     sqlite3_bind_int(stmt, 2, seat.row);
     sqlite3_bind_int(stmt, 3, seat.place);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -31,9 +30,8 @@ void SeatRepository::update(const int id, const Seat &seat) {
     sqlite3_bind_int(stmt, 2, seat.row);
     sqlite3_bind_int(stmt, 3, seat.place);
     sqlite3_bind_int(stmt, 4, id);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -47,9 +45,8 @@ void SeatRepository::remove(const int id) {
     sqlite3_stmt* stmt = nullptr;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, id);
-    const auto result = sqlite3_step(stmt);
 
-    if(SQLITE_DONE != result) {
+    if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
         throw TableOperationException{ sqlite3_errmsg(connection) };
     }
@@ -66,8 +63,7 @@ std::optional<int> SeatRepository::find_pos(const Seat &seat) {
     sqlite3_bind_int(stmt, 2, seat.row);
     sqlite3_bind_int(stmt, 3, seat.place);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
     }
 
@@ -84,8 +80,7 @@ std::optional<std::unique_ptr<Seat>> SeatRepository::find_by_parameters(const in
     sqlite3_bind_int(stmt, 2, row);
     sqlite3_bind_int(stmt, 3, place);
 
-    auto result = 0;
-    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(std::make_unique<Seat>(Seat{
                 sqlite3_column_int(stmt, 0),
                 cinema_room_id,

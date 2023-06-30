@@ -36,18 +36,18 @@ public:
     void remove(const int id);
 
     /**
-     * @brief Method that allows to find a customer by id.
-     * @param int id of customer to find.
-     * @return std::optional<std::unique_ptr<Customer>> customer object wrapped by std::optional.
-     */
-    std::optional<std::unique_ptr<Customer>> find_by_id(const int idx);
-
-    /**
      * @brief Method that allows to find a position of customer in database.
      * @param Customer object to find.
      * @return std::optional<int> position of customer in database.
      */
     static std::optional<int> find_pos(const Customer& customer);
+
+    /**
+     * @brief Method that allows to find a customer by id.
+     * @param int id of customer to find.
+     * @return std::optional<std::unique_ptr<Customer>> customer object wrapped by std::optional.
+     */
+    static std::optional<std::unique_ptr<Customer>> find_by_id(const int idx);
 
     /**
      * @brief Method that allows to find a position of customer by their username and password in database.
