@@ -14,9 +14,9 @@ std::vector<int> DateTime::convert_date_time_str_into_parts_of_date(const std::s
     return parts_of_date;
 }
 
-year_month_day DateTime::convert_data_into_date(const std::string &date_time_str) const {
+std::chrono::year_month_day DateTime::convert_data_into_date(const std::string &date_time_str) const {
     auto parts_of_date = convert_date_time_str_into_parts_of_date(date_time_str);
-    return year_month_day{ year{parts_of_date.at(0)}, month{static_cast<unsigned int>(parts_of_date.at(1))}, day{static_cast<unsigned int>(parts_of_date.at(2))} };
+    return std::chrono::year_month_day{ std::chrono::year{parts_of_date.at(0)}, std::chrono::month{static_cast<unsigned int>(parts_of_date.at(1))}, std::chrono::day{static_cast<unsigned int>(parts_of_date.at(2))} };
 }
 
 int DateTime::convert_date_time_str_into_seconds_since_midnight(const std::string &date_time_str) const {
@@ -28,9 +28,9 @@ int DateTime::convert_date_time_str_into_seconds_since_midnight(const std::strin
     return hours * 3600 + minutes * 60 + seconds;
 }
 
-year_month_day DateTime::indicate_current_date() const {
+std::chrono::year_month_day DateTime::indicate_current_date() const {
     auto now = system_clock::now();
-    return year_month_day{ floor<days>(now) };
+    return std::chrono::year_month_day{ floor<days>(now) };
 }
 
 time_of_day<std::chrono::seconds> DateTime::indicate_current_time() const {
@@ -52,7 +52,7 @@ DateTime::DateTime(const std::string &date_time_str) {
     time = time_of_day<std::chrono::seconds> { std::chrono::seconds(convert_date_time_str_into_seconds_since_midnight(date_time_str)) };
 }
 
-year_month_day DateTime::get_date() const {
+std::chrono::year_month_day DateTime::get_date() const {
     return date;
 }
 

@@ -11,7 +11,7 @@
  * @brief Class that represents date and time.
  */
 class DateTime {
-    year_month_day date;
+    std::chrono::year_month_day date;
     time_of_day<std::chrono::seconds> time;
 
     /**
@@ -26,7 +26,7 @@ class DateTime {
      * @param std::string representing date and time.
      * @return std::vector<int> representing parts of time.
      */
-    year_month_day convert_data_into_date(const std::string &date_time_str) const;
+    std::chrono::year_month_day convert_data_into_date(const std::string &date_time_str) const;
 
     /**
      * @brief Converts date and time string into parts of time.
@@ -40,7 +40,7 @@ class DateTime {
      * @brief Indicates current date.
      * @return year_month_day representing current date.
      */
-    year_month_day indicate_current_date() const;
+    std::chrono::year_month_day indicate_current_date() const;
 
     /**
      * @brief Indicates current time.
@@ -55,7 +55,7 @@ public:
      * @brief Getter for date.
      * @return year_month_day representing date.
      */
-    year_month_day get_date() const;
+    std::chrono::year_month_day get_date() const;
 
     /**
      * @brief Getter for time.
