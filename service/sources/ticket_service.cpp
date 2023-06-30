@@ -45,13 +45,13 @@ std::optional<std::unique_ptr<SeanceWithMovie>> TicketService::seance_choice(con
     auto user_prefs = Utils::convert_string_to_vector(user_prefs_str, ',');
 
     if(user_prefs.size() != 4) {
-        throw std::runtime_error("Incorrect input! Try again later!");
+        throw std::invalid_argument("Incorrect input! Try again later!");
     }
 
     auto available_seances = SeanceRepository::find_by_parameters(user_prefs.at(0), user_prefs.at(1), user_prefs.at(2), user_prefs.at(3));
 
     if(available_seances.size() == 0) {
-        throw std::runtime_error("Incorrect input! There is no seance with such data. Try again later!");
+        throw std::invalid_argument("Incorrect input! There is no seance with such data. Try again later!");
     }
 
     // Shows info about available seances
