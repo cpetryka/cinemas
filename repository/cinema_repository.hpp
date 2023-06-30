@@ -14,26 +14,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'cinema' table.
  */
-class CinemaRepository {
-public:
+struct CinemaRepository {
     /**
      * @brief Method that allows to insert new cinema to database.
      * @param Cinema object to insert.
      */
-    void insert(const Cinema& cinema);
+    static void insert(const Cinema& cinema);
 
     /**
      * @brief Methods that allows to update a cinema at a given id.
      * @param int id of cinema to update.
      * @param Cinema object to update.
      */
-    void update(const int id, const Cinema& cinema);
+    static void update(const int id, const Cinema& cinema);
 
     /**
      * @brief Method that allows to remove a cinema at a given id.
      * @param int id of cinema to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a position of cinema in database.

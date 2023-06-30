@@ -15,26 +15,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'cinema_room' table.
  */
-class CinemaRoomRepository {
-public:
+struct CinemaRoomRepository {
     /**
      * @brief Method that allows to insert new cinema_room to database.
      * @param CinemaRoom object to insert.
      */
-    void insert(const CinemaRoom& cinema_room);
+    static void insert(const CinemaRoom& cinema_room);
 
     /**
      * @brief Methods that allows to update a cinema_room at a given id.
      * @param int id of cinema_room to update.
      * @param CinemaRoom object to update.
      */
-    void update(const int id, const CinemaRoom& cinema_room);
+    static void update(const int id, const CinemaRoom& cinema_room);
 
     /**
      * @brief Method that allows to remove a cinema_room at a given id.
      * @param int id of cinema_room to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a position of cinema_room by name in database.
@@ -55,7 +54,7 @@ public:
      * @param int id of cinema_room to find.
      * @return std::optional<std::unique_ptr<CinemaRoom>> cinema_room object wrapped by std::optional.
      */
-    std::optional<std::unique_ptr<CinemaRoom>> find_by_id(const int idx);
+    static std::optional<std::unique_ptr<CinemaRoom>> find_by_id(const int idx);
 
     /**
      * @brief Method that allows to find all seats in given room.

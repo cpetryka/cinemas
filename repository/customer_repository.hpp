@@ -14,26 +14,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'customer' table.
  */
-class CustomerRepository {
-public:
+struct CustomerRepository {
     /**
      * @brief Method that allows to insert new customer to database.
      * @param Customer object to insert.
      */
-    void insert(const Customer& customer);
+    static void insert(const Customer& customer);
 
     /**
      * @brief Methods that allows to update a customer at a given id.
      * @param int id of customer to update.
      * @param Customer object to update.
      */
-    void update(const int id, const Customer& customer);
+    static void update(const int id, const Customer& customer);
 
     /**
      * @brief Method that allows to remove a customer at a given id.
      * @param int id of customer to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a position of customer in database.

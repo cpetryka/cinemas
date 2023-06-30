@@ -148,8 +148,7 @@ TicketService::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
 
 
 std::vector<int> TicketService::seat_choice(const int seance_id, const int cinema_room_id) const {
-    CinemaRoomRepository crr;
-    auto cinema_room_tmp = crr.find_by_id(cinema_room_id);
+    auto cinema_room_tmp = CinemaRoomRepository::find_by_id(cinema_room_id);
 
     std::vector<std::unique_ptr<Seat>> seats_in_cinema_room = find_available_places(seance_id, cinema_room_id, cinema_room_tmp.value()->rows, cinema_room_tmp.value()->places);
 
@@ -184,9 +183,8 @@ void TicketService::buy_ticket() const {
 
     auto customer_id = UserService::sign_in();
 
-    TicketRepository tr;
     for(int & chosen_seat_id : chosen_seats) {
-        tr.insert(Ticket{0, customer_id, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+        TicketRepository::insert(Ticket{0, customer_id, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
     }
 
     if(state == "RESERVED") {
@@ -202,7 +200,6 @@ void TicketService::buy_ticket() const {
 }
 
 void TicketService::manage_reserved_seat(const int ticket_id) const {
-    TicketRepository tr;
     auto ticket_tmp = TicketRepository::find_by_id(ticket_id);
     auto user_choice = 0;
 
@@ -225,7 +222,7 @@ void TicketService::manage_reserved_seat(const int ticket_id) const {
         switch (user_choice) {
             case 1:
                 ticket_tmp.value()->state = TicketState::from_string("ORDERED");
-                tr.update(ticket_id, *ticket_tmp.value());
+                TicketRepository::update(ticket_id, *ticket_tmp.value());
 
                 system("cls");
                 std::cout << "Thank you for paying for the ticket!" << std::endl;
@@ -234,7 +231,7 @@ void TicketService::manage_reserved_seat(const int ticket_id) const {
 
                 break;
             case 2:
-                tr.cancel_ticket_by_id(ticket_id);
+                TicketRepository::cancel_ticket_by_id(ticket_id);
 
                 system("cls");
                 std::cout << "Ticket cancellation successful!" << std::endl;

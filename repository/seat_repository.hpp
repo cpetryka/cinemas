@@ -14,26 +14,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'seat' table.
  */
-class SeatRepository {
-public:
+struct SeatRepository {
     /**
      * @brief Method that allows to insert new seat to database.
      * @param Seat object to insert.
      */
-    void insert(const Seat& seat);
+    static void insert(const Seat& seat);
 
     /**
      * @brief Methods that allows to update a seat at a given id.
      * @param int id of seat to update.
      * @param Seat object to update.
      */
-    void update(const int id, const Seat& seat);
+    static void update(const int id, const Seat& seat);
 
     /**
      * @brief Method that allows to remove a seat at a given id.
      * @param int id of seat to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a seat in database.

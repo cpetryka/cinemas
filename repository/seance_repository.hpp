@@ -15,26 +15,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'seance' table.
  */
-class SeanceRepository {
-public:
+struct SeanceRepository {
     /**
      * @brief Method that allows to insert new seance to database.
      * @param Seance object to insert.
      */
-    void insert(const Seance& seance);
+    static void insert(const Seance& seance);
 
     /**
      * @brief Methods that allows to update a seance at a given id.
      * @param int id of seance to update.
      * @param Seance object to update.
      */
-    void update(const int id, const Seance& seance);
+    static void update(const int id, const Seance& seance);
 
     /**
      * @brief Method that allows to remove a seance at a given id.
      * @param int id of seance to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a seance in database.

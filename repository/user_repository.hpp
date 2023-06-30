@@ -14,26 +14,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'user' table.
  */
-class UserRepository {
-public:
+struct UserRepository {
     /**
      * @brief Method that allows to insert new user to database.
      * @param User object to insert.
      */
-    void insert(const User& user);
+    static void insert(const User& user);
 
     /**
      * @brief Methods that allows to update a user at a given id.
      * @param int id of user to update.
      * @param User object to update.
      */
-    void update(const int id, const User& user);
+    static void update(const int id, const User& user);
 
     /**
      * @brief Method that allows to remove a user at a given id.
      * @param int id of user to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a position of user in database.
@@ -47,7 +46,7 @@ public:
      * @param int id of user to find.
      * @return std::optional<std::unique_ptr<User>> user object wrapped by std::optional.
      */
-    std::optional<std::unique_ptr<User>> find_by_id(const int idx);
+    static std::optional<std::unique_ptr<User>> find_by_id(const int idx);
 };
 
 

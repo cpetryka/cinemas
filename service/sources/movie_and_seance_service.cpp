@@ -17,8 +17,7 @@ void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_n
         Movie m = {0, one_movie["title"], one_movie["genre"], one_movie["author"]};
 
         if(!MovieRepository::find_pos(m).has_value()) {
-            MovieRepository mr;
-            mr.insert(m);
+            MovieRepository::insert(m);
         }
     });
 }
@@ -37,14 +36,12 @@ void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_
 
                 if(movie_id.has_value()) {
                     std::for_each(one_seance["details"].begin(), one_seance["details"].end(), [&movie_id](const auto& one_detail) {
-                        CinemaRoomRepository crr;
-                        auto cinema_room_id = crr.find_pos_by_name(one_detail["cinema_room_name"]);
+                        auto cinema_room_id = CinemaRoomRepository::find_pos_by_name(one_detail["cinema_room_name"]);
 
                         Seance s{0, movie_id.value(), cinema_room_id.value(), one_detail["date_time"]};
 
                         if(!SeanceRepository::find_pos(s).has_value()) {
-                            SeanceRepository sr;
-                            sr.insert(s);
+                            SeanceRepository::insert(s);
                         }
                     });
                 }

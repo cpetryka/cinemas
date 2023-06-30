@@ -14,26 +14,25 @@
 /**
  * @brief Class that is responsible for executing queries on 'movie' table.
  */
-class MovieRepository {
-public:
+struct MovieRepository {
     /**
      * @brief Method that allows to insert new movie to database.
      * @param Movie object to insert.
      */
-    void insert(const Movie& movie);
+    static void insert(const Movie& movie);
 
     /**
      * @brief Methods that allows to update a movie at a given id.
      * @param int id of movie to update.
      * @param Movie object to update.
      */
-    void update(const int id, const Movie& movie);
+    static void update(const int id, const Movie& movie);
 
     /**
      * @brief Method that allows to remove a movie at a given id.
      * @param int id of movie to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to find a movie in database.

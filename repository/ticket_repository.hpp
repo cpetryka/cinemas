@@ -15,33 +15,31 @@
 /**
  * @brief Class that is responsible for executing queries on 'ticket' table.
  */
-class TicketRepository {
-public:
-
+struct TicketRepository {
     /**
      * @brief Method that allows to insert new ticket to database.
      * @param Ticket object to insert.
      */
-    void insert(const Ticket& ticket);
+    static void insert(const Ticket& ticket);
 
     /**
      * @brief Methods that allows to update a ticket at a given id.
      * @param int id of ticket to update.
      * @param Ticket object to update.
      */
-    void update(const int id, const Ticket& ticket);
+    static void update(const int id, const Ticket& ticket);
 
     /**
      * @brief Method that allows to remove a ticket at a given id.
      * @param int id of ticket to remove.
      */
-    void remove(const int id);
+    static void remove(const int id);
 
     /**
      * @brief Method that allows to cancel of ticket at a given id.
      * @param int id of ticket to cancel.
      */
-    void cancel_ticket_by_id(const int idx);
+    static void cancel_ticket_by_id(const int idx);
 
     /**
      * @brief Method that allows to find reserved seats for a given seance.

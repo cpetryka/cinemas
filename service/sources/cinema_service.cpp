@@ -13,8 +13,7 @@ void CinemaService::add_cinemas_to_the_database(const std::string &file_name) co
 
         // If there is no such cinema, this adds it
         if(!CinemaRepository::find_pos(cinema_tmp).has_value()) {
-            CinemaRepository cr;
-            cr.insert(cinema_tmp);
+            CinemaRepository::insert(cinema_tmp);
         }
 
         // Add rooms
@@ -22,8 +21,7 @@ void CinemaService::add_cinemas_to_the_database(const std::string &file_name) co
             CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], CinemaRepository::find_pos(cinema_tmp).value(), one_cinema_room["rows"], one_cinema_room["places"]};
 
             if(!CinemaRoomRepository::find_pos(cinema_room_tmp).has_value()) {
-                CinemaRoomRepository crr;
-                crr.insert(cinema_room_tmp);
+                CinemaRoomRepository::insert(cinema_room_tmp);
             }
 
             // Add seats
@@ -34,8 +32,7 @@ void CinemaService::add_cinemas_to_the_database(const std::string &file_name) co
                     Seat s{0, one_cinema_room_pos, i, j};
 
                     if(!SeatRepository::find_pos(s).has_value()) {
-                        SeatRepository sr;
-                        sr.insert(s);
+                        SeatRepository::insert(s);
                     }
                 }
             }

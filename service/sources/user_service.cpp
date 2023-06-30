@@ -10,12 +10,10 @@ void UserService::change_password(const int customer_id) {
     std::getline(std::cin, new_password);
     system("cls");
 
-    CustomerRepository cr;
-    auto customer = cr.find_by_id(customer_id).value();
+    auto customer = CustomerRepository::find_by_id(customer_id).value();
 
-    UserRepository ur;
-    auto user = ur.find_by_id(customer->user_id).value();
-    ur.update(user->id, User{user->id, user->username, new_password, user->role});
+    auto user = UserRepository::find_by_id(customer->user_id).value();
+    UserRepository::update(user->id, User{user->id, user->username, new_password, user->role});
 }
 
 UserService::UserService(const std::string &file_name) {
@@ -31,18 +29,16 @@ void UserService::add_users_to_the_database(const std::string &file_name) const 
 
         // If there is no such user, this adds it
         if(!UserRepository::find_pos(u).has_value()) {
-            UserRepository ur;
-            ur.insert(u);
+            UserRepository::insert(u);
         }
 
         if(UserRole::to_string(u.role) == "CUSTOMER") {
-            CustomerRepository cr;
             auto user_id = UserRepository::find_pos(u).value();
             std::string gender_tmp = one_user["gender"];
             Customer c{0, one_user["name"], one_user["surname"], one_user["age"], gender_tmp, one_user["city"], user_id};
 
             if(!CustomerRepository::find_pos(c).has_value()) {
-                cr.insert(c);
+                CustomerRepository::insert(c);
             }
         }
     });
