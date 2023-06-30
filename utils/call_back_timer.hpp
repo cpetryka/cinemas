@@ -16,8 +16,8 @@ class CallBackTimer {
 public:
     CallBackTimer();
 
-    void stop();
     void start(int interval, std::function<void(void)> func);
+    void stop();
     bool is_running() const noexcept;
 
     ~CallBackTimer();
