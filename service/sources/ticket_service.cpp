@@ -71,8 +71,8 @@ std::vector<std::unique_ptr<Seat>> TicketService::find_available_places(const in
     std::vector<int> reserved_seats = TicketRepository::find_reserved_seats(seance_id);
 
     // Uwzgledniam zajete miejsca w pierwszym wektorze
-    std::for_each(reserved_seats.begin(), reserved_seats.end(), [&seats_in_cinema_room](const auto& reserved_seat) {
-        auto found_element = std::find_if(seats_in_cinema_room.begin(), seats_in_cinema_room.end(), [&reserved_seat](const auto& one_seat) {
+    std::ranges::for_each(reserved_seats, [&seats_in_cinema_room](const auto& reserved_seat) {
+        auto found_element = std::ranges::find_if(seats_in_cinema_room, [&reserved_seat](const auto& one_seat) {
             return one_seat->id == reserved_seat;
         });
 
@@ -131,7 +131,7 @@ TicketService::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
 
         auto tmp = Utils::convert_string_to_vector(user_choice, ',');
         chosen_places.resize(tmp.size());
-        std::transform(tmp.begin(), tmp.end(), chosen_places.begin(), [](const auto& one_string) {
+        std::ranges::transform(tmp, std::back_inserter(chosen_places), [](const auto& one_string) {
             return std::stoi(one_string) - 1;
         });
 

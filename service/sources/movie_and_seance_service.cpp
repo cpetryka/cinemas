@@ -13,7 +13,7 @@ MovieAndSeanceService::MovieAndSeanceService(const std::string &movies_file_name
 void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_name) const {
     json data = Utils::get_data_from_json_file(file_name);
 
-    std::for_each(data.begin(), data.end(), [](const auto& one_movie) {
+    std::ranges::for_each(data, [](const auto& one_movie) {
         Movie m = {0, one_movie["title"], one_movie["genre"], one_movie["author"]};
 
         if(!MovieRepository::find_pos(m).has_value()) {
@@ -25,17 +25,17 @@ void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_n
 void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_name) const {
     json data = Utils::get_data_from_json_file(file_name);
 
-    std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
+    std::ranges::for_each(data, [](const auto& one_cinema) {
         // Check if given cinema exists
         auto cinema_id = CinemaRepository::find_pos(Cinema{0, one_cinema["cinema_name"], one_cinema["cinema_city"]});
 
         if(cinema_id.has_value()) {
-            std::for_each(one_cinema["seances"].begin(), one_cinema["seances"].end(), [](const auto& one_seance) {
+            std::ranges::for_each(one_cinema["seances"], [](const auto& one_seance) {
                 // Check if given movie exists
                 auto movie_id = MovieRepository::find_pos_by_parameters(one_seance["movie_title"], one_seance["author"]);
 
                 if(movie_id.has_value()) {
-                    std::for_each(one_seance["details"].begin(), one_seance["details"].end(), [&movie_id](const auto& one_detail) {
+                    std::ranges::for_each(one_seance["details"], [&movie_id](const auto& one_detail) {
                         auto cinema_room_id = CinemaRoomRepository::find_pos_by_name(one_detail["cinema_room_name"]);
 
                         Seance s{0, movie_id.value(), cinema_room_id.value(), one_detail["date_time"]};

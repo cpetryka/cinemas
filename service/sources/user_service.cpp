@@ -23,7 +23,7 @@ UserService::UserService(const std::string &file_name) {
 void UserService::add_users_to_the_database(const std::string &file_name) const {
     json data = Utils::get_data_from_json_file(file_name);
 
-    std::for_each(data.begin(), data.end(), [](const auto& one_user) {
+    std::ranges::for_each(data, [](const auto& one_user) {
         std::string user_role_tmp = one_user["role"];
         User u {0, one_user["username"], one_user["password"], user_role_tmp};
 

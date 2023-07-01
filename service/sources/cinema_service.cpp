@@ -7,7 +7,7 @@
 void CinemaService::add_cinemas_to_the_database(const std::string &file_name) const {
     json data = Utils::get_data_from_json_file(file_name);
 
-    std::for_each(data.begin(), data.end(), [](const auto& one_cinema) {
+    std::ranges::for_each(data, [](const auto& one_cinema) {
         // Add cinema
         Cinema cinema_tmp = {0, one_cinema["name"], one_cinema["city"]};
 
@@ -17,7 +17,7 @@ void CinemaService::add_cinemas_to_the_database(const std::string &file_name) co
         }
 
         // Add rooms
-        std::for_each(one_cinema["cinema_rooms"].begin(), one_cinema["cinema_rooms"].end(), [&cinema_tmp](const auto& one_cinema_room) {
+        std::ranges::for_each(one_cinema["cinema_rooms"], [&cinema_tmp](const auto& one_cinema_room) {
             CinemaRoom cinema_room_tmp = CinemaRoom{0, one_cinema_room["name"], CinemaRepository::find_pos(cinema_tmp).value(), one_cinema_room["rows"], one_cinema_room["places"]};
 
             if(!CinemaRoomRepository::find_pos(cinema_room_tmp).has_value()) {
