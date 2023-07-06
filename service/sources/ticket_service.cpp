@@ -184,7 +184,7 @@ void TicketService::buy_ticket() const {
     auto customer_id = UserService::sign_in();
 
     for(int & chosen_seat_id : chosen_seats) {
-        TicketRepository::insert(Ticket{0, customer_id, chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+        TicketRepository::insert(Ticket{0, customer_id.value(), chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
     }
 
     if(state == "RESERVED") {

@@ -56,6 +56,13 @@ struct TicketRepository {
     static std::optional<std::unique_ptr<Ticket>> find_by_id(const int idx);
 
     /**
+     * @brief Method that allows to find tickets by user id.
+     * @param int id of user.
+     * @return std::vector<std::unique_ptr<Ticket>> vector of tickets.
+     */
+    static std::vector<std::unique_ptr<Ticket>> find_all_by_customer_id(const int customer_id);
+
+    /**
      * @brief Method that allows to find reservations to cancel.
      * @return std::optional<int> positions of reservations to cancel.
      */

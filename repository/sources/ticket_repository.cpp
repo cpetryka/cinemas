@@ -113,6 +113,30 @@ std::optional<std::unique_ptr<Ticket>> TicketRepository::find_by_id(const int id
     return std::nullopt;
 }
 
+std::vector<std::unique_ptr<Ticket>> TicketRepository::find_all_by_customer_id(const int customer_id) {
+    std::vector<std::unique_ptr<Ticket>> found_tickets;
+
+    const std::string sql = "select id, customer_id, seance_id, seat_id, price, state from tickets where customer_id = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_int(stmt, 1, customer_id);
+
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        found_tickets.emplace_back(std::make_unique<Ticket>(
+                sqlite3_column_int(stmt, 0),
+                sqlite3_column_int(stmt, 1),
+                sqlite3_column_int(stmt, 2),
+                sqlite3_column_int(stmt, 3),
+                sqlite3_column_int(stmt, 4),
+                Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 5))
+        ));
+    }
+
+    sqlite3_finalize(stmt);
+    return found_tickets;
+}
+
 std::vector<int> TicketRepository::find_reservations_to_cancel() {
     std::vector<int> found_reservations;
 

@@ -6,8 +6,10 @@
 #define CINEMAS_USER_SERVICE_HPP
 
 #include "../utils/utils.hpp"
+#include "../model/ticket.hpp"
 #include "../repository/user_repository.hpp"
 #include "../repository/customer_repository.hpp"
+#include "../repository/ticket_repository.hpp"
 #include "exceptions/no_such_user_exception.hpp"
 
 /**
@@ -32,7 +34,7 @@ public:
      * @brief Method that allows to sign in.
      * @return int representing customer's id.
      */
-    static int sign_in();
+    static std::optional<int> sign_in();
 
     /**
      * @brief Method that allows to manage account.

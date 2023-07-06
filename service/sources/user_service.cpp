@@ -44,10 +44,11 @@ void UserService::add_users_to_the_database(const std::string &file_name) const 
     });
 }
 
-int UserService::sign_in() {
-    auto counter = 0;
-    std::string username, password;
-    std::optional<int> found_customer;
+std::optional<int> UserService::sign_in() {
+    auto counter {0};
+    auto username = std::string{};
+    auto password = std::string{};
+    auto customer_id = std::optional<int>{};
 
     do {
         std::cout << "Enter your username:" << std::endl;
@@ -56,34 +57,65 @@ int UserService::sign_in() {
         std::cout << "Enter your password:" << std::endl;
         std::getline(std::cin, password);
 
-        found_customer = CustomerRepository::find_customer_by_username_and_password(username, password);
+        customer_id = CustomerRepository::find_customer_by_username_and_password(username, password);
+
+        if(!customer_id.has_value() && counter < 2) {
+            std::cout << "You have entered wrong username or password. Try again." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+        }
+
+        if(!customer_id.has_value() && counter == 2) {
+            std::cout << "You have entered wrong username or password 3 times. Try again later." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+        }
+
         system("cls");
-    } while(++counter < 3 && !found_customer.has_value());
+    } while(++counter < 3 && !customer_id.has_value());
 
-    if(!found_customer.has_value()) {
-        throw NoSuchUserException{"There is no user with a given login or password."};
-    }
-
-    return found_customer.value();
+    return customer_id;
 }
 
 void UserService::manage_account() {
     auto customer_id = sign_in();
-    auto user_choice = 0;
+
+    if(!customer_id.has_value()) {
+        return;
+    }
+
+    std::cout << customer_id.value() << std::endl;
 
     while(true) {
         std::cout << "================ ACCOUNT MENU ================" << std::endl;
         std::cout << "== 1. CHANGE PASSWORD" << std::endl;
+        std::cout << "== 2. SHOW YOUR TICKETS" << std::endl;
         std::cout << "== 9. EXIT" << std::endl;
         std::cout << "==============================================" << std::endl;
 
         std::cout << "Your choice: " << std::endl;
+        auto user_choice = 0;
         std::cin >> user_choice; std::cin.get();
         system("cls");
 
         switch (user_choice) {
             case 1:
-                change_password(customer_id);
+                change_password(customer_id.value());
+                break;
+            case 2:
+                {
+                    auto tickets = TicketRepository::find_all_by_customer_id(customer_id.value());
+
+                    std::cout << "================ YOUR TICKETS ================" << std::endl;
+
+                    if(tickets.empty()) {
+                        std::cout << "You have not bought any tickets yet." << std::endl;
+                    }
+                    else {
+                        std::cout << "Your tickets: " << std::endl;
+                        std::ranges::for_each(tickets, [](const auto& ticket) {
+                            std::cout << *ticket << std::endl;
+                        });
+                    }
+                }
                 break;
             case 9:
                 return;
