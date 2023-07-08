@@ -82,8 +82,6 @@ void UserService::manage_account() {
         return;
     }
 
-    std::cout << customer_id.value() << std::endl;
-
     while(true) {
         std::cout << "================ ACCOUNT MENU ================" << std::endl;
         std::cout << "== 1. CHANGE PASSWORD" << std::endl;

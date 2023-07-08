@@ -11,7 +11,8 @@ void SeanceRepository::insert(const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    sqlite3_bind_text(stmt, 3, seance.date_time->convert_date_and_time_into_string().c_str(), -1, SQLITE_STATIC);
+    auto date_time_str = seance.date_time->convert_date_and_time_into_string(); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, date_time_str.c_str(), -1, SQLITE_STATIC);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
@@ -28,7 +29,8 @@ void SeanceRepository::update(const int id, const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    sqlite3_bind_text(stmt, 3, seance.date_time->convert_date_and_time_into_string().c_str(), -1, SQLITE_STATIC);
+    auto date_time_str = seance.date_time->convert_date_and_time_into_string(); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, date_time_str.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 4, id);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
@@ -61,8 +63,8 @@ std::optional<int> SeanceRepository::find_pos(const Seance &seance) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_int(stmt, 1, seance.movie_id);
     sqlite3_bind_int(stmt, 2, seance.cinema_room_id);
-    std::string date_time_tmp_str = seance.date_time->convert_date_and_time_into_string();
-    sqlite3_bind_text(stmt, 3, date_time_tmp_str.c_str(), -1, nullptr);
+    auto date_time_str = seance.date_time->convert_date_and_time_into_string(); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, date_time_str.c_str(), -1, nullptr);
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));

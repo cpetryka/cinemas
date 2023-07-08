@@ -13,7 +13,8 @@ void TicketRepository::insert(const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    sqlite3_bind_text(stmt, 5, TicketState::to_string(ticket.state).c_str(), -1, SQLITE_STATIC);
+    auto ticket_state_str = TicketState::to_string(ticket.state); // Direct use does not work!
+    sqlite3_bind_text(stmt, 5, ticket_state_str.c_str(), -1, SQLITE_STATIC);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
@@ -32,7 +33,8 @@ void TicketRepository::update(const int id, const Ticket &ticket) {
     sqlite3_bind_int(stmt, 2, ticket.seance_id);
     sqlite3_bind_int(stmt, 3, ticket.seat_id);
     sqlite3_bind_int(stmt, 4, ticket.price);
-    sqlite3_bind_text(stmt, 5, TicketState::to_string(ticket.state).c_str(), -1, SQLITE_STATIC);
+    auto ticket_state_str = TicketState::to_string(ticket.state); // Direct use does not work!
+    sqlite3_bind_text(stmt, 5, ticket_state_str.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 6, id);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
@@ -57,7 +59,6 @@ void TicketRepository::remove(const int id) {
 
     sqlite3_finalize(stmt);
 }
-
 
 void TicketRepository::cancel_ticket_by_id(const int idx) {
     const auto connection = DbConnection::get_instance()->get_connection();

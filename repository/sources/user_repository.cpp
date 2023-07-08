@@ -11,7 +11,8 @@ void UserRepository::insert(const User& user) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_text(stmt, 1, user.username.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, user.password.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, UserRole::to_string(user.role).c_str(), -1, SQLITE_STATIC);
+    auto user_role_str = UserRole::to_string(user.role); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, user_role_str.c_str(), -1, SQLITE_STATIC);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
         sqlite3_errmsg(connection);
@@ -28,7 +29,8 @@ void UserRepository::update(const int id, const User &user) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_text(stmt, 1, user.username.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, user.password.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, UserRole::to_string(user.role).c_str(), -1, SQLITE_STATIC);
+    auto user_role_str = UserRole::to_string(user.role); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, user_role_str.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 4, id);
 
     if(sqlite3_step(stmt) != SQLITE_DONE) {
@@ -61,7 +63,8 @@ std::optional<int> UserRepository::find_pos(const User &user) {
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
     sqlite3_bind_text(stmt, 1, user.username.c_str(), -1, nullptr);
     sqlite3_bind_text(stmt, 2, user.password.c_str(), -1, nullptr);
-    sqlite3_bind_text(stmt, 3, UserRole::to_string(user.role).c_str(), -1, nullptr);
+    auto user_role_str = UserRole::to_string(user.role); // Direct use does not work!
+    sqlite3_bind_text(stmt, 3, user_role_str.c_str(), -1, nullptr);
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         return std::make_optional(sqlite3_column_int(stmt, 0));
