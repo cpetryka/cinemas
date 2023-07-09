@@ -130,7 +130,6 @@ TicketService::get_selected_places(const std::vector<std::unique_ptr<Seat>> &sea
         system("cls");
 
         auto tmp = Utils::convert_string_to_vector(user_choice, ',');
-        chosen_places.resize(tmp.size());
         std::ranges::transform(tmp, std::back_inserter(chosen_places), [](const auto& one_string) {
             return std::stoi(one_string) - 1;
         });
