@@ -4,46 +4,6 @@
 
 #include "../user_service.hpp"
 
-void UserService::change_password(const int customer_id) {
-    std::cout << "Enter new password: " << std::endl;
-    std::string new_password;
-    std::getline(std::cin, new_password);
-    system("cls");
-
-    auto customer = CustomerRepository::find_by_id(customer_id).value();
-
-    auto user = UserRepository::find_by_id(customer->user_id).value();
-    UserRepository::update(user->id, User{user->id, user->username, new_password, user->role});
-}
-
-UserService::UserService(const std::string &file_name) {
-    add_users_to_the_database(file_name);
-}
-
-void UserService::add_users_to_the_database(const std::string &file_name) const {
-    json data = Utils::get_data_from_json_file(file_name);
-
-    std::ranges::for_each(data, [](const auto& one_user) {
-        std::string user_role_tmp = one_user["role"];
-        User u {0, one_user["username"], one_user["password"], user_role_tmp};
-
-        // If there is no such user, this adds it
-        if(!UserRepository::find_pos(u).has_value()) {
-            UserRepository::insert(u);
-        }
-
-        if(UserRole::to_string(u.role) == "CUSTOMER") {
-            auto user_id = UserRepository::find_pos(u).value();
-            std::string gender_tmp = one_user["gender"];
-            Customer c{0, one_user["name"], one_user["surname"], one_user["age"], gender_tmp, one_user["city"], user_id};
-
-            if(!CustomerRepository::find_pos(c).has_value()) {
-                CustomerRepository::insert(c);
-            }
-        }
-    });
-}
-
 std::optional<int> UserService::sign_in() {
     auto counter {0};
     auto username = std::string{};
@@ -73,6 +33,47 @@ std::optional<int> UserService::sign_in() {
     } while(++counter < 3 && !customer_id.has_value());
 
     return customer_id;
+}
+
+void UserService::change_password(const int customer_id) {
+    std::cout << "Enter new password: " << std::endl;
+    std::string new_password;
+    std::getline(std::cin, new_password);
+    system("cls");
+
+    auto customer = CustomerRepository::find_by_id(customer_id).value();
+    auto user = UserRepository::find_by_id(customer->user_id).value();
+
+    UserRepository::update(user->id, User{user->id, user->username, new_password, user->role});
+}
+
+UserService::UserService(const std::string &file_name) {
+    add_users_to_the_database(file_name);
+}
+
+void UserService::add_users_to_the_database(const std::string &file_name) const {
+    json users_data = Utils::get_data_from_json_file(file_name);
+
+    std::ranges::for_each(users_data, [](const auto& user_data) {
+        std::string user_role_tmp = user_data["role"];
+        User u {0, user_data["username"], user_data["password"], user_role_tmp};
+
+        // If there is no such user, this adds it
+        if(!UserRepository::find_pos(u).has_value()) {
+            UserRepository::insert(u);
+        }
+
+        // If the user is a customer, this adds it
+        if(UserRole::to_string(u.role) == "CUSTOMER") {
+            auto user_id = UserRepository::find_pos(u).value();
+            std::string gender_tmp = user_data["gender"];
+            Customer c{0, user_data["name"], user_data["surname"], user_data["age"], gender_tmp, user_data["city"], user_id};
+
+            if(!CustomerRepository::find_pos(c).has_value()) {
+                CustomerRepository::insert(c);
+            }
+        }
+    });
 }
 
 void UserService::manage_account() {

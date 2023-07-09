@@ -17,6 +17,12 @@
  */
 class UserService {
     /**
+     * @brief Method that allows to sign in.
+     * @return int representing customer's id.
+     */
+    static std::optional<int> sign_in();
+
+    /**
      * @brief Method that allows to change customer's password.
      */
     static void change_password(const int customer_id);
@@ -28,13 +34,7 @@ public:
      * @brief Method that allows to add users to the database.
      * @param std::string representing file name.
      */
-    void add_users_to_the_database(const std::string& file_name) const;
-
-    /**
-     * @brief Method that allows to sign in.
-     * @return int representing customer's id.
-     */
-    static std::optional<int> sign_in();
+    void add_users_to_the_database(const std::string& user_data) const;
 
     /**
      * @brief Method that allows to manage account.
