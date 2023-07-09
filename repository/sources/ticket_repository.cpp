@@ -145,8 +145,7 @@ std::vector<int> TicketRepository::find_reservations_to_cancel() {
     const auto connection = DbConnection::get_instance()->get_connection();
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
-    auto current_date_and_time_str = DateTime().convert_date_and_time_into_string();
-    sqlite3_bind_text(stmt, 1, current_date_and_time_str.c_str(), -1, nullptr);
+    sqlite3_bind_text(stmt, 1, DateTimeUtils::get_current_date_and_time_as_string().c_str(), -1, nullptr);
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         found_reservations.emplace_back(sqlite3_column_int(stmt, 0));

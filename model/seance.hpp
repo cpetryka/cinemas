@@ -6,7 +6,6 @@
 #define CINEMAS_SEANCE_HPP
 
 #include "../libs/headers.hpp"
-#include "../utils/date_time.hpp"
 
 /**
  * @brief Class that represents seance.
@@ -15,15 +14,10 @@ struct Seance {
     int id;
     int movie_id;
     int cinema_room_id;
-    std::unique_ptr<DateTime> date_time;
+    std::string date_time;
 
-    Seance(const int id, const int movie_id, const int cinema_room_id, const std::string& date_time);
-
-    Seance(Seance& seance);
-    Seance(Seance&& seance);
-
-    Seance& operator=(Seance& seance);
-    Seance& operator=(Seance&& seance);
+    Seance(const int id, const int movie_id, const int cinema_room_id, const std::string& date_time)
+        : id{id}, movie_id{movie_id}, cinema_room_id{cinema_room_id}, date_time{date_time} {}
 };
 
 #endif //CINEMAS_SEANCE_HPP
