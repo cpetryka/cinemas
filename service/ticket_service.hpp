@@ -97,9 +97,9 @@ public:
     void buy_ticket() const;
 
     /**
-     * @brief Method that allows to manage reserved seat.
+     * @brief Method that allows to manage the ticket.
      */
-    void manage_reserved_seat(const int ticket_id) const;
+    static void manage_ticket(const int ticket_id);
 };
 
 #endif //CINEMAS_TICKET_SERVICE_HPP

@@ -198,23 +198,25 @@ void TicketService::buy_ticket() const {
     system("cls");
 }
 
-void TicketService::manage_reserved_seat(const int ticket_id) const {
+void TicketService::manage_ticket(const int ticket_id) {
     auto ticket_tmp = TicketRepository::find_by_id(ticket_id);
-    auto user_choice = 0;
 
-    if(ticket_tmp.has_value()) {
-        if(ticket_tmp.value()->state != TicketState::from_string("RESERVED")) {
-            std::cout << "This ticket is not reserved!" << std::endl;
-            std::this_thread::sleep_for(2000ms);
-            system("cls");
-            return;
-        }
+    if(!ticket_tmp.has_value()) {
+        std::cout << "There is no ticket with this ID!" << std::endl;
+        std::this_thread::sleep_for(2000ms);
+        system("cls");
+        return;
+    }
 
+    while(true) {
+        std::cout << "=======================" << std::endl;
         std::cout << "What do you want to do?" << std::endl;
-        std::cout << "1 - pay the ticket" << std::endl;
+        std::cout << "1 - pay for the ticket" << std::endl;
         std::cout << "2 - cancel" << std::endl;
+        std::cout << "9 - return to the main menu" << std::endl;
 
-        std::cout << std::endl << "Your choice:" << std::endl;
+        std::cout << std::endl << "Your choice: ";
+        auto user_choice = 0;
         std::cin >> user_choice; std::cin.get();
         system("cls");
 
@@ -228,7 +230,7 @@ void TicketService::manage_reserved_seat(const int ticket_id) const {
                 std::this_thread::sleep_for(2000ms);
                 system("cls");
 
-                break;
+                return;
             case 2:
                 TicketRepository::cancel_ticket_by_id(ticket_id);
 
@@ -236,7 +238,9 @@ void TicketService::manage_reserved_seat(const int ticket_id) const {
                 std::cout << "Ticket cancellation successful!" << std::endl;
                 std::this_thread::sleep_for(2000ms);
                 system("cls");
-                break;
+                return;
+            case 9:
+                return;
             default:
                 std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
         }

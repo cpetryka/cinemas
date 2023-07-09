@@ -10,7 +10,7 @@ void menu() {
     while(true) {
         std::cout << "==================== MENU ====================" << std::endl;
         std::cout << "== 1. BUY TICKETS" << std::endl;
-        std::cout << "== 2. MANAGE RESERVED TICKETS" << std::endl;
+        std::cout << "== 2. MANAGE YOUR TICKET" << std::endl;
         std::cout << "== 3. MANAGE YOUR ACCOUNT" << std::endl;
         std::cout << "== 9. EXIT" << std::endl;
         std::cout << "==============================================" << std::endl;
@@ -20,17 +20,20 @@ void menu() {
         system("cls");
 
         TicketService tm;
-        auto ticket_id_tmp = 0;
 
         switch (user_choice) {
             case 1:
                 tm.buy_ticket();
                 break;
             case 2:
-                std::cout << "Enter your ticket id: " << std::endl;
-                std::cin >> ticket_id_tmp; std::cin.get();
-                system("cls");
-                tm.manage_reserved_seat(ticket_id_tmp);
+                {
+                    std::cout << "Enter your ticket id: " << std::endl;
+                    auto ticket_id = 0;
+                    std::cin >> ticket_id; std::cin.get();
+                    system("cls");
+
+                    TicketService::manage_ticket(ticket_id);
+                }
                 break;
             case 3:
                 UserService::manage_account();
