@@ -23,7 +23,7 @@ public:
      * @brief Method that allows to add movies to the database.
      * @param std::string representing file name.
      */
-    void add_movies_to_the_database(const std::string &file_name) const;
+    void add_movies_to_the_database(const std::string &movie_data) const;
 
     /**
      * @brief Method that allows to add seances to the database.

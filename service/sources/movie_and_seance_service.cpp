@@ -11,11 +11,14 @@ MovieAndSeanceService::MovieAndSeanceService(const std::string &movies_file_name
 }
 
 void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_name) const {
-    json data = Utils::get_data_from_json_file(file_name);
+    json movies_data = Utils::get_data_from_json_file(file_name);
 
-    std::ranges::for_each(data, [](const auto& one_movie) {
-        Movie m = {0, one_movie["title"], one_movie["genre"], one_movie["author"]};
+    // Add movies
+    std::ranges::for_each(movies_data, [](const auto& movie_data) {
+        // Create movie object
+        Movie m = {0, movie_data["title"], movie_data["genre"], movie_data["author"]};
 
+        // If there is no such movie, add it
         if(!MovieRepository::find_pos(m).has_value()) {
             MovieRepository::insert(m);
         }
@@ -23,9 +26,10 @@ void MovieAndSeanceService::add_movies_to_the_database(const std::string &file_n
 }
 
 void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_name) const {
-    json data = Utils::get_data_from_json_file(file_name);
+    json seances_data = Utils::get_data_from_json_file(file_name);
 
-    std::ranges::for_each(data, [](const auto& one_cinema) {
+    // Add seances
+    std::ranges::for_each(seances_data, [](const auto& one_cinema) {
         // Check if given cinema exists
         auto cinema_id = CinemaRepository::find_pos(Cinema{0, one_cinema["cinema_name"], one_cinema["cinema_city"]});
 
@@ -38,8 +42,10 @@ void MovieAndSeanceService::add_seances_to_the_database(const std::string &file_
                     std::ranges::for_each(one_seance["details"], [&movie_id](const auto& one_detail) {
                         auto cinema_room_id = CinemaRoomRepository::find_pos_by_name(one_detail["cinema_room_name"]);
 
+                        // Create seance object
                         Seance s{0, movie_id.value(), cinema_room_id.value(), one_detail["date_time"]};
 
+                        // If there is no such seance, add it
                         if(!SeanceRepository::find_pos(s).has_value()) {
                             SeanceRepository::insert(s);
                         }
