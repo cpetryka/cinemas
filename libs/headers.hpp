@@ -19,6 +19,8 @@
 #include <functional>
 #include <cstdlib>
 #include <array>
+#include <memory>
+#include <regex>
 
 #include "sqlite3.h"
 #include "json.hpp"

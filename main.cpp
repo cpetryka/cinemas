@@ -19,11 +19,9 @@ void menu() {
         std::cin >> user_choice; std::cin.get();
         system("cls");
 
-        TicketService tm;
-
         switch (user_choice) {
             case 1:
-                tm.buy_ticket();
+                TicketService::buy_ticket();
                 break;
             case 2:
                 {

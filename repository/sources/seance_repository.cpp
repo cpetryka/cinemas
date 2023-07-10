@@ -72,7 +72,7 @@ std::optional<int> SeanceRepository::find_pos(const Seance &seance) {
 }
 
 std::vector<std::unique_ptr<SeanceWithMovie>>
-SeanceRepository::find_by_parameters(const std::string &genre, const std::string &city, const std::string& date, const std::string &time) {
+SeanceRepository::find_all_by_parameters(const std::string &genre, const std::string &city, const std::string& date, const std::string &time) {
     std::vector<std::unique_ptr<SeanceWithMovie>> seance_with_movie;
 
     const std::string sql = "select s.id, s.movie_id, s.cinema_room_id, s.date_time, m.title, m.genre, m.author from seances s join movies m on s.movie_id = m.id join cinema_rooms cr on s.cinema_room_id = cr.id join cinemas c on cr.cinema_id = c.id where m.genre = ? and c.city = ? and ((strftime('%s', s.date_time) - strftime('%s', ?)) between 0 and 86399) and strftime('%H', s.date_time) >= ?";

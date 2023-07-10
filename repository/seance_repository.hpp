@@ -48,7 +48,7 @@ struct SeanceRepository {
      * @param std::string author of seance to find.
      * @return std::optional<int> position of seance in database.
      */
-    static std::vector<std::unique_ptr<SeanceWithMovie>> find_by_parameters(const std::string& genre, const std::string& city, const std::string& date, const std::string& time);
+    static std::vector<std::unique_ptr<SeanceWithMovie>> find_all_by_parameters(const std::string& genre, const std::string& city, const std::string& date, const std::string& time);
 };
 
 
