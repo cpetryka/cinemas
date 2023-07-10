@@ -229,11 +229,11 @@ void TicketService::manage_ticket(const int ticket_id) {
     }
 
     while(true) {
-        std::cout << "=======================" << std::endl;
-        std::cout << "What do you want to do?" << std::endl;
-        std::cout << "1 - pay for the ticket" << std::endl;
-        std::cout << "2 - cancel" << std::endl;
-        std::cout << "9 - return to the main menu" << std::endl;
+        std::cout << "=========== TICKET MANAGEMENT MENU ===========" << std::endl;
+        std::cout << "== 1 - PAY FOR THE TICKET                   ==" << std::endl;
+        std::cout << "== 2 - CANCEL THE TICKET                    ==" << std::endl;
+        std::cout << "== 9 - RETURN TO THE MAIN MENU              ==" << std::endl;
+        std::cout << "==============================================" << std::endl;
 
         std::cout << std::endl << "Your choice: ";
         auto user_choice = 0;

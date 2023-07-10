@@ -9,13 +9,13 @@ void menu() {
 
     while(true) {
         std::cout << "==================== MENU ====================" << std::endl;
-        std::cout << "== 1. BUY TICKETS" << std::endl;
-        std::cout << "== 2. MANAGE YOUR TICKET" << std::endl;
-        std::cout << "== 3. MANAGE YOUR ACCOUNT" << std::endl;
-        std::cout << "== 9. EXIT" << std::endl;
+        std::cout << "== 1. BUY TICKETS                           ==" << std::endl;
+        std::cout << "== 2. MANAGE YOUR TICKET                    ==" << std::endl;
+        std::cout << "== 3. MANAGE YOUR ACCOUNT                   ==" << std::endl;
+        std::cout << "== 9. EXIT                                  ==" << std::endl;
         std::cout << "==============================================" << std::endl;
 
-        std::cout << "Your choice: " << std::endl;
+        std::cout << std::endl << "Your choice: " << std::endl;
         std::cin >> user_choice; std::cin.get();
         system("cls");
 

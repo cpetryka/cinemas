@@ -85,12 +85,12 @@ void UserService::manage_account() {
 
     while(true) {
         std::cout << "================ ACCOUNT MENU ================" << std::endl;
-        std::cout << "== 1. CHANGE PASSWORD" << std::endl;
-        std::cout << "== 2. SHOW YOUR TICKETS" << std::endl;
-        std::cout << "== 9. EXIT" << std::endl;
+        std::cout << "== 1. CHANGE PASSWORD                       ==" << std::endl;
+        std::cout << "== 2. SHOW YOUR TICKETS                     ==" << std::endl;
+        std::cout << "== 9. RETURN TO THE MAIN MENU               ==" << std::endl;
         std::cout << "==============================================" << std::endl;
 
-        std::cout << "Your choice: " << std::endl;
+        std::cout << std::endl << "Your choice: " << std::endl;
         auto user_choice = 0;
         std::cin >> user_choice; std::cin.get();
         system("cls");
