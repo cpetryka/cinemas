@@ -201,13 +201,17 @@ void TicketService::buy_ticket() {
     auto customer_id = UserService::sign_in();
 
     // Add tickets to the database
+    auto tickets_ids = std::vector<int>{};
+
     for(const int& chosen_seat_id : chosen_seats) {
-        TicketRepository::insert(Ticket{0, customer_id.value(), chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+        auto ticket_id_temp = TicketRepository::insert(Ticket{0, customer_id.value(), chosen_seance.value()->seance_id, chosen_seat_id, 20, state});
+        tickets_ids.emplace_back(ticket_id_temp);
     }
 
     // Print final information
     if(state == "RESERVED") {
-        std::cout << "Your ticket ID: ..." << std::endl;
+        std::cout << (tickets_ids.size() == 1 ? "Your ticket ID is: " : "Your tickets IDs are: ")
+                    << Utils::convert_vector_to_string<int>(tickets_ids) << "." << std::endl;
         std::cout << "You can use this ID to pay for or cancel your tickets." << std::endl;
         std::this_thread::sleep_for(3000ms);
         system("cls");

@@ -20,7 +20,7 @@ struct TicketRepository {
      * @brief Method that allows to insert new ticket to database.
      * @param Ticket object to insert.
      */
-    static void insert(const Ticket& ticket);
+    static int insert(const Ticket& ticket);
 
     /**
      * @brief Methods that allows to update a ticket at a given id.

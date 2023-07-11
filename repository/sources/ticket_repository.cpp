@@ -4,7 +4,7 @@
 
 #include "../ticket_repository.hpp"
 
-void TicketRepository::insert(const Ticket &ticket) {
+int TicketRepository::insert(const Ticket &ticket) {
     const auto connection = DbConnection::get_instance()->get_connection();
     const std::string sql = "insert into tickets(customer_id, seance_id, seat_id, price, state) values (?, ?, ?, ?, ?)";
     sqlite3_stmt* stmt = nullptr;
@@ -22,6 +22,8 @@ void TicketRepository::insert(const Ticket &ticket) {
     }
 
     sqlite3_finalize(stmt);
+
+    return sqlite3_last_insert_rowid(connection);
 }
 
 void TicketRepository::update(const int id, const Ticket &ticket) {

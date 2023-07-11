@@ -27,6 +27,27 @@ struct Utils {
     static std::vector<std::string> convert_string_to_vector(const std::string& str, const char separator);
 
     /**
+     * @brief Method that allows to convert vector to string.
+     * @tparam T representing type of vector.
+     * @param std::vector<T> representing vector to convert.
+     * @return std::string representing converted vector.
+     */
+    template<typename T>
+    static std::string convert_vector_to_string(const std::vector<T> &vec) {
+        auto result = std::string{};
+
+        for(auto i = 0; i < vec.size(); ++i) {
+            result += std::to_string(vec[i]);
+
+            if(i != vec.size() - 1) {
+                result += ", ";
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * @brief Method that allows to convert sqlite3_column_text to string.
      * @param const unsigned char* representing value to convert.
      * @return std::string representing converted value.
