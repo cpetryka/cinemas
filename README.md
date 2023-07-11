@@ -12,7 +12,7 @@ Once the data has been loaded, a menu is displayed in which the user can select 
 
 After selecting these parameters, screenings meeting the criteria are displayed, the user selects the screening he/she is interested in and then chooses the seats he/she wants to sit in (it is possible to select more than one seat).
 
-Another decision the user has to make is whether to reserve or pay for the selected seats. The user has 15 minutes to pay for these seats, otherwise they are automatically cancelled.
+Another decision the user has to make is whether to reserve or pay for the selected seats. The app analyses the status of reserved tickets every 15 minutes and cancels those reserved for screenings that start in less than half an hour.
 
 Once the booking/purchase has been made, information on the total amount of the order and a unique order number is displayed so that the customer can pay for their order.
 
