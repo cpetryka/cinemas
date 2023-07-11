@@ -33,18 +33,19 @@ struct Utils {
      * @return std::string representing converted vector.
      */
     template<typename T>
-    static std::string convert_vector_to_string(const std::vector<T> &vec) {
-        auto result = std::string{};
+    static std::string convert_vector_to_string(const std::vector<T> &vec, const std::string& before = "",
+                                                const std::string& after = "") {
+        auto ss = std::stringstream{};
 
         for(auto i = 0; i < vec.size(); ++i) {
-            result += std::to_string(vec[i]);
+            ss << vec.at(i);
 
             if(i != vec.size() - 1) {
-                result += ", ";
+                ss << ", ";
             }
         }
 
-        return result;
+        return before + ss.str() + after;
     }
 
     /**
