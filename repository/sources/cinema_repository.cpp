@@ -67,3 +67,18 @@ std::optional<int> CinemaRepository::find_pos(const Cinema &cinema) {
     sqlite3_finalize(stmt);
     return std::nullopt;
 }
+
+std::vector<std::string> CinemaRepository::find_all_locations() {
+    const std::string sql = "select distinct city from cinemas";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+
+    std::vector<std::string> result;
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        result.emplace_back(Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 0)));
+    }
+
+    sqlite3_finalize(stmt);
+    return result;
+}

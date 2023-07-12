@@ -100,3 +100,20 @@ SeanceRepository::find_all_by_parameters(const std::string &genre, const std::st
     sqlite3_finalize(stmt);
     return seance_with_movie;
 }
+
+std::vector<std::string> SeanceRepository::find_all_genres_in_city(const std::string &city) {
+    std::vector<std::string> genres;
+
+    const std::string sql = "select distinct m.genre from seances s join movies m on s.movie_id = m.id join cinema_rooms cr on s.cinema_room_id = cr.id join cinemas c on cr.cinema_id = c.id where c.city = ?";
+    const auto connection = DbConnection::get_instance()->get_connection();
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(connection, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, city.c_str(), -1, nullptr);
+
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        genres.emplace_back(Utils::convert_sqlite3_column_text_to_string(sqlite3_column_text(stmt, 0)));
+    }
+
+    sqlite3_finalize(stmt);
+    return genres;
+}

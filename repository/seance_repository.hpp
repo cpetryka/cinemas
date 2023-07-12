@@ -49,7 +49,13 @@ struct SeanceRepository {
      * @return std::optional<int> position of seance in database.
      */
     static std::vector<std::unique_ptr<SeanceWithMovie>> find_all_by_parameters(const std::string& genre, const std::string& city, const std::string& date, const std::string& time);
-};
 
+    /**
+     * @brief Method that allows to find all genres of movies shown in a given city.
+     * @param std::string city to find genres.
+     * @return std::vector<std::string> vector of genres.
+     */
+    static std::vector<std::string> find_all_genres_in_city(const std::string& city);
+};
 
 #endif //CINEMAS_SEANCE_REPOSITORY_HPP

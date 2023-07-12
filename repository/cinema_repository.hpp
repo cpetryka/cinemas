@@ -40,6 +40,12 @@ struct CinemaRepository {
      * @return std::optional<int> position of cinema in database.
      */
     static std::optional<int> find_pos(const Cinema& cinema);
+
+    /**
+     * @brief Method that allows to find all cinemas' locations.
+     * @return std::vector<std::string> vector of locations.
+     */
+    static std::vector<std::string> find_all_locations();
 };
 
 #endif //CINEMAS_CINEMA_REPOSITORY_HPP
