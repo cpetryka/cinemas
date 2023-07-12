@@ -232,6 +232,13 @@ void TicketService::manage_ticket(const int ticket_id) {
         return;
     }
 
+    if(ticket_tmp.value()->state != TicketState::from_string("RESERVED")) {
+        std::cout << "You can only manage reserved tickets" << std::endl;
+        std::this_thread::sleep_for(2000ms);
+        system("cls");
+        return;
+    }
+
     while(true) {
         std::cout << "=========== TICKET MANAGEMENT MENU ===========" << std::endl;
         std::cout << "== 1 - PAY FOR THE TICKET                   ==" << std::endl;
