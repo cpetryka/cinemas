@@ -9,6 +9,7 @@
 #include "../repository/seance_repository.hpp"
 #include "../repository/seat_repository.hpp"
 #include "../repository/cinema_room_repository.hpp"
+#include "../repository/cinema_repository.hpp"
 #include "../repository/ticket_repository.hpp"
 #include "user_service.hpp"
 

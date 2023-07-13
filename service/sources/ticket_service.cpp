@@ -5,16 +5,43 @@
 #include "../ticket_service.hpp"
 
 std::string TicketService::get_user_preferences() {
-    std::cout << "Specify your preferences (movie_genre, city, date, time):" << std::endl;
-    std::string user_preferences;
-    std::getline(std::cin, user_preferences);
-    system("cls");
+    std::cout << "============= PREFERENCES CHOOSER ============" << std::endl;
 
-    if(user_preferences.empty()) {
-        std::cout << "== ERROR - Incorrect input. Try again later. ==" << std::endl;
-    }
+    // Location choice
+    auto available_cities = CinemaRepository::find_all_locations();
+    auto city = std::string{};
 
-    return user_preferences;
+    do {
+        std::cout << "Choose city (available ones: " << Utils::convert_vector_to_string(available_cities, "[", "]") << "): " << std::endl;
+        std::getline(std::cin, city);
+    } while(std::ranges::find(available_cities, city) == available_cities.end());
+
+    // Movie's genre choice
+    auto available_genres = SeanceRepository::find_all_genres_in_city(city);
+    auto genre = std::string{};
+
+    do {
+        std::cout << "Choose genre (available ones: " << Utils::convert_vector_to_string(available_genres, "[", "]") << "): " << std::endl;
+        std::getline(std::cin, genre);
+    } while(std::ranges::find(available_genres, genre) == available_genres.end());
+
+    // Seance's date choice
+    auto date = std::string{};
+
+    do {
+        std::cout << "Enter the date (for example: 2024-11-10):" << std::endl;
+        std::getline(std::cin, date);
+    } while(!std::regex_match(date, std::regex{"\\d{4}-\\d{2}-\\d{2}"}));
+
+    // Seance's time choice
+    auto time = std::string{};
+
+    do {
+        std::cout << "Enter the time (for example: 14):" << std::endl;
+        std::getline(std::cin, time);
+    } while(!std::regex_match(time, std::regex{"\\d{2}"}));
+
+    return genre + "," + city + "," + date + "," + time;
 }
 
 std::string TicketService::convert_available_seances_to_string(
@@ -180,6 +207,7 @@ std::string TicketService::choose_reservation_or_order() {
 void TicketService::buy_ticket() {
     // Get user preferences (city, genre, date)
     std::string user_preferences = get_user_preferences();
+    system("cls");
 
     // Choose seance, seats and whether to reserve or buy the tickets
     auto chosen_seance = choose_seance(user_preferences);
