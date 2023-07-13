@@ -109,7 +109,6 @@ void UserService::manage_account() {
                         std::cout << "You have not bought any tickets yet." << std::endl;
                     }
                     else {
-                        std::cout << "Your tickets: " << std::endl;
                         std::ranges::for_each(tickets, [](const auto& ticket) {
                             std::cout << *ticket << std::endl;
                         });
